@@ -11,12 +11,15 @@
 .main-container {
   @apply border-b border-border/6;
 }
-.main-container > .container {
+
+.main-container>.container {
   @apply border-x border-border/6;
 }
+
 .container {
   @apply mx-auto xl:max-w-325! px-4;
 }
+
 .container-padding-y {
   @apply py-24 xl:py-28;
 }
@@ -29,12 +32,13 @@
 .social-icons {
   @apply space-x-5;
 }
+
 .social-icons li {
   @apply inline-block;
 }
 
 .social-icons li a svg {
-  @apply h-6 w-6 hover:text-primary  transition-colors duration-200;
+  @apply h-6 w-6 hover:text-primary transition-colors duration-200;
 }
 
 /* notice */
@@ -171,7 +175,7 @@
   @apply prose-strong:text-text;
   @apply prose-hr:border-border;
   @apply prose-pre:rounded-lg prose-pre:bg-dark;
-  @apply prose-li:text-text prose-ul:marker:text-primary! ;
+  @apply prose-li:text-text prose-ul:marker:text-primary!;
   @apply prose-blockquote:rounded-lg prose-blockquote:border prose-blockquote:border-l-10 prose-blockquote:border-primary prose-blockquote:bg-card prose-blockquote:px-8 prose-blockquote:py-10 prose-blockquote:text-2xl prose-blockquote:not-italic prose-blockquote:text-text;
   @apply prose-table:relative prose-table:overflow-hidden prose-table:rounded-lg prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:rounded-[inherit] prose-table:before:border prose-table:before:border-border/20 prose-table:before:content-[""];
   @apply prose-thead:border-border/20 prose-thead:bg-white/8;
@@ -184,17 +188,17 @@
 .hero-text {
   @apply text-4xl md:text-5xl lg:text-6xl font-semibold mb-4;
 }
-.hero-text > mark {
+
+.hero-text>mark {
   @apply gradient-text-hero;
 }
+
 /* footer-title */
 .footer-title {
   @apply uppercase text-[16vw] sm:text-[100px] md:text-[150px] lg:text-[200px] xl:text-[250px] whitespace-nowrap overflow-hidden text-center;
-  background: linear-gradient(
-    0deg,
-    #0e0912 23.53%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
+  background: linear-gradient(0deg,
+      #3d3f59 23.53%,
+      rgba(255, 255, 255, 0.1) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -215,12 +219,14 @@
     transform: translateY(10px);
     filter: blur(4px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
     filter: blur(0px);
   }
 }
+
 .price-tag.inactive {
   position: absolute;
   animation: text-hide 0.6s forwards;
@@ -232,6 +238,7 @@
     transform: translateY(0);
     filter: blur(0px);
   }
+
   100% {
     opacity: 0;
     transform: translateY(-10px);
@@ -248,6 +255,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

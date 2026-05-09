@@ -1,24 +1,15 @@
 ---
 enable: true
-title: Scale Faster With Smarter Effort
-badge: Why Choose Us?
+title: ¿Por qué elegir Ubot?
+badge: Nuestra Propuesta de Valor
 feature_list:
-  - title: Higher Conversions
-    icon: "/images/icons/conversions.svg"
-    content: Our strategies are designed to turn visitors into loyal customers by optimizing every touchpoint in your sales funnel
-  - title: Focus on Marketing
-    icon: "/images/icons/marketing-focus.svg"
-    content: Focusing on marketing allows you to truly understand your customers—their needs, challenges, and behaviors
-  - title: Save Time & Effort
+  - title: Disponibilidad 24/7 sin horarios estrictos
     icon: "/images/icons/time-saving.svg"
-    content: Saving time and effort isn’t just about convenience—it’s about productivity, focus, and results
-  - title: Scale Faster
+    content: A diferencia de una academia donde debes adaptarte a una clase, Ubot es tu tutor personal que vive en tu bolsillo. ¿Quieres practicar a las 2:00 AM o durante un viaje en bus de 15 minutos? Ubot siempre está listo para enseñarte.
+  - title: Educación de Élite a una Fracción del Costo
     icon: "/images/icons/scaling.svg"
-    content: Your business has the potential to grow exponentially—but only if every move is calculated and effective
-  - title: Competitive Edge
+    content: Los cursos preparatorios tradicionales pueden costar cientos de dólares, creando una barrera injusta. Ubot te ofrece herramientas tecnológicas de nivel superior de forma gratuita, y un plan Premium que cuesta menos que un combo de comida rápida al mes.
+  - title: Aprendizaje Activo y Personalizado
     icon: "/images/icons/competitive-edge.svg"
-    content: We help uncover and amplify that edge by combining market intelligence, innovative strategies, and actionable insights
-  - title: Worldwide Impact
-    icon: "/images/icons/worldwide-impact.svg"
-    content: Across continents and industries, we empower organizations to grow, inspire, and create change
+    content: En una clase tradicional de 40 personas, el profesor no puede detenerse a explicarte todo. Con Ubot, recibes retroalimentación inmediata, detallada y enfocada exclusivamente en los temas en los que tú necesitas mejorar.
 ---

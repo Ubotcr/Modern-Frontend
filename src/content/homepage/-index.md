@@ -2,13 +2,13 @@
 # Banner
 banner:
   title: |
-    Powering The Next
+    Aprobá el examen de admisión con
     <br/>
-    <mark>Generation of Intelligence</mark>
-  content: "Elevate your site’s visibility effortlessly with AI, where smart technology meets user-friendly SEO tools."
+    <mark>Inteligencia Artificial</mark>
+  content: "Ubot CR es el único asistente de IA exclusivo para la preparación de exámenes de admisión de las universidades estatales de Costa Rica (UCR, UNA, TEC)."
   badge:
     enable: true
-    label: 2M Users Worldwide
+    label: Cientos de estudiantes en CR
     images:
       - "/images/avatars/avatar-1.jpg"
       - "/images/avatars/avatar-2.jpg"
@@ -16,10 +16,10 @@ banner:
   image: "/images/banner.png"
   button_dark:
     enable: true
-    label: "GitHub Repository"
-    link: "https://github.com/sitepins/powerai-astro"
+    label: "Juegos Interactivos"
+    link: "https://chat.ubotcr.com/juegos/lobby"
   button_primary:
     enable: true
-    label: "Edit with Sitepins"
-    link: "https://app.sitepins.com/new/clone?name=PoweraiAstro&repository=https://github.com/sitepins/powerai-astro&aff=poweraiastro"
+    label: "Probar Ubot Gratis"
+    link: "https://chat.ubotcr.com"
 ---

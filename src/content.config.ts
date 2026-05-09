@@ -34,28 +34,6 @@ const blogCollection = defineCollection({
   }),
 });
 
-// Careers collection
-const careersCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/careers" }),
-  schema: z.object({}).catchall(z.any()),
-});
-
-// Case Studies collection
-const caseStudiesCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/case-studies" }),
-  schema: z.object({
-    title: z.string(),
-    meta_title: z.string().optional(),
-    description: z.string().optional(),
-    image: z.string().optional(),
-    logo: z.string().optional(),
-    date: z.coerce.date().optional(),
-    draft: z.boolean().optional(),
-    featured: z.boolean().optional(),
-    review_video: z.string().optional(),
-  }),
-});
-
 // Changelog collection
 const changelogCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/changelog" }),
@@ -71,12 +49,6 @@ const contactCollection = defineCollection({
 // Features collection
 const featuresCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/features" }),
-  schema: z.object({}).catchall(z.any()),
-});
-
-// Integrations collection
-const integrationsCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/integrations" }),
   schema: z.object({}).catchall(z.any()),
 });
 
@@ -103,12 +75,9 @@ export const collections = {
   homepage: homepageCollection,
   about: aboutCollection,
   blog: blogCollection,
-  careers: careersCollection,
-  "case-studies": caseStudiesCollection,
   changelog: changelogCollection,
   contact: contactCollection,
   features: featuresCollection,
-  integrations: integrationsCollection,
   pages: pagesCollection,
   pricing: pricingCollection,
   sections: sectionsCollection,

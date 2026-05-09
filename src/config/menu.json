@@ -1,96 +1,77 @@
 {
   "main": [
     {
-      "name": "Home",
+      "name": "Inicio",
       "url": "/"
     },
     {
-      "name": "About",
+      "name": "Acerca de",
       "url": "/about"
     },
     {
-      "name": "Features",
+      "name": "Características",
       "url": "/features"
     },
     {
-      "name": "Pages",
+      "name": "Juegos",
+      "url": "https://chat.ubotcr.com/juegos/lobby"
+    },
+    {
+      "name": "Páginas",
       "url": "",
       "hasChildren": true,
       "mega_menu": {
-        "mega_menu_title": "Resources",
-        "page_title": "Pages",
+        "mega_menu_title": "Recursos",
+        "page_title": "Páginas",
         "mega_menu_groups": [
           [
             {
-              "name": "Pricing",
+              "name": "Precios",
               "url": "/pricing",
-              "description": "View our pricing plans",
+              "description": "Nuestros planes",
               "icon": "HiOutlineTag"
             },
             {
-              "name": "Changelog",
-              "url": "/changelog",
-              "description": "Latest updates and fixes",
-              "icon": "HiOutlineNewspaper"
-            },
-            {
-              "name": "Integrations",
-              "url": "/integrations",
-              "description": "Connect your favorite tools",
-              "icon": "HiOutlineCog"
+              "name": "Contacto",
+              "url": "/contact",
+              "description": "Ponte en contacto",
+              "icon": "HiOutlinePhone"
             }
           ],
           [
             {
               "name": "Blog",
               "url": "/blog",
-              "description": "Read our latest articles",
+              "description": "Nuestros artículos",
               "icon": "HiOutlinePencil"
             },
             {
-              "name": "Case Study",
-              "url": "/case-studies",
-              "description": "See success stories",
-              "icon": "HiOutlineChartBar"
-            },
-            {
-              "name": "Careers",
-              "url": "/careers",
-              "description": "Join our growing team",
-              "icon": "HiOutlineUserGroup"
+              "name": "Registro de Cambios",
+              "url": "/changelog",
+              "description": "Últimas actualizaciones",
+              "icon": "HiOutlineNewspaper"
             }
           ]
         ],
-
         "page_links": [
           {
-            "name": "Contact Us",
+            "name": "Contacto",
             "url": "/contact",
             "icon": ""
           },
           {
-            "name": "Privacy Policy",
+            "name": "Políticas de Privacidad",
             "url": "/privacy-policy",
             "icon": ""
           },
           {
-            "name": "Terms & Conditions",
+            "name": "Términos y Condiciones",
             "url": "/terms-of-service",
             "icon": ""
           },
           {
-            "name": "Changelog",
+            "name": "Registro de Cambios",
             "url": "/changelog",
-            "icon": ""
-          },
-          {
-            "name": "Elements",
-            "url": "/elements",
-            "icon": ""
-          },
-          {
-            "name": "404",
-            "url": "/404",
             "icon": ""
           }
         ]
@@ -99,69 +80,52 @@
   ],
   "footer_company": [
     {
-      "name": "Home",
+      "name": "Inicio",
       "url": "/"
     },
     {
-      "name": "About Us",
+      "name": "Acerca de",
       "url": "/about"
     },
     {
-      "name": "Features",
+      "name": "Características",
       "url": "/features"
     },
     {
-      "name": "Pricing Plans",
+      "name": "Planes",
       "url": "/pricing"
     },
     {
-      "name": "Contact Us",
+      "name": "Contacto",
       "url": "/contact"
     }
   ],
   "footer_resource": [
     {
+      "name": "Aplicación",
+      "url": "https://chat.ubotcr.com"
+    },
+    {
+      "name": "Juegos",
+      "url": "https://chat.ubotcr.com/juegos/lobby"
+    },
+    {
       "name": "Blog",
       "url": "/blog"
-    },
-    {
-      "name": "Case Study",
-      "url": "/case-studies"
-    },
-    {
-      "name": "Integrations",
-      "url": "/integrations"
-    },
-
-    {
-      "name": "Careers",
-      "url": "/careers"
-    },
-    {
-      "name": "Contact",
-      "url": "/contact"
     }
   ],
   "footer_legal": [
     {
-      "name": "Privacy Policy",
+      "name": "Políticas de Privacidad",
       "url": "/privacy-policy"
     },
     {
-      "name": "Terms of Service",
+      "name": "Términos de Servicio",
       "url": "/terms-of-service"
     },
     {
-      "name": "Changelog",
+      "name": "Registro de Cambios",
       "url": "/changelog"
-    },
-    {
-      "name": "Help Desk",
-      "url": "/contact"
-    },
-    {
-      "name": "404 Page",
-      "url": "/404"
     }
   ]
 }

@@ -255,7 +255,7 @@ export default function PricingTable({ data }: PricingTableProps) {
                           key={plan.name}
                           className={`flex flex-col ${
                             plan.highlighted
-                              ? "flex-[1.2] -my-5 rounded-2xl overflow-hidden shadow-2xl shadow-purple-900/60 z-10"
+                              ? "flex-[1.2] -my-5 rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/60 z-10"
                               : "flex-1"
                           }`}
                           style={

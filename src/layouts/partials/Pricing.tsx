@@ -124,57 +124,14 @@ const Pricing = ({
               <div className="text-center mb-14">{badge && <div className="bg-gradient-primary p-px inline-block rounded-full mb-2"><div className="bg-gradient-black-grid px-4 py-1.5 rounded-full"><span className="gradient-text-primary">{badge}</span></div></div>}<h2 className="text-h2 font-medium lg:w-2/5 mx-auto">{title}</h2></div>
 
               <div className="flex flex-col gap-y-14">
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "0px", amount: 0.05 }}
-                  variants={fadeInUpVariants}
-                  ref={toggleRef}
-                  className="relative bg-lighter border border-border/30 px-1.5 py-1.25 rounded-full inline-flex w-max mx-auto gap-2"
-                  role="tablist"
-                  aria-label="Pricing toggle"
-                >
-                  {/* sliding background (positioned/sized by JS to match active tab) */}
-                  <span
-                    ref={sliderRef}
-                    aria-hidden
-                    style={{ width: 0, transform: "translateX(0px)" }}
-                    className={`absolute top-1/2 -translate-y-1/2 left-0 h-[84%] rounded-full bg-gradient-button transition-all duration-300 pointer-events-none`}
-                  />
 
-                  <motion.button
-                    role="tab"
-                    aria-selected={!isYearly}
-                    className={`px-6 py-2.5 rounded-full relative z-10 cursor-pointer text-text `}
-                    onClick={() => setIsYearly(false)}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Monthly
-                  </motion.button>
-                  <motion.button
-                    role="tab"
-                    aria-selected={isYearly}
-                    className={`px-6 py-2 rounded-full relative z-10 cursor-pointer text-light`}
-                    onClick={() => setIsYearly(true)}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Yearly{" "}
-                    <span
-                      className={`${!isYearly ? "gradient-text-primary" : ""}`}
-                    >
-                      ({offer_yearly})
-                    </span>
-                  </motion.button>
-                </motion.div>
 
                 <motion.div
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "0px", amount: 0.05 }}
                   variants={staggerContainerVariants}
-                  className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+                  className="grid md:grid-cols-2 max-w-4xl mx-auto gap-6"
                 >
                   {pricing_plans.map((plan, index) => (
                     <motion.div key={index} variants={staggerItemVariants}>
@@ -199,7 +156,7 @@ const Pricing = ({
                               <g opacity="0.3" filter="url(#filter0_f_40_2892)"><circle cx="28" cy="40" r="20" fill="url(#paint0_linear_40_2892)" /></g>
                               <defs>
                                 <filter id="filter0_f_40_2892" x="-12" y="0" width="80" height="80" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB"><feFlood floodOpacity="0" result="BackgroundImageFix" /><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" /><feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur_40_2892" /></filter>
-                                <linearGradient id="paint0_linear_40_2892" x1="8" y1="40" x2="48" y2="40" gradientUnits="userSpaceOnUse"><stop stopColor="#9A4DFE" /><stop offset="1" stopColor="#E87CFF" /></linearGradient>
+                                <linearGradient id="paint0_linear_40_2892" x1="8" y1="40" x2="48" y2="40" gradientUnits="userSpaceOnUse"><stop stopColor="#2563eb" /><stop offset="1" stopColor="#60a5fa" /></linearGradient>
                               </defs>
                             </svg>
                           </div>
@@ -210,11 +167,6 @@ const Pricing = ({
                               <span className="text-text-light">{plan.price?.monthly?.prefix}</span>
                               {plan.price?.monthly?.number}
                               <span className="text-base text-text-light">{plan.price?.monthly?.suffix}</span>
-                            </h3>
-                            <h3 className="text-h2 price-tag inactive font-normal text-text" data-price-tag-yearly style={{ opacity: 0 }}>
-                              <span className="text-text-light">{plan.price?.yearly?.prefix}</span>
-                              {plan.price?.yearly?.number}
-                              <span className="text-base text-text-light">{plan.price?.yearly?.suffix}</span>
                             </h3>
                           </div>
                         </div>
@@ -241,55 +193,14 @@ const Pricing = ({
           </div></div>
         ) : (
           <div className="flex flex-col gap-y-14">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "0px", amount: 0.05 }}
-              variants={fadeInUpVariants}
-              ref={toggleRef}
-              className="relative bg-lighter border border-border/30 px-1.5 py-1.25 rounded-full inline-flex w-max mx-auto gap-2 mt-8"
-              role="tablist"
-              aria-label="Pricing toggle"
-            >
-              {/* sliding background (positioned/sized by JS to match active tab) */}
-              <span
-                ref={sliderRef}
-                aria-hidden
-                style={{ width: 0, transform: "translateX(0px)" }}
-                className={`absolute top-1/2 -translate-y-1/2 left-0 h-[84%] rounded-full bg-gradient-button transition-all duration-300 pointer-events-none`}
-              />
 
-              <motion.button
-                role="tab"
-                aria-selected={!isYearly}
-                className={`px-6 py-2.5 rounded-full relative z-10 cursor-pointer text-text `}
-                onClick={() => setIsYearly(false)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Monthly
-              </motion.button>
-              <motion.button
-                role="tab"
-                aria-selected={isYearly}
-                className={`px-6 py-2 rounded-full relative z-10 cursor-pointer text-light`}
-                onClick={() => setIsYearly(true)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Yearly{" "}
-                <span className={`${!isYearly ? "gradient-text-primary" : ""}`}>
-                  ({offer_yearly})
-                </span>
-              </motion.button>
-            </motion.div>
 
             <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "0px", amount: 0.05 }}
               variants={staggerContainerVariants}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="grid md:grid-cols-2 max-w-4xl mx-auto gap-6 mt-8"
             >
               {pricing_plans.map((plan, index) => (
                 <motion.div key={index} variants={staggerItemVariants}>
@@ -314,7 +225,7 @@ const Pricing = ({
                           <g opacity="0.3" filter="url(#filter0_f_40_2892)"><circle cx="28" cy="40" r="20" fill="url(#paint0_linear_40_2892)" /></g>
                           <defs>
                             <filter id="filter0_f_40_2892" x="-12" y="0" width="80" height="80" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB"><feFlood floodOpacity="0" result="BackgroundImageFix" /><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" /><feGaussianBlur stdDeviation="10" result="effect1_foregroundBlur_40_2892" /></filter>
-                            <linearGradient id="paint0_linear_40_2892" x1="8" y1="40" x2="48" y2="40" gradientUnits="userSpaceOnUse"><stop stopColor="#9A4DFE" /><stop offset="1" stopColor="#E87CFF" /></linearGradient>
+                            <linearGradient id="paint0_linear_40_2892" x1="8" y1="40" x2="48" y2="40" gradientUnits="userSpaceOnUse"><stop stopColor="#2563eb" /><stop offset="1" stopColor="#60a5fa" /></linearGradient>
                           </defs>
                         </svg>
                       </div>
@@ -325,11 +236,6 @@ const Pricing = ({
                           <span className="text-text-light">{plan.price?.monthly?.prefix}</span>
                           {plan.price?.monthly?.number}
                           <span className="text-base text-text-light">{plan.price?.monthly?.suffix}</span>
-                        </h3>
-                        <h3 className="text-h2 price-tag inactive font-normal text-text" data-price-tag-yearly style={{ opacity: 0 }}>
-                          <span className="text-text-light">{plan.price?.yearly?.prefix}</span>
-                          {plan.price?.yearly?.number}
-                          <span className="text-base text-text-light">{plan.price?.yearly?.suffix}</span>
                         </h3>
                       </div>
                     </div>

@@ -38,7 +38,7 @@
 }
 
 @utility bg-gradient-dark {
-  background: linear-gradient(180deg, #0e0912 0%, #22162b 100%);
+  background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
 }
 
 @utility bg-gradient-black-grid {
@@ -53,7 +53,7 @@
   background: linear-gradient(
     270deg,
     var(--color-light) 2.46%,
-    #bc88ff 50.39%,
+    #60a5fa 50.39%,
     var(--color-light) 98.32%
   );
 
@@ -78,8 +78,8 @@
 @utility bg-radial-purple-dark {
   background: radial-gradient(
     163.24% 100% at 50% 100%,
-    rgba(232, 124, 255, 0.3) 0%,
-    rgba(25, 20, 29, 0.3) 42.49%
+    rgba(59, 130, 246, 0.3) 0%,
+    rgba(15, 23, 42, 0.3) 42.49%
   );
 }
 

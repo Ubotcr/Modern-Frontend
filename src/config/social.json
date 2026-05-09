@@ -3,22 +3,17 @@
     {
       "name": "facebook",
       "icon": "FaFacebook",
-      "link": "https://www.facebook.com/"
+      "link": "https://facebook.com/share/17yAZ9MTGz/"
     },
     {
-      "name": "X",
-      "icon": "FaXTwitter",
-      "link": "https://twitter.com/"
+      "name": "instagram",
+      "icon": "FaInstagram",
+      "link": "https://instagram.com/ubot_cr"
     },
     {
-      "name": "github",
-      "icon": "FaGithub",
-      "link": "https://www.github.com/"
-    },
-    {
-      "name": "linkedin",
-      "icon": "FaLinkedin",
-      "link": "https://www.linkedin.com/"
+      "name": "tiktok",
+      "icon": "FaTiktok",
+      "link": "https://tiktok.com/@ubot_cr"
     }
   ]
 }

@@ -1,22 +1,22 @@
 ---
-title: "Features"
-meta_title: ""
-description: "this is meta description"
+title: "Características"
+meta_title: "Características de Ubot"
+description: "Descubre todas las características de Ubot CR."
 image: ""
 draft: false
 page_header:
-  badge: "Features"
+  badge: "Características"
   title: |
-    Explore Our Features to
+    Todo lo que necesitas para
      <br/>
-    <mark>Keep Your Data Safe</mark>
-  subtitle: "Elevate your site’s visibility effortlessly with AI, where smart technology meets user-friendly SEO tools."
+    <mark>Aprobar el Examen</mark>
+  subtitle: "Descubre cómo nuestra inteligencia artificial, exámenes de práctica y juegos pueden acelerar tu aprendizaje."
   button_dark:
     enable: true
-    label: "GitHub Reposiotry"
-    link: "https://github.com/sitepins/powerai-astro"
+    label: "Ir a la Aplicación"
+    link: "https://chat.ubotcr.com"
   button_primary:
     enable: true
-    label: "Edit with Sitepins"
-    link: "https://app.sitepins.com/new/clone?name=PoweraiAstro&repository=https://github.com/sitepins/powerai-astro&aff=poweraiastro"
+    label: "Jugar Flipmatch"
+    link: "https://chat.ubotcr.com/juegos/lobby"
 ---

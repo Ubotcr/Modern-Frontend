@@ -1,89 +1,53 @@
 ---
 enable: true
-title: Flexible Pricing for Every Stage
-badge: Pricing Plans
-offer_yearly: 35% Off
+title: Precios Accesibles para Todos
+badge: Planes
 pricing_plans:
-  - name: Standard
-    content: Create, edit, and refine with AI support
+  - name: Gratuito
+    content: Herramientas básicas para tu preparación diaria
     price:
       monthly:
-        number: 19
+        number: 0
         prefix: $
-        suffix: /month
-      yearly:
-        number: 190
-        prefix: $
-        suffix: /year
+        suffix: /mes
     features:
-      - value: Maximum 1 User Services
+      - value: Chat con IA limitado
         include: true
-      - value: Basic Dashboard Access
+      - value: Exámenes cortos diarios
         include: true
-      - value: Limited Integrations
+      - value: Participación en rankings
         include: true
-      - value: Multi-language support
+      - value: Exámenes ilimitados
         include: false
-      - value: Community Support
+      - value: Generación de videos/podcasts
         include: false
 
     button:
-      label: Purchase Now
-      link: /contact
+      label: Comenzar Gratis
+      link: "https://chat.ubotcr.com"
       enable: true
-  - name: Professional
-    content: Your Al companion for flawless writing
+  - name: Ubot Premium
+    content: Todo el potencial de la IA para asegurar tu cupo
     highlighted: true
     price:
       monthly:
-        number: 129
+        number: 5
         prefix: $
-        suffix: /month
-      yearly:
-        number: 1290
-        prefix: $
-        suffix: /year
+        suffix: /mes
     features:
-      - value: Maximum 1 User Services
+      - value: Chat con IA ampliado
         include: true
-      - value: Basic Dashboard Access
+      - value: Exámenes ilimitados y semanales
         include: true
-      - value: Limited Integrations
+      - value: Generación de videos explicativos
         include: true
-      - value: Multi-language support
+      - value: Podcasts de estudio personalizados
         include: true
-      - value: Community Support
-        include: false
-
-    button:
-      label: Purchase Now
-      link: /contact
-      enable: true
-  - name: Enterprise
-    content: Al-enhanced writing, made effortless.
-    price:
-      monthly:
-        number: 339
-        prefix: $
-        suffix: /month
-      yearly:
-        number: 549
-        prefix: $
-        suffix: /year
-    features:
-      - value: Maximum 1 User Services
-        include: true
-      - value: Basic Dashboard Access
-        include: true
-      - value: Limited Integrations
-        include: true
-      - value: Multi-language support
-        include: true
-      - value: Community Support
+      - value: Juegos ilimitados (Flipmatch)
         include: true
 
     button:
-      label: Purchase Now
-      link: /contact
+      label: Probar Premium
+      link: "https://chat.ubotcr.com"
       enable: true
 ---

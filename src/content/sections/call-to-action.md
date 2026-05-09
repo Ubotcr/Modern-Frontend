@@ -1,9 +1,9 @@
 ---
 enable: true
-title: "Start building smarter solutions for your business"
-description: "Unlock the full potential of automation, insights, and productivity with PowerAI"
+title: "Tu lugar en la universidad te está esperando"
+description: "No dejes tu futuro al azar ni dependas de métodos del pasado. Únete a miles de estudiantes que ya están asegurando su admisión con la ayuda de la inteligencia artificial."
 button:
   enable: true
-  label: "Edit with Sitepins"
-  link: "https://app.sitepins.com/new/clone?name=PoweraiAstro&repository=https://github.com/sitepins/powerai-astro&aff=poweraiastro"
+  label: "Comenzar a prepararme GRATIS ahora"
+  link: "https://chat.ubotcr.com"
 ---

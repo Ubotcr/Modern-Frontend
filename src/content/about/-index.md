@@ -1,57 +1,60 @@
 ---
-title: "About Us"
-meta_title: "About"
-description: "this is meta description"
+title: "Acerca de Nosotros"
+meta_title: "Acerca de"
+description: "Conoce el equipo detrás de Ubot CR."
 image: "/images/image-placeholder.png"
 draft: false
 page_header:
   title: |
-    We Manage Your Online
+    Transformando la Educación
     <br/>
-    <mark> Visibility & Digital Growth</mark>
-  subtitle: "Our team of experts is dedicated to monitoring and enhancing your online presence, ensuring that your reputation remains positive and trustworthy in the digital world."
+    <mark>Pública en Costa Rica</mark>
+  subtitle: "Nuestro equipo está dedicado a ofrecer herramientas de primer nivel para ayudarte a entrar a la universidad de tus sueños."
   button_dark:
-  badge: "About Us"
+  badge: "Nosotros"
 who_we_are:
-  title: We are Pioneering the Future of Al Search Revolution
-  badge: "Who We Are"
+  title: Nuestra Misión
+  badge: "Quiénes Somos"
   subtitle: |
-    We deliver innovative tools and expert support to help individuals and businesses achieve financial goals and long-term success.
+    Nuestra misión es eliminar las barreras económicas y geográficas que impiden el acceso equitativo a la educación superior pública en Costa Rica.
       <br/>
       <br/>
-    PowerAI brings transparency to the black box of Al search, helping businesses understand and optimize how they appear in Al-generated recommendations across the entire buying journey that matters.
+    Buscamos empoderar a los estudiantes con una herramienta interactiva, inteligente y siempre disponible.
   image: "/images/about-banner.png"
 what_our_goals:
-  badge: "What Our Goals"
-  title: "Make online marketing easy and accessible for all"
+  badge: "Nuestras Metas"
+  title: "Hacer la preparación de exámenes accesible para todos"
   image: "/images/about-banner.png"
   mission:
-    title: "Our Mission"
+    title: "Nuestra Misión"
     content: |
-      Our mission is to empower businesses and individuals with intelligent, secure, and user-friendly financial solutions that streamline processes, enhance decision-making.
+      Eliminar las barreras económicas y geográficas que impiden el acceso equitativo a la educación superior pública en Costa Rica.
 
       <br/>
-       We are committed to delivering innovative tools and expert support to help our clients achieve their financial goals and long-term success.
+       Ayudamos a los estudiantes a superar la prueba de aptitud académica y cumplir sus metas.
     icon: "/images/icons/mission.svg"
   vision:
-    title: "Our Vision"
+    title: "Nuestra Visión"
     content: |
-      Our vision is to be a global leader in financial technology, revolutionizing the way people manage their finances and access financial services.
+      Ser la plataforma líder en preparación académica de Costa Rica, combinando tecnología de vanguardia y pedagogía.
 
       <br/>
-      We strive to create a future where financial empowerment is accessible to everyone, fostering economic growth and improving lives worldwide.
+      Creemos en el potencial de cada estudiante.
     icon: "/images/icons/vision.svg"
 our_team:
-  badge: "Our Team"
-  title: "Meet Our Talented Team Members"
+  badge: "Nuestro Equipo"
+  title: "Conoce a los creadores de Ubot CR"
   team_list:
-    - name: "John Doe"
-      position: "Founder & CEO"
+    - name: "Eddie Bermúdez"
+      position: "Desarrollador Frontend | Estudiante UNA"
       image: "/images/teams/avatar-3.png"
-    - name: "John Doe"
-      position: "Founder & CEO"
+    - name: "Efraín Retana"
+      position: "Desarrollador Backend | Estudiante UNA"
       image: "/images/teams/john-doe.jpg"
-    - name: "Mike Johnson"
-      position: "Design Director"
+    - name: "Allan Castillo"
+      position: "Director Administrativo | Estudiante ULEAD"
       image: "/images/teams/mike-johnson.jpg"
+    - name: "Gabriel Quirós"
+      position: "Desarrollador Backend y Multimedia | Estudiante UNA"
+      image: "/images/teams/avatar-3.png"
 ---

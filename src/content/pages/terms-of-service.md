@@ -1,34 +1,24 @@
 ---
-title: "Terms of Service"
-meta_title: ""
-description: "this is meta description"
-image: ""
+title: "Términos de Servicio"
+meta_title: "Términos"
+description: "Términos de uso de la plataforma Ubot CR."
 draft: false
-page_header:
-  title: "Terms of Service"
-  subtitle: "This Terms of Service outlines the terms and conditions for using our website. By accessing or using our website, you agree to be bound by these terms and conditions."
 ---
 
-#### Responsibility of Contributors
+**Última actualización:** Mayo 2026
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+*Nota: El presente texto es únicamente una guía informativa para los usuarios y no debe interpretarse como un contrato o documento legal vinculante.*
 
-pretium, aliquam sit. Praesent elementum magna amet, tincidunt eros, nibh in leo. Malesuada purus, lacus, at aliquam suspendisse tempus. Quis tempus amet, velit nascetur sollicitudin. At sollicitudin eget amet in. Eu velit nascetur sollicitudin erhdfvssfvrgss eget viverra nec elementum. Lacus, facilisis tristique lectus in.
+Bienvenido a Ubot CR. Al utilizar nuestra plataforma, aceptas que el propósito principal de esta herramienta es brindarte apoyo educativo para la preparación de los exámenes de admisión de las universidades estatales de Costa Rica.
 
-#### Gathering of Personal Information
+**Uso de la Plataforma**
+- Ubot CR es una herramienta de asistencia y práctica. No garantizamos de forma absoluta la admisión a ninguna universidad, ya que esto depende del esfuerzo, la dedicación y el desempeño individual de cada estudiante en la prueba real.
+- Te invitamos a utilizar los recursos, consultas con la IA y exámenes de forma responsable y con fines de aprendizaje.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+**Cuentas y Seguridad**
+- Eres responsable de mantener la confidencialidad de tu cuenta. Te pedimos que no compartas tus credenciales con otras personas para asegurar el correcto funcionamiento de tus estadísticas y rankings.
 
-#### Protection of Personal- Information
+**Modificaciones**
+- Nos reservamos el derecho de mejorar, cambiar o ajustar los servicios, contenidos y juegos que ofrecemos en la plataforma en cualquier momento para seguir brindándote la mejor experiencia posible.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus.
-
-Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat
-
-#### Privacy Policy Changes
-
-1. Sll the Sitepins items are designed to be with the latest , We check all
-2. comments that threaten or harm the reputation of any person or organization
-3. personal information including, but limited to, email addresses, telephone numbers
-4. Any Update come in The technology Customer will get automatic Notification.
+Si tienes consultas generales, escríbenos a contacto@ubotcr.com. ¡Mucho éxito en tu preparación!

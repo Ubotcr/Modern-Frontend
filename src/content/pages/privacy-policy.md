@@ -1,34 +1,18 @@
 ---
-title: "Privacy"
-meta_title: ""
-description: "this is meta description"
-image: ""
+title: "Políticas de Privacidad"
+meta_title: "Privacidad"
+description: "Aviso de privacidad sobre el uso de Ubot CR."
 draft: false
-page_header:
-  title: "Privacy Policy"
-  subtitle: "This Privacy Policy outlines how we collect, use, and protect your personal information when you use our website. We are committed to ensuring that your privacy is protected. If you have any questions or concerns about our Privacy Policy, please contact us."
 ---
 
-#### Responsibility of Contributors
+**Última actualización:** Mayo 2026
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+*Nota: El presente documento tiene un carácter meramente informativo y no constituye un acuerdo legal formal.*
 
-pretium, aliquam sit. Praesent elementum magna amet, tincidunt eros, nibh in leo. Malesuada purus, lacus, at aliquam suspendisse tempus. Quis tempus amet, velit nascetur sollicitudin. At sollicitudin eget amet in. Eu velit nascetur sollicitudin erhdfvssfvrgss eget viverra nec elementum. Lacus, facilisis tristique lectus in.
+En Ubot CR estamos comprometidos con tu privacidad. Queremos que sepas que **no recolectamos, almacenamos ni compartimos información personal sensible** de ninguno de nuestros estudiantes.
 
-#### Gathering of Personal Information
+Nuestra aplicación está diseñada exclusivamente con fines educativos y de preparación académica. Solo recopilamos los datos estrictamente necesarios para que puedas crearte una cuenta y hacer uso de las funcionalidades básicas (como el nombre de usuario o correo electrónico), además de tu historial de respuestas para que la Inteligencia Artificial pueda ayudarte a mejorar progresivamente.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+Tu información de pago, en caso de adquirir el Plan Premium, es procesada directamente y de forma 100% segura por PayPal; nosotros no tenemos acceso ni retenemos ningún dato de tus tarjetas.
 
-#### Protection of Personal- Information
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus.
-
-Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat
-
-#### Privacy Policy Changes
-
-1. Sll the Sitepins items are designed to be with the latest , We check all
-2. comments that threaten or harm the reputation of any person or organization
-3. personal information including, but limited to, email addresses, telephone numbers
-4. Any Update come in The technology Customer will get automatic Notification.
+Si tienes cualquier duda sobre cómo funciona nuestra plataforma, siéntete libre de escribirnos a contacto@ubotcr.com.

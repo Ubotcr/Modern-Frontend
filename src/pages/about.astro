@@ -2,9 +2,6 @@
 import Base from "@/layouts/Base.astro";
 import CallToAction from "@/partials/CallToAction.astro";
 import PageHeader from "@/partials/PageHeader.astro";
-import Statistics from "@/components/Statistics";
-import Testimonials from "@/partials/Testimonials";
-import TrustedClients from "@/partials/TrustedClients";
 import WhyChooseUs from "@/partials/WhyChooseUs.astro";
 import WhatOurGoals from "@/partials/WhatOurGoals.astro";
 import OurTeam from "@/partials/OurTeam.astro";
@@ -15,10 +12,7 @@ import { getListPage } from "@/lib/contentParser";
 
 const data = await getListPage("about/-index.md");
 const { title, description, meta_title, image, page_header, who_we_are, what_our_goals, our_team } = data.frontmatter;
-const trusted_clients = await getListPage("sections/trusted-clients.md");
 const whyChooseUs = await getListPage("sections/why-choose-us.md");
-const statistics = await getListPage("sections/statistics.md");
-const testimonial = await getListPage("sections/testimonial.md");
 const callToAction = await getListPage("sections/call-to-action.md");
 ---
 
@@ -45,11 +39,8 @@ const callToAction = await getListPage("sections/call-to-action.md");
       </div>
     </div>
   </PageHeader>
-  <TrustedClients data={trusted_clients} client:load />
   <WhatOurGoals data={what_our_goals} />
   <WhyChooseUs data={whyChooseUs} />
   <OurTeam data={our_team} />
-  <Statistics data={statistics} client:visible />
-  <Testimonials data={testimonial} client:visible />
   <CallToAction data={callToAction} />
 </Base>
