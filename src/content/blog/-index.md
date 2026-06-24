@@ -1,7 +1,10 @@
 ---
-title: "Blog Posts"
-meta_title: ""
-description: "A collection of articles and insights on AI, machine learning, and data science. Explore our latest blog posts to stay updated on industry trends, best practices, and innovative solutions."
+title: "Blog"
+meta_title: "Blog de Ubot"
+description: "Consejos, guías y novedades para preparar los exámenes de admisión de las universidades públicas de Costa Rica."
 image: ""
 draft: false
+page_header:
+  title: "El <mark>blog</mark>"
+  subtitle: "Consejos, guías y novedades para tu preparación."
 ---

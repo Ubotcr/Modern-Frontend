@@ -1,24 +1,24 @@
 ---
 import Base from "@/layouts/Base.astro";
 import BlogCard from "@/components/BlogCard.astro";
-import FeaturedPost from "@/components/FeaturedPost.astro";
-import MainContainer from "@/components/MainContainer.astro";
 import Pagination from "@/components/Pagination.astro";
-import config from "@/config/config.json";
-import { getListPage, getSinglePage } from "@/lib/contentParser";
-import { sortByDate } from "@/lib/utils/sortFunctions";
 import CallToAction from "@/partials/CallToAction.astro";
 import PageHeader from "@/partials/PageHeader.astro";
-
-const { blog_folder, pagination } = config.settings;
+import config from "@/config/config.json";
+import { getCollection } from "astro:content";
+import { getListPage } from "@/lib/contentParser";
+import { sortByDate } from "@/lib/utils/blog";
 
 export async function getStaticPaths() {
-  const { pagination: pag } = config.settings;
-  const allPost = await getSinglePage("blog");
-  const totalPages = Math.ceil(allPost.length / pag);
+  const perPage = config.settings.pagination ?? 6;
+  const all = await getCollection(
+    "blog",
+    ({ id, data }) => !id.startsWith("-") && !id.startsWith("_") && !data.draft,
+  );
+  const totalPages = Math.ceil(all.length / perPage);
   const paths = [];
-  for (let i = 1; i < totalPages; i++) {
-    paths.push({ params: { page: String(i + 1) } });
+  for (let i = 2; i <= totalPages; i++) {
+    paths.push({ params: { page: String(i) } });
   }
   return paths;
 }
@@ -26,37 +26,49 @@ export async function getStaticPaths() {
 const { page } = Astro.params;
 const currentPage = Number(page) || 1;
 
-const postIndex = await getListPage(`${blog_folder}/-index.md`);
-const { title, meta_title, description, image } = postIndex.frontmatter;
-const posts = await getSinglePage(blog_folder);
-const sortedPosts = sortByDate(posts);
-const totalPages = Math.ceil(posts.length / pagination);
-const indexOfLastPost = currentPage * pagination;
-const indexOfFirstPost = indexOfLastPost - pagination;
-const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
+const index = await getListPage("blog/-index.md");
+const { title, meta_title, description, image, page_header } =
+  index.frontmatter as any;
+const header = page_header ?? { title, subtitle: description };
 
-const page_header = { title, badge: "Blog", subtitle: description };
+const posts = sortByDate(
+  (
+    await getCollection(
+      "blog",
+      ({ id, data }) =>
+        !id.startsWith("-") && !id.startsWith("_") && !data.draft,
+    )
+  ).map((p) => ({ frontmatter: p.data, slug: p.id, content: p.body })),
+);
+
+const perPage = config.settings.pagination ?? 6;
+const totalPages = Math.max(1, Math.ceil(posts.length / perPage));
+const start = (currentPage - 1) * perPage;
+const current = posts.slice(start, start + perPage);
 const callToAction = await getListPage("sections/call-to-action.md");
-const featuredPost = sortedPosts.filter((post: any) => post.frontmatter.featured)[0];
 ---
 
-<Base title={title} meta_title={meta_title} description={description} image={image}>
-  <PageHeader page_header={page_header}>
-    {featuredPost && <FeaturedPost data={featuredPost} />}
-  </PageHeader>
-  <section>
-    <MainContainer>
-      <div class="container-padding-x container-padding-y">
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2.5 mb-10">
-          {currentPosts.map((post: any) => (
-            <div>
-              <BlogCard data={post} />
-            </div>
-          ))}
-        </div>
-        <Pagination section={blog_folder} currentPage={currentPage} totalPages={totalPages} />
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <PageHeader page_header={header} />
+
+  <section class="px-4 py-12 md:py-16">
+    <div class="container mx-auto max-w-6xl">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {current.map((post) => <BlogCard data={post} />)}
       </div>
-    </MainContainer>
+
+      <Pagination
+        section="blog"
+        currentPage={currentPage}
+        totalPages={totalPages}
+      />
+    </div>
   </section>
-  <CallToAction data={callToAction}/>
+
+  <CallToAction data={callToAction} />
 </Base>

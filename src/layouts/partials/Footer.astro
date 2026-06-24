@@ -1,93 +1,162 @@
 ---
-import Logo from "@/components/Logo.astro";
-import Social from "@/components/Social.astro";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 import social from "@/config/social.json";
-import { markdownify } from "@/lib/utils/textConverter";
-const { copyright } = config.params;
-const { footer_company, footer_legal, footer_resource } = menu;
+
+const { footer_company, footer_product, footer_legal } = menu;
+const { params, site } = config;
+
+import { Image } from "astro:assets";
+// Import image from public directly for Astro processing
+import schoolLogo from "../../../public/images/school.png";
 ---
 
-<footer class="pt-25">
-  <div class="container">
-    <div id="footer-main" style="opacity:0" class="grid md:grid-cols-6 gap-y-12 relative z-1">
-      <div class="md:col-span-3">
-        <Logo />
-        <p class="text-gray mb-10 mt-3 md:w-2/5">{config.params.footer_text}</p>
-        <ul>
-          <li class="mb-2">
-            <a href={`mailto:${config.params.mail}`} class="text-text hover:text-primary transition text-lg">
-              {config.params.mail}
-            </a>
-          </li>
-          <li class="mb-2">
-            <a href={`tel:${config.params.phone}`} class="text-text hover:text-primary transition text-lg">
-              {config.params.phone}
-            </a>
-          </li>
+<footer class="border-t border-border bg-card">
+  <div class="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+    <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+      <div class="lg:col-span-2">
+        <a
+          href="/"
+          class="flex items-center gap-2 text-lg font-bold text-text-light no-underline"
+        >
+          <Image src={schoolLogo} alt="" width={24} height={24} loading="lazy" />
+          <span>{site.logo_text}</span>
+        </a>
+        <p class="mt-4 text-sm leading-relaxed text-gray">
+          {params.footer_text}
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          {
+            social.main.map((item) => (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={item.name}
+                class="flex h-9 w-9 items-center justify-center rounded-md border border-border text-gray transition-colors hover:border-primary hover:text-primary"
+              >
+                {item.name === "facebook" && (
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                  </svg>
+                )}
+                {item.name === "instagram" && (
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                )}
+                {item.name === "tiktok" && (
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.3 6.3 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.56V6.79a4.85 4.85 0 0 1-1.07-.1z" />
+                  </svg>
+                )}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <h3
+          class="mb-4 text-sm font-semibold uppercase tracking-wide text-text-light"
+        >
+          Ubot
+        </h3>
+        <ul class="space-y-3">
+          {
+            footer_company.map((item) => (
+              <li>
+                <a
+                  href={item.url}
+                  class="text-sm text-gray hover:text-text-light"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
 
-      <div class="md:col-span-3">
-        <div class="grid sm:grid-cols-3 gap-y-10 sm:gap-y-6">
-          <div>
-            <h3 class="text-xl font-medium mb-10">Company</h3>
-            <ul class="flex flex-col gap-y-3">
-              {footer_company.map((item: any) => (
-                <li><a href={item.url} class="text-gray hover:text-primary transition">{item.name}</a></li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-xl font-medium mb-10">Resources</h3>
-            <ul class="flex flex-col gap-y-3">
-              {footer_resource.map((item: any) => (
-                <li><a href={item.url} class="text-gray hover:text-primary transition">{item.name}</a></li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 class="text-xl font-medium mb-10">Legal</h3>
-            <ul class="flex flex-col gap-y-3">
-              {footer_legal.map((item: any) => (
-                <li><a href={item.url} class="text-gray hover:text-primary transition">{item.name}</a></li>
-              ))}
-            </ul>
-          </div>
-        </div>
+      <div>
+        <h3
+          class="mb-4 text-sm font-semibold uppercase tracking-wide text-text-light"
+        >
+          Producto
+        </h3>
+        <ul class="space-y-3">
+          {
+            footer_product.map((item) => (
+              <li>
+                <a
+                  href={item.url}
+                  target={item.url.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    item.url.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                  class="text-sm text-gray hover:text-text-light"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </div>
+
+      <!--
+      <div>
+        <h3
+          class="mb-4 text-sm font-semibold uppercase tracking-wide text-text-light"
+        >
+          Legal
+        </h3>
+        <ul class="space-y-3">
+          {
+            footer_legal.map((item) => (
+              <li>
+                <a
+                  href={item.url}
+                  class="text-sm text-gray hover:text-text-light"
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    -->
     </div>
 
-    <!-- Bottom footer -->
-    <div id="footer-bottom" style="opacity:0" class="lg:sticky bottom-0 z-0 relative">
-      <h1 class="footer-title leading-tight mt-12 lg:mt-20">{config.site.title}</h1>
-      <div class="flex justify-between lg:-translate-y-12 items-center flex-col sm:flex-row gap-y-6 py-6">
-        <p class="text-text text-sm" set:html={markdownify(copyright).__html} />
-        <Social source={social.main} className="social-icons" />
-      </div>
+    <div class="mt-6 border-t border-border pt-8 text-center text-sm text-gray">
+      {params.copyright}
     </div>
   </div>
 </footer>
-
-<script>
-  import { animateMini as animate, inView } from "motion";
-  function initFooter() {
-    const smooth = { duration: 0.5, ease: "easeInOut" as const };
-    const footerMain = document.getElementById("footer-main");
-    if (footerMain) {
-      footerMain.style.opacity = "0";
-      inView(footerMain, () => {
-        animate(footerMain, { opacity: [0, 1], transform: ["translateY(20px)", "translateY(0)"] }, smooth);
-      }, { margin: "0px", amount: 0.05 });
-    }
-    const footerBottom = document.getElementById("footer-bottom");
-    if (footerBottom) {
-      footerBottom.style.opacity = "0";
-      inView(footerBottom, () => {
-        animate(footerBottom, { opacity: [0, 1], transform: ["translateY(20px)", "translateY(0)"] }, smooth);
-      }, { margin: "0px", amount: 0.05 });
-    }
-  }
-  document.addEventListener("astro:page-load", initFooter);
-</script>

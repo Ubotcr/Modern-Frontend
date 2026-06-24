@@ -1,21 +1,32 @@
 ---
 import Base from "@/layouts/Base.astro";
-import ContactForm from "@/layouts/components/ContactForm.astro";
 import CallToAction from "@/partials/CallToAction.astro";
-import FAQ from "@/partials/FAQ";
+import FAQ from "@/partials/FAQ.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 import { getListPage } from "@/lib/contentParser";
 
 const data = await getListPage("contact/-index.md");
-const { title, description, meta_title, image, page_header, contact_info } = data.frontmatter;
+const { title, description, meta_title, page_header, contact_info } =
+  data.frontmatter;
 const faq = await getListPage("sections/faq.md");
 const callToAction = await getListPage("sections/call-to-action.md");
 ---
 
-<Base title={title} meta_title={meta_title} description={description} image={image}>
-  <PageHeader page_header={page_header}>
-    <ContactForm contact_info={contact_info} />
-  </PageHeader>
-  <FAQ data={faq} client:visible />
+<Base title={title} meta_title={meta_title} description={description}>
+  <PageHeader page_header={page_header} />
+
+  <section class="px-4 py-16 text-center md:py-24">
+    <div class="container mx-auto max-w-xl">
+      <p class="text-gray">Escríbenos a</p>
+      <a
+        href={`mailto:${contact_info.email}`}
+        class="mt-2 inline-block text-2xl font-semibold text-text-light hover:text-primary"
+      >
+        {contact_info.email}
+      </a>
+    </div>
+  </section>
+
+  <FAQ data={faq} />
   <CallToAction data={callToAction} />
 </Base>

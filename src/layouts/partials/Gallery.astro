@@ -1,62 +1,140 @@
 ---
-import Badge from "@/components/Badge.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import { Image } from "astro:assets";
+
 interface Props {
   data: any;
 }
+
 const { data } = Astro.props;
-const { enable, badge, title, images } = data;
+const { title, subtitle, images, enable } = data.frontmatter;
+
+// Import all possible images from the public folder
+const allImages = import.meta.glob<{ default: ImageMetadata }>('../../../public/images/**/*.{jpeg,jpg,png,gif,webp,avif}', { eager: true });
 ---
 
-{enable && (
-  <section>
-    <div class="main-container">
-      <div class="container">
-        <div class="container-padding-y container-padding-x">
-          <div id={`gallery-header-${Math.random().toString(36).slice(2,8)}`} style="opacity:0" class="text-center mb-14">
-            {badge && <Badge>{badge}</Badge>}
-            <h2 class="text-h1 font-medium lg:w-4/5 mx-auto" set:html={title} />
-          </div>
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2.5 grid-rows-5">
-            {images.map((image: string, index: number) => {
-              const uid = `gallery-img-${Math.random().toString(36).slice(2, 8)}`;
-              return (
-                <div
-                  id={uid}
-                  style="opacity:0"
-                  class={`${index % 2 === 0 ? "md:row-span-2" : "md:row-span-3"} ${index === 4 ? "lg:row-span-3!" : ""}`}
-                >
-                  <img
-                    src={image}
-                    alt={`Gallery image ${index + 1}`}
-                    width="400"
-                    height="400"
-                    class="w-full h-full object-cover rounded-xl"
-                  />
-                </div>
-              );
-            })}
-          </div>
+{
+  enable && (
+    <section
+      id="gallery"
+      class="border-y border-border bg-card px-4 py-12 md:py-20"
+    >
+      <div class="container mx-auto max-w-6xl">
+        <SectionHeader title={title} subtitle={subtitle} />
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {images.map((src: string, index: number) => {
+            const imagePath = `../../../public${src}`;
+            const imageObj = allImages[imagePath]?.default;
+            return (
+            <div class="group cursor-pointer overflow-hidden rounded-xl border border-border shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+              {imageObj ? (
+                <Image
+                  src={imageObj}
+                  alt={`Captura de Ubot ${index + 1}`}
+                  class="gallery-image block h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              ) : (
+                <img
+                  src={src}
+                  alt={`Captura de Ubot ${index + 1}`}
+                  loading="lazy"
+                  class="gallery-image block h-auto w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              )}
+            </div>
+          )})}
         </div>
       </div>
-    </div>
-  </section>
-)}
+    </section>
+  )
+}
+
+<div
+  id="gallery-lightbox"
+  class="fixed inset-0 z-100 hidden items-center justify-center bg-black/80 p-4 opacity-0 transition-opacity duration-300 backdrop-blur-sm"
+>
+  <button
+    id="lightbox-close"
+    class="absolute right-6 top-6 text-white hover:text-gray-300 transition-colors z-10"
+    aria-label="Cerrar imagen"
+  >
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+  <img
+    id="lightbox-img"
+    src=""
+    alt="Vista completa"
+    class="max-h-[90vh] max-w-[90vw] rounded-lg object-contain shadow-2xl transition-transform duration-300 scale-95"
+  />
+</div>
 
 <script>
-  import { animateMini as animate, inView } from "motion";
-  function initGallery() {
-    document.querySelectorAll<HTMLElement>('[id^="gallery-header-"]').forEach((el) => {
-      el.style.opacity = "0";
-      inView(el, () => {
-        animate(el, { opacity: [0, 1], transform: ["translateY(20px)", "translateY(0)"] }, { duration: 0.5, ease: "easeInOut" });
-      }, { margin: "0px", amount: 0.05 });
+  function initLightbox() {
+    const images = document.querySelectorAll(".gallery-image");
+    const lightbox = document.getElementById("gallery-lightbox");
+    const lightboxImg = document.getElementById(
+      "lightbox-img",
+    ) as HTMLImageElement;
+    const closeBtn = document.getElementById("lightbox-close");
+
+    if (!lightbox || !lightboxImg || !closeBtn) return;
+
+    const openLightbox = (src: string) => {
+      lightboxImg.src = src;
+      lightbox.classList.remove("hidden");
+      // Force reflow
+      void lightbox.offsetWidth;
+      lightbox.classList.remove("opacity-0");
+      lightboxImg.classList.remove("scale-95");
+      lightboxImg.classList.add("scale-100");
+      document.body.style.overflow = "hidden"; // Prevent scrolling
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.add("opacity-0");
+      lightboxImg.classList.remove("scale-100");
+      lightboxImg.classList.add("scale-95");
+      setTimeout(() => {
+        lightbox.classList.add("hidden");
+        document.body.style.overflow = ""; // Restore scrolling
+      }, 300);
+    };
+
+    images.forEach((img) => {
+      img.addEventListener("click", (e) => {
+        const target = e.target as HTMLImageElement;
+        openLightbox(target.src);
+      });
     });
-    document.querySelectorAll<HTMLElement>('[id^="gallery-img-"]').forEach((el, i) => {
-      el.style.opacity = "0";
-      inView(el, () => {
-        animate(el, { opacity: [0, 1], transform: ["translateY(20px)", "translateY(0)"] }, { duration: 0.5, ease: "easeInOut", delay: i * 0.08 });
-      }, { margin: "-100px", amount: 0.1 });
+
+    closeBtn.addEventListener("click", closeLightbox);
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !lightbox.classList.contains("hidden")) {
+        closeLightbox();
+      }
     });
   }
-  document.addEventListener("astro:page-load", initGallery);
+
+  document.addEventListener("astro:page-load", initLightbox);
+  initLightbox();
 </script>

@@ -5,77 +5,30 @@
       "url": "/"
     },
     {
-      "name": "Acerca de",
-      "url": "/about"
-    },
-    {
       "name": "Características",
       "url": "/features"
     },
     {
-      "name": "Juegos",
-      "url": "https://chat.ubotcr.com/juegos/lobby"
+      "name": "Precios",
+      "url": "/pricing"
     },
     {
-      "name": "Páginas",
+      "name": "Recursos",
       "url": "",
-      "hasChildren": true,
-      "mega_menu": {
-        "mega_menu_title": "Recursos",
-        "page_title": "Páginas",
-        "mega_menu_groups": [
-          [
-            {
-              "name": "Precios",
-              "url": "/pricing",
-              "description": "Nuestros planes",
-              "icon": "HiOutlineTag"
-            },
-            {
-              "name": "Contacto",
-              "url": "/contact",
-              "description": "Ponte en contacto",
-              "icon": "HiOutlinePhone"
-            }
-          ],
-          [
-            {
-              "name": "Blog",
-              "url": "/blog",
-              "description": "Nuestros artículos",
-              "icon": "HiOutlinePencil"
-            },
-            {
-              "name": "Registro de Cambios",
-              "url": "/changelog",
-              "description": "Últimas actualizaciones",
-              "icon": "HiOutlineNewspaper"
-            }
-          ]
-        ],
-        "page_links": [
-          {
-            "name": "Contacto",
-            "url": "/contact",
-            "icon": ""
-          },
-          {
-            "name": "Políticas de Privacidad",
-            "url": "/privacy-policy",
-            "icon": ""
-          },
-          {
-            "name": "Términos y Condiciones",
-            "url": "/terms-of-service",
-            "icon": ""
-          },
-          {
-            "name": "Registro de Cambios",
-            "url": "/changelog",
-            "icon": ""
-          }
-        ]
-      }
+      "children": [
+        {
+          "name": "Blog",
+          "url": "/blog"
+        },
+        {
+          "name": "Registro de cambios",
+          "url": "/changelog"
+        }
+      ]
+    },
+    {
+      "name": "Nosotros",
+      "url": "/about"
     }
   ],
   "footer_company": [
@@ -84,34 +37,34 @@
       "url": "/"
     },
     {
-      "name": "Acerca de",
-      "url": "/about"
-    },
-    {
       "name": "Características",
       "url": "/features"
     },
     {
-      "name": "Planes",
+      "name": "Precios",
       "url": "/pricing"
     },
     {
-      "name": "Contacto",
-      "url": "/contact"
+      "name": "Blog",
+      "url": "/blog"
+    },
+    {
+      "name": "Nosotros",
+      "url": "/about"
+    },
+    {
+      "name": "Registro de cambios",
+      "url": "/changelog"
     }
   ],
-  "footer_resource": [
+  "footer_product": [
     {
-      "name": "Aplicación",
+      "name": "Abrir app",
       "url": "https://chat.ubotcr.com"
     },
     {
       "name": "Juegos",
       "url": "https://chat.ubotcr.com/juegos/lobby"
-    },
-    {
-      "name": "Blog",
-      "url": "/blog"
     }
   ],
   "footer_legal": [
@@ -122,10 +75,6 @@
     {
       "name": "Términos de Servicio",
       "url": "/terms-of-service"
-    },
-    {
-      "name": "Registro de Cambios",
-      "url": "/changelog"
     }
   ]
 }

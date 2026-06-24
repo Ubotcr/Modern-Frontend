@@ -10,7 +10,6 @@ export type RegularPage = {
     gallery?: GalleryType;
     open_positions?: {
       enable: boolean;
-      badge: string;
       title: string;
     };
   };
@@ -106,7 +105,6 @@ export type PageHeaderType = {
   enable?: boolean;
   title: string;
   subtitle?: string;
-  badge: string;
   button_primary?: Button;
   button_secondary?: Button;
 };
@@ -167,7 +165,6 @@ export type ChangelogItemType = {
 
 export type GalleryType = {
   enable: boolean;
-  badge: string;
   title: string;
   images: string[];
 };

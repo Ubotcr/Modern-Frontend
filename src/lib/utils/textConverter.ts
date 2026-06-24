@@ -1,17 +1,16 @@
-import { slug } from "github-slugger";
-import { marked } from "marked";
-
 // slugify
 export const slugify = (content: string) => {
-  return slug(content);
+  return content
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/[\s_-]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 };
 
-// markdownify
-export const markdownify = (content: string, div?: boolean) => {
-  const markdownContent: any = div
-    ? marked.parse(content)
-    : marked.parseInline(content);
-  return { __html: markdownContent };
+// markdownify - content is expected to be safe HTML or plain text
+export const markdownify = (content: string) => {
+  return { __html: content };
 };
 
 // humanize
@@ -33,13 +32,11 @@ export const titleify = (content: string) => {
     .join(" ");
 };
 
-// plainify
+// plainify - strips HTML tags and decodes basic entities
 export const plainify = (content: string) => {
-  const parseMarkdown: any = marked.parse(content);
-  const filterBrackets = parseMarkdown.replace(/<\/?[^>]+(>|$)/gm, "");
-  const filterSpaces = filterBrackets.replace(/[\r\n]\s*[\r\n]/gm, "");
-  const stripHTML = htmlEntityDecoder(filterSpaces);
-  return stripHTML;
+  const withoutTags = content.replace(/<\/?[^>]+(>|$)/gm, "");
+  const withoutExtraSpaces = withoutTags.replace(/[\r\n]\s*[\r\n]/gm, "");
+  return htmlEntityDecoder(withoutExtraSpaces);
 };
 
 // strip entities for plainify
@@ -52,11 +49,8 @@ const htmlEntityDecoder = (htmlWithEntities: string): string => {
     "&quot;": '"',
     "&#39;": "'",
   };
-  const htmlWithoutEntities: string = htmlWithEntities.replace(
+  return htmlWithEntities.replace(
     /(&amp;|&lt;|&gt;|&quot;|&#39;)/g,
-    (entity: string): string => {
-      return entityList[entity];
-    },
+    (entity: string): string => entityList[entity] || entity,
   );
-  return htmlWithoutEntities;
 };

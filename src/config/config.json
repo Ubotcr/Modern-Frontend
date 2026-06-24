@@ -1,44 +1,34 @@
 {
   "site": {
-    "title": "UbotCR",
+    "title": "Ubot",
     "base_url": "https://ubotcr.com",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
-    "logo_width": "137",
-    "logo_height": "46",
-    "logo_text": "UbotCR"
+    "favicon": "/favicon.ico",
+    "logo_icon": "/images/school.png",
+    "logo_text": "Ubot"
   },
   "settings": {
     "sticky_header": true,
-    "pagination": 9,
-    "summary_length": 200,
-    "blog_folder": "blog",
-    "case_studies_folder": "case-studies",
-    "career_folder": "careers"
+    "pagination": 6
   },
   "params": {
-    "contact_form_action": "#",
-    "apply_form_action": "#",
-    "newsletter_form_action": "#",
-    "footer_text": "Eliminando las barreras económicas y geográficas que impiden el acceso equitativo a la educación superior pública en Costa Rica.",
+    "footer_text": "Asistente de inteligencia artificial para preparar exámenes de admisión a universidades públicas de Costa Rica.",
     "mail": "contacto@ubotcr.com",
-    "phone": "",
-    "copyright": "Desarrollado por el equipo de UbotCR."
+    "copyright": "© UbotCR. Todos los derechos reservados."
   },
   "navigation_button": {
     "enable": true,
-    "label": "Ir a la Aplicación",
+    "label": "Comenzar gratis",
     "link": "https://chat.ubotcr.com"
   },
   "google_tag_manager": {
     "enable": false,
-    "gtm_id": "GTM-XXXXXX"
+    "gtm_id": ""
   },
   "metadata": {
     "meta_author": "UbotCR",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Asistente de inteligencia artificial exclusivo para la preparación de exámenes de admisión de las universidades estatales de Costa Rica (UCR, UNA, TEC)."
+    "meta_description": "Ubot es tu asistente de inteligencia artificial exclusivo para prepararte para los exámenes de admisión de las universidades estatales de Costa Rica (UCR, UNA, TEC)."
   }
 }

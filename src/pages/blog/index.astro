@@ -1,49 +1,60 @@
 ---
 import Base from "@/layouts/Base.astro";
 import BlogCard from "@/components/BlogCard.astro";
-import FeaturedPost from "@/components/FeaturedPost.astro";
-import MainContainer from "@/components/MainContainer.astro";
 import Pagination from "@/components/Pagination.astro";
-import config from "@/config/config.json";
-import { getListPage, getSinglePage } from "@/lib/contentParser";
-import { sortByDate } from "@/lib/utils/sortFunctions";
 import CallToAction from "@/partials/CallToAction.astro";
 import PageHeader from "@/partials/PageHeader.astro";
+import config from "@/config/config.json";
+import { getCollection } from "astro:content";
+import { getListPage } from "@/lib/contentParser";
+import { sortByDate } from "@/lib/utils/blog";
 
-const { blog_folder, pagination } = config.settings;
+const index = await getListPage("blog/-index.md");
+const { title, meta_title, description, image, page_header } =
+  index.frontmatter as any;
+const header = page_header ?? { title, subtitle: description };
 
-const postIndex = await getListPage(`${blog_folder}/-index.md`);
-const { title, meta_title, description, image } = postIndex.frontmatter;
-const posts = await getSinglePage(blog_folder);
-const sortedPosts = sortByDate(posts);
-const totalPages = Math.ceil(posts.length / pagination);
-const currentPosts = sortedPosts.slice(0, pagination);
-const page_header = {
-  title: title,
-  badge: "Blog",
-  subtitle: description,
-};
+const posts = sortByDate(
+  (
+    await getCollection(
+      "blog",
+      ({ id, data }) =>
+        !id.startsWith("-") && !id.startsWith("_") && !data.draft,
+    )
+  ).map((p) => ({ frontmatter: p.data, slug: p.id, content: p.body })),
+);
+
+const perPage = config.settings.pagination ?? 6;
+const totalPages = Math.max(1, Math.ceil(posts.length / perPage));
+const current = posts.slice(0, perPage);
 const callToAction = await getListPage("sections/call-to-action.md");
-const featuredPost = sortedPosts.filter((post: any) => post.frontmatter.featured)[0];
 ---
 
-<Base title={title} meta_title={meta_title} description={description} image={image}>
-  <PageHeader page_header={page_header}>
-    {featuredPost && <FeaturedPost data={featuredPost} />}
-  </PageHeader>
-  <section>
-    <MainContainer>
-      <div class="container-padding-x container-padding-y">
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2.5 mb-10">
-          {currentPosts.map((post: any) => (
-            <div>
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <PageHeader page_header={header} />
+
+  <section class="px-4 py-12 md:py-16">
+    <div class="container mx-auto max-w-6xl">
+      {
+        current.length > 0 ? (
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {current.map((post) => (
               <BlogCard data={post} />
-            </div>
-          ))}
-        </div>
-        <Pagination section={blog_folder} currentPage={1} totalPages={totalPages} />
-      </div>
-    </MainContainer>
+            ))}
+          </div>
+        ) : (
+          <p class="text-center text-gray">Aún no hay entradas publicadas.</p>
+        )
+      }
+
+      <Pagination section="blog" currentPage={1} totalPages={totalPages} />
+    </div>
   </section>
+
   <CallToAction data={callToAction} />
 </Base>

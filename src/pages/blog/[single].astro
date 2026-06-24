@@ -1,23 +1,28 @@
 ---
 import Base from "@/layouts/Base.astro";
 import PostSingle from "@/layouts/PostSingle.astro";
-import { getSinglePage } from "@/lib/contentParser.astro";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = await getSinglePage("blog");
-  return posts.map((post: any) => ({
+  const posts = await getCollection(
+    "blog",
+    ({ id, data }) => !id.startsWith("-") && !id.startsWith("_") && !data.draft,
+  );
+  return posts.map((post) => ({
     params: { single: post.id },
     props: { post },
   }));
 }
 
 const { post } = Astro.props;
-
-if (post.data.draft) return Astro.redirect("/404");
-
 const { title, meta_title, description, image } = post.data;
 ---
 
-<Base title={title} meta_title={meta_title} description={description} image={image}>
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
   <PostSingle post={post} />
 </Base>

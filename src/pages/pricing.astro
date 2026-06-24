@@ -1,24 +1,21 @@
 ---
 import Base from "@/layouts/Base.astro";
 import CallToAction from "@/partials/CallToAction.astro";
-import FAQ from "@/partials/FAQ";
+import FAQ from "@/partials/FAQ.astro";
 import PageHeader from "@/partials/PageHeader.astro";
-import PricingSection from "@/partials/Pricing";
-import PricingTable from "@/components/PricingTable";
+import PricingSection from "@/partials/Pricing.astro";
 import { getListPage } from "@/lib/contentParser";
 
 const data = await getListPage("pricing/-index.md");
-const { title, description, meta_title, image, page_header, pricing_table } = data.frontmatter;
+const { title, description, meta_title, page_header } = data.frontmatter;
 const pricing = await getListPage("sections/pricing.md");
 const faq = await getListPage("sections/faq.md");
 const callToAction = await getListPage("sections/call-to-action.md");
 ---
 
-<Base title={title} meta_title={meta_title} description={description} image={image}>
-  <PageHeader page_header={page_header}>
-    <PricingSection data={pricing} isHome={false} client:visible />
-  </PageHeader>
-  <PricingTable data={pricing_table} client:visible />
-  <FAQ data={faq} client:visible />
+<Base title={title} meta_title={meta_title} description={description}>
+  <PageHeader page_header={page_header} />
+  <PricingSection data={pricing} />
+  <FAQ data={faq} />
   <CallToAction data={callToAction} />
 </Base>

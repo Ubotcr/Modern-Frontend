@@ -14,29 +14,15 @@ const aboutCollection = defineCollection({
   schema: z.object({}).catchall(z.any()),
 });
 
-// Blog collection
-const blogCollection = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/blog" }),
-  schema: z.object({
-    title: z.string(),
-    meta_title: z.string().optional(),
-    description: z.string().optional(),
-    date: z.coerce.date().optional(),
-    image: z.string().optional(),
-    category: z.string().optional(),
-    featured: z.boolean().optional(),
-    author: z.object({
-      name: z.string(),
-      avatar: z.string().optional(),
-      designation: z.string().optional(),
-    }).optional(),
-    draft: z.boolean().optional(),
-  }),
-});
-
 // Changelog collection
 const changelogCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/changelog" }),
+  schema: z.object({}).catchall(z.any()),
+});
+
+// Blog collection
+const blogCollection = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/blog" }),
   schema: z.object({}).catchall(z.any()),
 });
 
@@ -74,8 +60,8 @@ const sectionsCollection = defineCollection({
 export const collections = {
   homepage: homepageCollection,
   about: aboutCollection,
-  blog: blogCollection,
   changelog: changelogCollection,
+  blog: blogCollection,
   contact: contactCollection,
   features: featuresCollection,
   pages: pagesCollection,

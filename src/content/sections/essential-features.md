@@ -1,18 +1,25 @@
 ---
 enable: true
-title: Herramientas diseñadas para asegurar tu admisión
-badge: "Características"
+title: Todo lo que necesitas para triunfar
 features:
-  - title: Chat con IA Especializada
-    content: Resuelve tus dudas de matemáticas y razonamiento verbal al instante, a cualquier hora del día. Obtén explicaciones paso a paso que te enseñan cómo pensar, no solo la respuesta, asegurando que domines cada tema del examen real.
-    image: "/images/features/essential-features-1.png"
-  - title: Simulacros y Exámenes Reales
-    content: Mide tu tiempo y pon a prueba tus conocimientos con exámenes diarios y semanales diseñados con el mismo formato que enfrentarás en la UCR, UNA y TEC. Conoce exactamente qué áreas debes reforzar antes del gran día.
-    image: "/images/features/essential-features-2.svg"
-  - title: Gamificación y Rankings Globales
-    content: Convierte el estudio en un reto emocionante. Compite con estudiantes de todo el país, mantén tu racha diaria y sube de nivel mientras aseguras tu lugar en la carrera que sueñas. ¡La constancia tiene su recompensa!
-    image: "/images/features/essential-features-3.svg"
-  - title: Podcasts y Videos de Estudio (Premium)
-    content: ¿Cansado de leer? Transforma tus sesiones de estudio en videos dinámicos o podcasts generados por IA que puedes escuchar mientras viajas en el bus. Aprende a tu propio ritmo y estilo, optimizando cada minuto de tu día.
-    image: "/images/features/essential-features-4.svg"
+  - title: Chat con IA
+    icon: chat
+    content: Pregunta lo que quieras sobre razonamiento verbal, matemática o cualquier tema del examen. Obtienes explicaciones claras, paso a paso.
+  - title: Exámenes diarios y semanales
+    icon: assignment
+    content: Practica con exámenes cronometrados en el formato real de la prueba. Recibe retroalimentación detallada y consulta tu historial.
+  - title: Rankings y competencia
+    icon: emoji_events
+    content: Mide tu avance contra estudiantes de todo el país. Mantén tu racha diaria y sube de nivel con el sistema de puntos Elo.
+  - title: Videos explicativos
+    icon: videocam
+    content: Genera videos personalizados sobre cualquier tema de tu sesión de estudio y aprende a tu ritmo.
+    premium: true
+  - title: Podcasts de estudio
+    icon: headphones
+    content: Convierte cualquier explicación en un podcast que puedes escuchar en cualquier lugar.
+    premium: true
+  - title: Historial sincronizado
+    icon: auto_stories
+    content: Todos tus chats y sesiones de estudio se sincronizan automáticamente entre dispositivos.
 ---

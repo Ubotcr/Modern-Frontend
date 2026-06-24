@@ -1,0 +1,25 @@
+---
+interface Props {
+  name: string;
+  class?: string;
+  filled?: boolean;
+  label?: string;
+  id?: string;
+}
+
+const { name, class: className = "", filled = false, label, id } = Astro.props;
+---
+
+<span
+  {id}
+  class:list={[
+    "material-symbols-rounded inline-flex select-none items-center justify-center leading-none",
+    filled && "icon-filled",
+    className,
+  ]}
+  aria-hidden={label ? undefined : "true"}
+  aria-label={label}
+  role={label ? "img" : undefined}
+>
+  {name}
+</span>

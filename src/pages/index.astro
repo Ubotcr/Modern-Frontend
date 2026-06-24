@@ -3,16 +3,18 @@ import Base from "@/layouts/Base.astro";
 import Hero from "@/components/Hero.astro";
 import CallToAction from "@/partials/CallToAction.astro";
 import EssentialFeatures from "@/partials/EssentialFeatures.astro";
-import FAQ from "@/partials/FAQ";
-import KeyFeatures from "@/partials/KeyFeatures.astro";
-import Pricing from "@/partials/Pricing";
+import FAQ from "@/partials/FAQ.astro";
+import Gallery from "@/partials/Gallery.astro";
+import HowItWorks from "@/partials/HowItWorks.astro";
+import Pricing from "@/partials/Pricing.astro";
 import WhyChooseUs from "@/partials/WhyChooseUs.astro";
 import { getListPage } from "@/lib/contentParser";
 
 const homepage = await getListPage("homepage/-index.md");
-const key_features = await getListPage("sections/key-features.md");
-const essential_features = await getListPage("sections/essential-features.md");
+const essentialFeatures = await getListPage("sections/essential-features.md");
 const whyChooseUs = await getListPage("sections/why-choose-us.md");
+const howItWorks = await getListPage("sections/how-it-works.md");
+const gallery = await getListPage("sections/gallery.md");
 const pricing = await getListPage("sections/pricing.md");
 const faq = await getListPage("sections/faq.md");
 const callToAction = await getListPage("sections/call-to-action.md");
@@ -21,10 +23,11 @@ const { banner } = homepage.frontmatter;
 
 <Base>
   <Hero data={banner} />
-  <KeyFeatures data={key_features} />
-  <EssentialFeatures data={essential_features} />
+  <EssentialFeatures data={essentialFeatures} />
   <WhyChooseUs data={whyChooseUs} />
-  <Pricing data={pricing} client:visible />
-  <FAQ data={faq} client:visible />
+  <HowItWorks data={howItWorks} />
+  <Gallery data={gallery} />
+  <Pricing data={pricing} />
+  <FAQ data={faq} />
   <CallToAction data={callToAction} />
 </Base>

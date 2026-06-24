@@ -1,0 +1,57 @@
+---
+import SectionHeader from "@/components/SectionHeader.astro";
+import Icon from "@/components/Icon.astro";
+
+interface Props {
+  data: any;
+}
+
+const { data } = Astro.props;
+const { title, subtitle, faq_list, enable } = data.frontmatter;
+---
+
+{
+  enable && (
+    <section
+      id="faq"
+      class="border-y border-border bg-card px-4 py-12 md:py-20"
+    >
+      <div class="container mx-auto max-w-3xl">
+        <SectionHeader title={title} subtitle={subtitle} />
+
+        <div class="flex flex-col gap-3">
+          {faq_list.map((faq: any) => (
+            <details class="group rounded-xl border border-border bg-body shadow-sm transition-all open:border-primary/30 open:shadow-md">
+              <summary class="flex cursor-pointer list-none items-center justify-between p-4 text-base font-medium text-text-light md:p-5">
+                {faq.question}
+                <span class="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-border bg-card text-gray transition-all duration-300 group-open:rotate-45 group-open:border-primary group-open:bg-primary group-open:text-white">
+                  <Icon name="add" class="text-lg" />
+                </span>
+              </summary>
+              <div class="px-4 pb-4 text-sm leading-relaxed text-gray md:px-5 md:pb-5 faq-content">
+                {faq.answer}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  details[open] summary ~ * {
+    animation: faqSlideDown 0.3s ease-out forwards;
+  }
+  
+  @keyframes faqSlideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

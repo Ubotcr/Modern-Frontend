@@ -1,53 +1,37 @@
 ---
 enable: true
-title: Precios Accesibles para Todos
-badge: Planes
+title: Elige tu plan
+subtitle: Acceso gratuito para todos. Funciones avanzadas con Ubot Premium.
 pricing_plans:
   - name: Gratuito
-    content: Herramientas básicas para tu preparación diaria
-    price:
-      monthly:
-        number: 0
-        prefix: $
-        suffix: /mes
+    description: Herramientas básicas para tu preparación diaria
+    price: 0
+    period: mes
     features:
-      - value: Chat con IA limitado
-        include: true
-      - value: Exámenes cortos diarios
-        include: true
-      - value: Participación en rankings
-        include: true
-      - value: Exámenes ilimitados
-        include: false
-      - value: Generación de videos/podcasts
-        include: false
-
+      - Chat con IA (consultas diarias limitadas)
+      - Exámenes diarios
+      - Ranking global y diario
+      - Historial de chats sincronizado
+      - Historial de exámenes
     button:
-      label: Comenzar Gratis
+      label: Comenzar gratis
       link: "https://chat.ubotcr.com"
       enable: true
   - name: Ubot Premium
-    content: Todo el potencial de la IA para asegurar tu cupo
+    description: Todo el potencial de la IA para asegurar tu cupo
+    price: 5
+    period: mes
     highlighted: true
-    price:
-      monthly:
-        number: 5
-        prefix: $
-        suffix: /mes
     features:
-      - value: Chat con IA ampliado
-        include: true
-      - value: Exámenes ilimitados y semanales
-        include: true
-      - value: Generación de videos explicativos
-        include: true
-      - value: Podcasts de estudio personalizados
-        include: true
-      - value: Juegos ilimitados (Flipmatch)
-        include: true
-
+      - Todo lo del plan gratuito
+      - Exámenes ilimitados y semanales exclusivos
+      - Consultas diarias ampliadas
+      - Generación de videos explicativos
+      - Generación de podcasts de estudio
+      - Prioridad en respuestas de IA
+      - Flipmatch sin límites
     button:
-      label: Probar Premium
+      label: Obtener Premium
       link: "https://chat.ubotcr.com"
       enable: true
 ---

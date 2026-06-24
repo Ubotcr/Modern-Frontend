@@ -7,7 +7,7 @@ draft: false
 
 **Última actualización:** Mayo 2026
 
-*Nota: El presente documento tiene un carácter meramente informativo y no constituye un acuerdo legal formal.*
+_Nota: El presente documento tiene un carácter meramente informativo y no constituye un acuerdo legal formal._
 
 En Ubot CR estamos comprometidos con tu privacidad. Queremos que sepas que **no recolectamos, almacenamos ni compartimos información personal sensible** de ninguno de nuestros estudiantes.
 

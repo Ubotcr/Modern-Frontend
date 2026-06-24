@@ -2,24 +2,25 @@
 # Banner
 banner:
   title: |
-    Aprobá el examen de admisión con
+    Prepárate para la U con
     <br/>
-    <mark>Inteligencia Artificial</mark>
-  content: "Ubot CR es el único asistente de IA exclusivo para la preparación de exámenes de admisión de las universidades estatales de Costa Rica (UCR, UNA, TEC)."
-  badge:
-    enable: true
-    label: Cientos de estudiantes en CR
-    images:
-      - "/images/avatars/avatar-1.jpg"
-      - "/images/avatars/avatar-2.jpg"
-      - "/images/avatars/avatar-3.png"
-  image: "/images/banner.png"
-  button_dark:
-    enable: true
-    label: "Juegos Interactivos"
-    link: "https://chat.ubotcr.com/juegos/lobby"
+    <mark>inteligencia artificial</mark>
+  content: "Ubot es tu asistente de IA disponible 24/7 para resolver dudas, practicar exámenes y mejorar tu razonamiento — gratis para todos."
   button_primary:
     enable: true
-    label: "Probar Ubot Gratis"
+    label: "Comenzar gratis"
     link: "https://chat.ubotcr.com"
+  button_secondary:
+    enable: true
+    label: "Ver planes"
+    link: "#pricing"
+  stats:
+    - label: Disponibilidad
+      value: 24/7
+    - label: Gratis para comenzar
+      value: 100%
+    - label: Modalidades de estudio
+      value: 3+
+    - label: Rankings globales
+      value: "Global"
 ---

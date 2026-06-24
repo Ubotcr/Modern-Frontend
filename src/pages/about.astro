@@ -2,45 +2,64 @@
 import Base from "@/layouts/Base.astro";
 import CallToAction from "@/partials/CallToAction.astro";
 import PageHeader from "@/partials/PageHeader.astro";
-import WhyChooseUs from "@/partials/WhyChooseUs.astro";
-import WhatOurGoals from "@/partials/WhatOurGoals.astro";
 import OurTeam from "@/partials/OurTeam.astro";
-import CardShape from "@/components/shape/CardShape";
-import Badge from "@/components/Badge.astro";
-import { markdownify } from "@/lib/utils/textConverter";
+import Icon from "@/components/Icon.astro";
 import { getListPage } from "@/lib/contentParser";
 
 const data = await getListPage("about/-index.md");
-const { title, description, meta_title, image, page_header, who_we_are, what_our_goals, our_team } = data.frontmatter;
-const whyChooseUs = await getListPage("sections/why-choose-us.md");
+const { title, description, meta_title, page_header, who_we_are, our_team } =
+  data.frontmatter;
 const callToAction = await getListPage("sections/call-to-action.md");
 ---
 
-<Base title={title} meta_title={meta_title} description={description} image={image}>
-  <PageHeader page_header={page_header}>
-    <div class="border border-border/6 bg-card rounded-4xl p-2.5">
-      <CardShape>
-        <img
-          src={who_we_are?.image}
-          alt="Feature"
-          width="1230"
-          height="800"
-          class="rounded-3xl object-cover relative z-1 w-full sm:h-140"
-        />
-      </CardShape>
-      <div class="p-10 grid lg:grid-cols-2 text-left gap-10 sm:gap-20">
+<Base title={title} meta_title={meta_title} description={description}>
+  <PageHeader page_header={page_header} />
+
+  <section class="px-4 py-12 md:py-20">
+    <div class="container mx-auto max-w-5xl">
+      <div class="grid gap-12 md:grid-cols-2 md:items-center">
         <div>
-          <Badge>{who_we_are?.badge}</Badge>
-          <h2 class="sm:text-h1 font-medium" set:html={markdownify(who_we_are?.title || "").__html} />
+          <h2 class="mt-3 text-2xl font-bold text-text-light md:text-3xl">
+            {who_we_are.title}
+          </h2>
+          <p class="mt-4 text-gray">{who_we_are.subtitle}</p>
         </div>
-        <div class="text-lg text-gray">
-          <p set:html={markdownify(who_we_are?.subtitle || "").__html} />
+
+        <div class="flex flex-col gap-4">
+          {
+            [
+              {
+                icon: who_we_are.mission.icon,
+                title: who_we_are.mission.title,
+                content: who_we_are.mission.content,
+              },
+              {
+                icon: who_we_are.problem.icon,
+                title: who_we_are.problem.title,
+                content: who_we_are.problem.content,
+              },
+              {
+                icon: who_we_are.solution.icon,
+                title: who_we_are.solution.title,
+                content: who_we_are.solution.content,
+              },
+            ].map((item) => (
+              <div class="flex items-start gap-4 rounded-xl border border-border bg-card p-4 shadow-sm">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xl text-primary">
+                  <Icon name={item.icon} class="text-[1.25rem]" />
+                </span>
+                <div>
+                  <h3 class="font-semibold text-text-light">{item.title}</h3>
+                  <p class="mt-1 text-sm text-gray">{item.content}</p>
+                </div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
-  </PageHeader>
-  <WhatOurGoals data={what_our_goals} />
-  <WhyChooseUs data={whyChooseUs} />
+  </section>
+
   <OurTeam data={our_team} />
   <CallToAction data={callToAction} />
 </Base>
