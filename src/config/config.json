@@ -19,7 +19,7 @@
   },
   "navigation_button": {
     "enable": true,
-    "label": "Comenzar gratis",
+    "label": "Abrir app",
     "link": "https://chat.ubotcr.com"
   },
   "google_tag_manager": {

@@ -11,8 +11,8 @@ page_header:
   subtitle: "Mejoras, nuevas funciones y correcciones recientes."
 
 changelog_list:
-  - version: "1.0.0"
-    date: "2025"
-    title: "Lanzamiento inicial"
-    description: "Primera versión pública de Ubot con chat de IA, exámenes de práctica y rankings."
+  - version: "2.6.0"
+    date: "Junio 2026"
+    title: "Respuestas en tiempo real y optimización de juego"
+    description: "Presentamos las respuestas en tiempo real: ahora el chat escribe palabra por palabra a medida que procesa la consulta, dándote una conversación fluida y eliminando las esperas. Además, corregimos la visualización de los rankings y rediseñamos la interfaz del juego Torre de Poder para que juegues cómodamente desde el móvil. Por último, optimizamos la plataforma eliminando archivos obsoletos para una carga mucho más rápida y estable."
 ---

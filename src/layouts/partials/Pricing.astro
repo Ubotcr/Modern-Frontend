@@ -153,23 +153,53 @@ const formatCRC = (n: number) =>
   async function initPricingConversion() {
     if (!document.querySelector("[data-price-usd]")) return;
 
+    // Apply a cached rate immediately (no network cost).
     const cached = getCachedRate();
     if (cached) {
       applyRate(cached);
       return;
     }
 
-    try {
-      const res = await fetch(API_URL);
-      if (!res.ok) throw new Error("network");
-      const data = await res.json();
-      const rate = data?.rates?.CRC;
-      if (typeof rate !== "number" || !Number.isFinite(rate))
-        throw new Error("no rate");
-      setCachedRate(rate);
-      applyRate(rate);
-    } catch {
-      // keep server-rendered fallback rate
+    // No cache: defer the network fetch until #pricing is near the viewport.
+    // The server-rendered fallback rate is already visible, so the live fetch
+    // is purely progressive enhancement — don't spend prepago data on a section
+    // the visitor may never scroll to.
+    const pricingSection = document.getElementById("pricing");
+    if (!pricingSection) return;
+
+    const fetchRate = async () => {
+      try {
+        const res = await fetch(API_URL);
+        if (!res.ok) throw new Error("network");
+        const data = await res.json();
+        const rate = data?.rates?.CRC;
+        if (typeof rate !== "number" || !Number.isFinite(rate))
+          throw new Error("no rate");
+        // Sanity bound: reject rates outside a plausible CRC/USD range.
+        if (rate < 100 || rate > 2000) throw new Error("rate out of range");
+        setCachedRate(rate);
+        applyRate(rate);
+      } catch {
+        // keep server-rendered fallback rate
+      }
+    };
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              observer.disconnect();
+              fetchRate();
+            }
+          });
+        },
+        { rootMargin: "200px 0px" },
+      );
+      observer.observe(pricingSection);
+    } else {
+      // Fallback for very old browsers: fetch immediately.
+      fetchRate();
     }
   }
 

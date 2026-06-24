@@ -209,8 +209,17 @@ const { main } = menu as { main: NavItem[] };
     const openIcon = document.getElementById("menu-open-icon");
     const closeIcon = document.getElementById("menu-close-icon");
     let isOpen = false;
+    let lastFocused: HTMLElement | null = null;
 
-    const closeMenu = () => {
+    // Collect focusable elements inside the mobile menu for the Tab trap.
+    const menuFocusables = Array.from(
+      mobileMenu.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [data-close-menu]',
+      ),
+    );
+
+    const closeMenu = (restoreFocus = true) => {
+      if (!isOpen) return;
       isOpen = false;
 
       mobileMenu.classList.remove("grid-rows-[1fr]", "opacity-100");
@@ -224,30 +233,44 @@ const { main } = menu as { main: NavItem[] };
 
       closeIcon?.classList.remove("opacity-100", "scale-100", "rotate-0");
       closeIcon?.classList.add("opacity-0", "scale-50", "-rotate-90");
+
+      if (restoreFocus && lastFocused) {
+        lastFocused.focus();
+        lastFocused = null;
+      }
+    };
+
+    const openMenu = () => {
+      if (isOpen) return;
+      isOpen = true;
+      lastFocused = document.activeElement as HTMLElement;
+
+      mobileMenu.classList.remove("grid-rows-[0fr]", "opacity-0");
+      mobileMenu.classList.add("grid-rows-[1fr]", "opacity-100");
+
+      openIcon?.classList.remove("opacity-100", "scale-100", "rotate-0");
+      openIcon?.classList.add("opacity-0", "scale-50", "-rotate-90");
+
+      closeIcon?.classList.remove("opacity-0", "scale-50", "-rotate-90");
+      closeIcon?.classList.add("opacity-100", "scale-100", "rotate-0");
+
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.setAttribute("aria-label", "Cerrar menú");
+
+      // Move focus into the menu after the expand animation starts.
+      const firstItem = menuFocusables[0];
+      if (firstItem) {
+        setTimeout(() => firstItem.focus(), 50);
+      }
     };
 
     toggle.addEventListener("click", () => {
-      isOpen = !isOpen;
-
-      if (isOpen) {
-        mobileMenu.classList.remove("grid-rows-[0fr]", "opacity-0");
-        mobileMenu.classList.add("grid-rows-[1fr]", "opacity-100");
-
-        openIcon?.classList.remove("opacity-100", "scale-100", "rotate-0");
-        openIcon?.classList.add("opacity-0", "scale-50", "-rotate-90");
-
-        closeIcon?.classList.remove("opacity-0", "scale-50", "-rotate-90");
-        closeIcon?.classList.add("opacity-100", "scale-100", "rotate-0");
-      } else {
-        closeMenu();
-      }
-
-      toggle.setAttribute("aria-expanded", String(isOpen));
-      toggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+      if (isOpen) closeMenu();
+      else openMenu();
     });
 
     mobileMenu.querySelectorAll("[data-close-menu]").forEach((link) => {
-      link.addEventListener("click", closeMenu);
+      link.addEventListener("click", () => closeMenu());
     });
 
     document.addEventListener("click", (event) => {
@@ -257,6 +280,29 @@ const { main } = menu as { main: NavItem[] };
         !mobileMenu.contains(event.target as Node)
       ) {
         closeMenu();
+      }
+    });
+
+    // Escape closes the mobile menu (and desktop dropdowns via initDropdowns).
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && isOpen) {
+        closeMenu();
+      }
+    });
+
+    // Tab focus trap inside the mobile menu.
+    mobileMenu.addEventListener("keydown", (event) => {
+      if (!isOpen || event.key !== "Tab") return;
+      if (menuFocusables.length === 0) return;
+      const active = document.activeElement as HTMLElement;
+      const first = menuFocusables[0];
+      const last = menuFocusables[menuFocusables.length - 1];
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
       }
     });
   }
@@ -297,8 +343,55 @@ const { main } = menu as { main: NavItem[] };
     });
   }
 
+  function initScrollspy() {
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>(
+      'nav ul li a[href^="/"], nav ul li a[href^="#"]',
+    );
+    if (navLinks.length === 0) return;
+
+    const sections = new Map<string, HTMLElement>();
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href") || "";
+      // Only track in-page anchors for scrollspy on the homepage.
+      if (href.startsWith("#") && href.length > 1) {
+        const target = document.querySelector(href);
+        if (target) sections.set(href, target as HTMLElement);
+      }
+    });
+
+    if (sections.size === 0) return;
+
+    const setActive = (href: string) => {
+      navLinks.forEach((link) => {
+        const linkHref = link.getAttribute("href") || "";
+        if (linkHref === href) {
+          link.classList.remove("text-gray");
+          link.classList.add("text-link");
+        } else if (linkHref.startsWith("#")) {
+          link.classList.remove("text-link");
+          link.classList.add("text-gray");
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive("#" + entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-80px 0px -70% 0px", threshold: 0 },
+    );
+
+    sections.forEach((el) => observer.observe(el));
+  }
+
   document.addEventListener("astro:page-load", initHeader);
   document.addEventListener("astro:page-load", initDropdowns);
+  document.addEventListener("astro:page-load", initScrollspy);
   initHeader();
   initDropdowns();
+  initScrollspy();
 </script>
