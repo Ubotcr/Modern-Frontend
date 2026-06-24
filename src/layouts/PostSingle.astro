@@ -1,7 +1,9 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
+import { Image } from "astro:assets";
 import { getCollection, render } from "astro:content";
 import { formatDate, isoDate, readingTime } from "@/lib/utils/blog";
+import { resolvePublicImage } from "@/lib/utils/image";
 
 interface Props {
   post: any;
@@ -10,6 +12,7 @@ interface Props {
 const { post } = Astro.props;
 const { title, description, image, category, author, date } = post.data;
 const { Content, headings } = await render(post);
+const imageMeta = image ? resolvePublicImage(image) : undefined;
 
 const readTime = post.body ? readingTime(post.body) : "";
 
@@ -66,15 +69,28 @@ const toc = (headings || []).filter((h: any) => h.depth >= 2 && h.depth <= 3);
     </div>
 
     {
-      image && (
-        <img
-          src={image}
-          alt=""
-          width="1200"
-          height="675"
-          class="mt-10 aspect-[16/9] w-full rounded-2xl border border-border object-cover"
-        />
-      )
+      image &&
+        (imageMeta ? (
+          <Image
+            src={imageMeta}
+            alt=""
+            widths={[480, 768, 1200]}
+            sizes="(max-width: 768px) 100vw, 768px"
+            loading="eager"
+            fetchpriority="high"
+            class="mt-10 aspect-[16/9] w-full rounded-2xl border border-border object-cover"
+          />
+        ) : (
+          <img
+            src={image}
+            alt=""
+            width="1200"
+            height="675"
+            loading="eager"
+            fetchpriority="high"
+            class="mt-10 aspect-[16/9] w-full rounded-2xl border border-border object-cover"
+          />
+        ))
     }
   </div>
 </section>
