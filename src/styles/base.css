@@ -62,7 +62,7 @@ h4,
 h5,
 h6 {
   @apply font-semibold leading-tight text-text-light;
-  scroll-margin-top: 80px;
+  scroll-margin-top: calc(80px + env(safe-area-inset-top));
   text-wrap: balance;
 }
 

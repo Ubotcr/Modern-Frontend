@@ -10,10 +10,11 @@ features:
     content: Practica con exámenes cronometrados en el formato real de la prueba. Recibe retroalimentación detallada y consulta tu historial.
   - title: Rankings y competencia
     icon: emoji_events
-    content: Mide tu avance contra estudiantes de todo el país. Mantén tu racha diaria y sube de nivel con el sistema de puntos Elo.
+    content: Mide tu avance contra estudiantes de todo el país. Mantén tu racha diaria y sube de nivel con el sistema de puntos Elo (como en el ajedrez).
+included:
   - title: Videos explicativos
     icon: videocam
-    content: Genera videos personalizados sobre cualquier tema de tu sesión de estudio y aprende a tu ritmo.
+    content: Genera videos personalizados sobre cualquier tema de tu sesión de estudio.
     premium: true
   - title: Podcasts de estudio
     icon: headphones

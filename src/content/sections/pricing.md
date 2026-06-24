@@ -29,7 +29,7 @@ pricing_plans:
       - Generación de videos explicativos
       - Generación de podcasts de estudio
       - Prioridad en respuestas de IA
-      - Flipmatch sin límites
+      - Flipmatch sin límites (juegos educativos para repasar mientras juegas)
     button:
       label: Obtener Premium
       link: "https://chat.ubotcr.com"

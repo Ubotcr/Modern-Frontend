@@ -1,7 +1,6 @@
 ---
 enable: true
 title: Preguntas frecuentes
-subtitle: ""
 
 faq_list:
   - question: "¿Ubot sirve para prepararme para el TEC, la UCR y la UNA?"
@@ -18,4 +17,7 @@ faq_list:
 
   - question: "¿Cómo se procesan los pagos?"
     answer: "Usamos PayPal. Es seguro y nosotros nunca almacenamos los datos de tu tarjeta."
+
+  - question: "¿Necesito internet todo el tiempo?"
+    answer: "Necesitas conexión para chatear con la IA y hacer exámenes, pero tu historial y resultados se guardan y se sincronizan cuando vuelves a estar en línea. Ubot funciona en el navegador de tu celular, sin descarga."
 ---

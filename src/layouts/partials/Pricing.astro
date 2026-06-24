@@ -53,9 +53,15 @@ const formatCRC = (n: number) =>
                   <span class="text-gray">/ {plan.period}</span>
                 </div>
                 <p class="mt-1 text-sm text-text">
-                  <span>≈ </span>
-                  <span class="font-medium text-text-light">${plan.price}</span>
-                  USD
+                  {plan.price > 0 ? (
+                    <>
+                      <span>≈ </span>
+                      <span class="font-medium text-text-light">${plan.price}</span>
+                      USD
+                    </>
+                  ) : (
+                    <span class="font-medium text-text-light">Gratis para siempre</span>
+                  )}
                 </p>
               </div>
 
@@ -81,7 +87,7 @@ const formatCRC = (n: number) =>
                     "mt-8 w-full rounded-md px-4 py-3 text-center text-sm font-semibold transition-colors",
                     plan.highlighted
                       ? "bg-premium text-amber-950 hover:bg-premium/90"
-                      : "border border-border bg-body text-text-light hover:bg-card",
+                      : "border border-border bg-transparent text-text-light hover:bg-body",
                   ]}
                 >
                   {plan.button.label}
