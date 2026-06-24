@@ -8,6 +8,10 @@ interface Props {
 
 const { data } = Astro.props;
 const { title, subtitle, pricing_plans, enable } = data.frontmatter;
+
+const FALLBACK_RATE = 500;
+const formatCRC = (n: number) =>
+  new Intl.NumberFormat("es-CR", { maximumFractionDigits: 0 }).format(n);
 ---
 
 {
@@ -37,12 +41,22 @@ const { title, subtitle, pricing_plans, enable } = data.frontmatter;
                 )}
               </div>
 
-              <div class="mt-4 flex items-baseline gap-1">
-                <span class="text-2xl font-semibold text-gray">$</span>
-                <span class="text-5xl font-extrabold text-text-light">
-                  {plan.price}
-                </span>
-                <span class="text-gray">/ {plan.period}</span>
+              <div class="mt-4" data-price-usd={plan.price}>
+                <div class="flex items-baseline gap-1">
+                  <span class="text-2xl font-semibold text-gray">₡</span>
+                  <span
+                    class="text-5xl font-extrabold text-text-light"
+                    data-crc-price
+                  >
+                    ₡{formatCRC(Math.round(plan.price * FALLBACK_RATE))}
+                  </span>
+                  <span class="text-gray">/ {plan.period}</span>
+                </div>
+                <p class="mt-1 text-sm text-gray">
+                  <span>≈ </span>
+                  <span class="font-medium text-text-light">${plan.price}</span>
+                  USD
+                </p>
               </div>
 
               <p class="mt-3 text-sm text-gray">{plan.description}</p>
@@ -77,11 +91,81 @@ const { title, subtitle, pricing_plans, enable } = data.frontmatter;
           ))}
         </div>
 
-        <p class="mt-8 text-center text-xs text-gray">
-          Los precios pueden variar. Cancela cuando quieras. Pago seguro por
-          PayPal.
-        </p>
+        <div class="mt-8 space-y-1 text-center text-xs text-gray">
+          <p data-rate-note>
+            Los precios en colones son aproximados (tipo de cambio referencial ≈
+            ₡{formatCRC(FALLBACK_RATE)} por USD).
+          </p>
+          <p>
+            Los precios pueden variar. Cancela cuando quieras. Pago seguro por
+            PayPal.
+          </p>
+        </div>
       </div>
     </section>
   )
 }
+
+<script>
+  const API_URL = "https://open.er-api.com/v6/latest/USD";
+  const CACHE_KEY = "ubot_usd_crc_rate";
+  const CACHE_TTL = 1000 * 60 * 60;
+
+  const formatCRC = (n: number) =>
+    new Intl.NumberFormat("es-CR", { maximumFractionDigits: 0 }).format(n);
+
+  function getCachedRate(): number | null {
+    try {
+      const raw = localStorage.getItem(CACHE_KEY);
+      if (!raw) return null;
+      const { rate, ts } = JSON.parse(raw);
+      if (Date.now() - ts > CACHE_TTL) return null;
+      return typeof rate === "number" ? rate : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function setCachedRate(rate: number) {
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify({ rate, ts: Date.now() }));
+    } catch {}
+  }
+
+  function applyRate(rate: number) {
+    document.querySelectorAll<HTMLElement>("[data-price-usd]").forEach((el) => {
+      const usd = Number(el.dataset.priceUsd);
+      if (!Number.isFinite(usd)) return;
+      const crcEl = el.querySelector<HTMLElement>("[data-crc-price]");
+      if (crcEl) crcEl.textContent = formatCRC(Math.round(usd * rate));
+    });
+    const note = document.querySelector<HTMLElement>("[data-rate-note]");
+    if (note)
+      note.textContent = `Los precios en colones son aproximados (tipo de cambio referencial ≈ ₡${formatCRC(Math.round(rate))} por USD).`;
+  }
+
+  async function initPricingConversion() {
+    if (!document.querySelector("[data-price-usd]")) return;
+
+    const cached = getCachedRate();
+    if (cached) {
+      applyRate(cached);
+      return;
+    }
+
+    try {
+      const res = await fetch(API_URL);
+      if (!res.ok) throw new Error("network");
+      const data = await res.json();
+      const rate = data?.rates?.CRC;
+      if (typeof rate !== "number" || !Number.isFinite(rate))
+        throw new Error("no rate");
+      setCachedRate(rate);
+      applyRate(rate);
+    } catch {
+      // keep server-rendered fallback rate
+    }
+  }
+
+  initPricingConversion();
+</script>
