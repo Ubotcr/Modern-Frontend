@@ -1,0 +1,321 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-24T00:00:00.000Z",
+  "title": "Design System: Ubot",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Mentor Blue",
+        "canonical": "oklch(0.628 0.134 252)",
+        "tonalRamp": [
+          "oklch(0.20 0.08 252)",
+          "oklch(0.32 0.11 252)",
+          "oklch(0.44 0.13 252)",
+          "oklch(0.53 0.135 252)",
+          "oklch(0.628 0.134 252)",
+          "oklch(0.74 0.12 252)",
+          "oklch(0.85 0.08 252)",
+          "oklch(0.95 0.03 252)"
+        ]
+      },
+      "primary-deep": {
+        "role": "primary",
+        "displayName": "Deeper Mentor Blue",
+        "canonical": "oklch(0.475 0.120 254)",
+        "tonalRamp": [
+          "oklch(0.18 0.07 254)",
+          "oklch(0.28 0.10 254)",
+          "oklch(0.38 0.115 254)",
+          "oklch(0.475 0.120 254)",
+          "oklch(0.58 0.12 254)",
+          "oklch(0.70 0.10 254)",
+          "oklch(0.83 0.07 254)",
+          "oklch(0.94 0.03 254)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(0.165 0.015 264)",
+        "tonalRamp": [
+          "oklch(0.10 0.010 264)",
+          "oklch(0.165 0.015 264)",
+          "oklch(0.235 0.020 264)",
+          "oklch(0.335 0.025 264)",
+          "oklch(0.50 0.025 264)",
+          "oklch(0.70 0.020 264)",
+          "oklch(0.87 0.012 264)",
+          "oklch(0.985 0.003 264)"
+        ]
+      },
+      "ink-raised": {
+        "role": "neutral",
+        "displayName": "Ink-Raised",
+        "canonical": "oklch(0.200 0.018 264)",
+        "tonalRamp": [
+          "oklch(0.12 0.012 264)",
+          "oklch(0.200 0.018 264)",
+          "oklch(0.26 0.020 264)",
+          "oklch(0.36 0.025 264)",
+          "oklch(0.52 0.025 264)",
+          "oklch(0.71 0.020 264)",
+          "oklch(0.87 0.012 264)",
+          "oklch(0.985 0.003 264)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "canonical": "oklch(0.235 0.020 264)",
+        "tonalRamp": [
+          "oklch(0.10 0.010 264)",
+          "oklch(0.165 0.015 264)",
+          "oklch(0.235 0.020 264)",
+          "oklch(0.335 0.025 264)",
+          "oklch(0.50 0.025 264)",
+          "oklch(0.70 0.020 264)",
+          "oklch(0.87 0.012 264)",
+          "oklch(0.985 0.003 264)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Border",
+        "canonical": "oklch(0.335 0.025 264)",
+        "tonalRamp": [
+          "oklch(0.12 0.012 264)",
+          "oklch(0.20 0.018 264)",
+          "oklch(0.27 0.022 264)",
+          "oklch(0.335 0.025 264)",
+          "oklch(0.50 0.025 264)",
+          "oklch(0.70 0.020 264)",
+          "oklch(0.87 0.012 264)",
+          "oklch(0.985 0.003 264)"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Text",
+        "canonical": "oklch(0.985 0.003 250)",
+        "tonalRamp": [
+          "oklch(0.12 0.010 250)",
+          "oklch(0.20 0.012 250)",
+          "oklch(0.30 0.015 250)",
+          "oklch(0.50 0.015 250)",
+          "oklch(0.70 0.012 250)",
+          "oklch(0.87 0.008 250)",
+          "oklch(0.94 0.005 250)",
+          "oklch(0.985 0.003 250)"
+        ]
+      },
+      "text-body": {
+        "role": "neutral",
+        "displayName": "Text-Body",
+        "canonical": "oklch(0.870 0.012 250)",
+        "tonalRamp": [
+          "oklch(0.12 0.010 250)",
+          "oklch(0.20 0.012 250)",
+          "oklch(0.30 0.015 250)",
+          "oklch(0.50 0.015 250)",
+          "oklch(0.70 0.012 250)",
+          "oklch(0.870 0.012 250)",
+          "oklch(0.94 0.005 250)",
+          "oklch(0.985 0.003 250)"
+        ]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Text-Muted",
+        "canonical": "oklch(0.700 0.020 257)",
+        "tonalRamp": [
+          "oklch(0.12 0.012 257)",
+          "oklch(0.20 0.015 257)",
+          "oklch(0.32 0.018 257)",
+          "oklch(0.50 0.020 257)",
+          "oklch(0.700 0.020 257)",
+          "oklch(0.84 0.014 257)",
+          "oklch(0.93 0.008 257)",
+          "oklch(0.985 0.003 257)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(0.10 0 0)",
+          "oklch(0.20 0 0)",
+          "oklch(0.40 0 0)",
+          "oklch(0.60 0 0)",
+          "oklch(0.78 0 0)",
+          "oklch(0.90 0 0)",
+          "oklch(0.97 0 0)",
+          "oklch(1 0 0)"
+        ]
+      },
+      "premium": {
+        "role": "secondary",
+        "displayName": "Premium Amber",
+        "canonical": "oklch(0.770 0.160 70)",
+        "tonalRamp": [
+          "oklch(0.30 0.10 70)",
+          "oklch(0.45 0.14 70)",
+          "oklch(0.58 0.16 70)",
+          "oklch(0.68 0.165 70)",
+          "oklch(0.770 0.160 70)",
+          "oklch(0.85 0.13 70)",
+          "oklch(0.92 0.08 70)",
+          "oklch(0.97 0.04 70)"
+        ]
+      },
+      "success": {
+        "role": "tertiary",
+        "displayName": "Success Green",
+        "canonical": "oklch(0.720 0.170 145)",
+        "tonalRamp": [
+          "oklch(0.30 0.10 145)",
+          "oklch(0.45 0.14 145)",
+          "oklch(0.58 0.16 145)",
+          "oklch(0.66 0.17 145)",
+          "oklch(0.720 0.170 145)",
+          "oklch(0.82 0.14 145)",
+          "oklch(0.90 0.09 145)",
+          "oklch(0.96 0.04 145)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero h1 only. One per page." },
+      "headline": { "displayName": "Headline", "purpose": "Section h2s." },
+      "title": { "displayName": "Title", "purpose": "Card and feature h3s; sentence-case plan names." },
+      "body": { "displayName": "Body", "purpose": "Paragraphs, descriptions, list items. Cap 65-75ch on prose." },
+      "label": { "displayName": "Label", "purpose": "Tiny tracked UPPERCASE metadata only: stat labels, plan kickers, footer heads. Never buttons or eyebrows." }
+    },
+    "shadows": [
+      { "name": "rest", "value": "0 1px 2px 0 rgba(0,0,0,0.10)", "purpose": "Cards and containers at rest. Barely defines the edge." },
+      { "name": "hover", "value": "0 4px 6px -1px rgba(0,0,0,0.20), 0 2px 4px -2px rgba(0,0,0,0.20)", "purpose": "Cards/containers on hover, paired with a 2px lift." },
+      { "name": "raised", "value": "0 10px 15px -3px rgba(0,0,0,0.30), 0 4px 6px -4px rgba(0,0,0,0.30)", "purpose": "CTA panel and gallery lightbox only. The most elevation on the site." },
+      { "name": "primary-glow", "value": "0 1px 2px rgba(38,124,209,0.20)", "purpose": "Primary buttons only. A whisper of Mentor Blue under the fill." }
+    ],
+    "motion": [
+      { "name": "ease-out-quart", "value": "cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "Default ease-out for state transitions and reveals." },
+      { "name": "ease-standard", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Color and opacity state changes." },
+      { "name": "duration-fast", "value": "150ms", "purpose": "Dropdowns, icon swaps, color shifts." },
+      { "name": "duration-base", "value": "300ms", "purpose": "Mobile menu expand, card lifts, FAQ open." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "2xl", "value": "1536px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Mentor Blue fill, white semibold label, whisper of primary glow. The main conversion action.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\"><svg class=\"ds-btn-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3 1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z\" fill=\"currentColor\"/></svg>Comenzar gratis</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 8px; padding: 10px 20px; background: var(--color-primary); color: #fff; font-family: var(--font-primary, Inter, sans-serif); font-size: 0.875rem; font-weight: 600; line-height: 1.25; text-decoration: none; white-space: nowrap; box-shadow: 0 1px 2px rgba(38,124,209,0.20); transition: background 150ms cubic-bezier(0.4,0,0.2,1), box-shadow 150ms cubic-bezier(0.4,0,0.2,1), transform 150ms cubic-bezier(0.25,1,0.5,1); } .ds-btn-primary:hover { background: var(--color-secondary); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.20), 0 2px 4px -2px rgba(0,0,0,0.20); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--color-body), 0 0 0 4px var(--color-primary); } .ds-btn-icon { width: 18px; height: 18px; flex: none; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Transparent fill, hairline border, near-white label. The secondary action.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\">Ver planes</a>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 8px; padding: 10px 20px; background: transparent; border: 1px solid var(--color-border); color: var(--color-text-light); font-family: var(--font-primary, Inter, sans-serif); font-size: 0.875rem; font-weight: 600; line-height: 1.25; text-decoration: none; white-space: nowrap; transition: background 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-outline:hover { background: var(--color-card); } .ds-btn-outline:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--color-body), 0 0 0 4px var(--color-primary); }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Surface fill, hairline border, 12px radius, ambient rest shadow. Lifts 2px and shifts border to Mentor Blue on hover.",
+      "html": "<article class=\"ds-card\"><span class=\"ds-card-icon\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z\" fill=\"currentColor\"/></svg></span><h3 class=\"ds-card-title\">Chat con IA</h3><p class=\"ds-card-body\">Pregunta lo que quieras sobre razonamiento verbal, matemática o cualquier tema del examen.</p></article>",
+      "css": ".ds-card { position: relative; display: block; border-radius: 12px; padding: 24px; background: var(--color-card); border: 1px solid var(--color-border); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10); transition: transform 200ms cubic-bezier(0.25,1,0.5,1), box-shadow 200ms cubic-bezier(0.25,1,0.5,1), border-color 200ms cubic-bezier(0.4,0,0.2,1); } .ds-card:hover { transform: translateY(-2px); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.20), 0 2px 4px -2px rgba(0,0,0,0.20); border-color: rgba(38,124,209,0.30); } .ds-card-icon { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px; background: rgba(38,124,209,0.10); color: var(--color-primary); } .ds-card-icon svg { width: 24px; height: 24px; } .ds-card-title { margin: 16px 0 0; font-family: var(--font-primary, Inter, sans-serif); font-size: 1.125rem; font-weight: 600; line-height: 1.25; color: var(--color-text-light); } .ds-card-body { margin: 8px 0 0; font-family: var(--font-primary, Inter, sans-serif); font-size: 0.875rem; font-weight: 400; line-height: 1.625; color: var(--color-gray); }"
+    },
+    {
+      "name": "Icon Badge",
+      "kind": "custom",
+      "refersTo": "icon-badge",
+      "description": "48px Mentor-Blue-tinted square holding a Material Symbol. Reads as brand without spending the full accent.",
+      "html": "<span class=\"ds-icon-badge\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 2 6.5 9 12 16l5.5-7L12 2zm0 2.5L15.5 9 12 13.5 8.5 9 12 4.5z\" fill=\"currentColor\"/></svg></span>",
+      "css": ".ds-icon-badge { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 12px; background: rgba(38,124,209,0.10); color: var(--color-primary); } .ds-icon-badge svg { width: 24px; height: 24px; }"
+    },
+    {
+      "name": "Nav Header",
+      "kind": "nav",
+      "refersTo": "button-outline",
+      "description": "Sticky 64px header, Ink/95 with structural backdrop-blur, hairline bottom border. Sentence-case items; active is Mentor Blue.",
+      "html": "<header class=\"ds-header\"><nav class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\"><span class=\"ds-brand-mark\">U</span><span>Ubot</span></a><ul class=\"ds-nav-list\"><li><a class=\"ds-nav-link is-active\" href=\"#\">Inicio</a></li><li><a class=\"ds-nav-link\" href=\"#\">Características</a></li><li><a class=\"ds-nav-link\" href=\"#\">Precios</a></li></ul><a class=\"ds-btn-primary ds-nav-cta\" href=\"#\">Comenzar gratis</a></nav></header>",
+      "css": ".ds-header { position: sticky; top: 0; z-index: 50; height: 64px; background: rgba(15,17,23,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--color-border); } .ds-nav { display: flex; align-items: center; justify-content: space-between; height: 100%; max-width: 1280px; margin: 0 auto; padding: 0 16px; } .ds-brand { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-primary, Inter, sans-serif); font-size: 1.125rem; font-weight: 700; color: var(--color-text-light); text-decoration: none; } .ds-brand-mark { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: var(--color-primary); color: #fff; font-size: 0.875rem; } .ds-nav-list { display: flex; align-items: center; gap: 4px; list-style: none; margin: 0; padding: 0; } .ds-nav-link { display: inline-block; padding: 8px 12px; border-radius: 6px; font-family: var(--font-primary, Inter, sans-serif); font-size: 0.875rem; font-weight: 500; color: var(--color-gray); text-decoration: none; transition: color 150ms cubic-bezier(0.4,0,0.2,1); } .ds-nav-link:hover { color: var(--color-text-light); } .ds-nav-link.is-active { color: var(--color-primary); } .ds-nav-cta { padding: 8px 16px; font-size: 0.8125rem; }"
+    },
+    {
+      "name": "FAQ Item",
+      "kind": "custom",
+      "refersTo": "card",
+      "description": "Native details/summary for a11y. Bordered circle + rotates 45deg to x and fills Mentor Blue when open.",
+      "html": "<details class=\"ds-faq\"><summary class=\"ds-faq-q\"><span>¿Realmente es gratis?</span><span class=\"ds-faq-icon\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><path d=\"M11 5h2v14h-2z\" fill=\"currentColor\"/><path d=\"M5 11h14v2H5z\" fill=\"currentColor\"/></svg></span></summary><div class=\"ds-faq-a\">Sí, la esencia de Ubot es gratuita. Con tu cuenta básica tienes acceso a consultas diarias, exámenes cortos y participación en rankings, sin tarjeta de crédito.</div></details>",
+      "css": ".ds-faq { border-radius: 12px; border: 1px solid var(--color-border); background: var(--color-body); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10); transition: border-color 200ms cubic-bezier(0.4,0,0.2,1), box-shadow 200ms cubic-bezier(0.25,1,0.5,1); } .ds-faq[open] { border-color: rgba(38,124,209,0.30); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.20), 0 2px 4px -2px rgba(0,0,0,0.20); } .ds-faq-q { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; cursor: pointer; list-style: none; font-family: var(--font-primary, Inter, sans-serif); font-size: 1rem; font-weight: 500; color: var(--color-text-light); } .ds-faq-q::-webkit-details-marker { display: none; } .ds-faq-icon { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 28px; height: 28px; border-radius: 9999px; border: 1px solid var(--color-border); background: var(--color-card); color: var(--color-gray); transition: transform 300ms cubic-bezier(0.25,1,0.5,1), background 200ms, color 200ms, border-color 200ms; } .ds-faq-icon svg { width: 18px; height: 18px; } .ds-faq[open] .ds-faq-icon { transform: rotate(45deg); background: var(--color-primary); color: #fff; border-color: var(--color-primary); } .ds-faq-a { padding: 0 16px 16px; font-family: var(--font-primary, Inter, sans-serif); font-size: 0.875rem; line-height: 1.625; color: var(--color-gray); } @media (prefers-reduced-motion: reduce) { .ds-faq, .ds-faq-icon { transition: none; } .ds-faq[open] .ds-faq-icon { transform: none; } }"
+    },
+    {
+      "name": "Pricing Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Two-plan pricing card. Highlighted (Premium) plan uses amber border + tint + Popular pill; colones primary, USD secondary.",
+      "html": "<div class=\"ds-price ds-price--highlight\"><div class=\"ds-price-head\"><span class=\"ds-price-name\">Ubot Premium</span><span class=\"ds-price-pill\">Popular</span></div><div class=\"ds-price-amount\"><span class=\"ds-price-currency\">₡</span><span class=\"ds-price-value\">2.500</span><span class=\"ds-price-period\">/ mes</span></div><p class=\"ds-price-sub\">≈ $5 USD</p><ul class=\"ds-price-feats\"><li><span class=\"ds-check\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><path d=\"M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\" fill=\"currentColor\"/></svg></span>Exámenes ilimitados y semanales exclusivos</li><li><span class=\"ds-check\" aria-hidden=\"true\"><svg viewBox=\"0 0 24 24\"><path d=\"M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\" fill=\"currentColor\"/></svg></span>Generación de videos explicativos</li></ul><a class=\"ds-price-cta\" href=\"#\">Obtener Premium</a></div>",
+      "css": ".ds-price { display: flex; flex-direction: column; border-radius: 16px; padding: 32px; background: var(--color-card); border: 1px solid var(--color-border); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10); } .ds-price--highlight { border-color: rgba(245,158,11,0.50); background: rgba(245,158,11,0.05); box-shadow: 0 4px 6px -1px rgba(245,158,11,0.10); } .ds-price-head { display: flex; align-items: center; justify-content: space-between; } .ds-price-name { font-family: var(--font-primary, Inter, sans-serif); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.025em; text-transform: uppercase; color: var(--color-gray); } .ds-price-pill { border-radius: 9999px; padding: 2px 8px; background: #f59e0b; color: #fff; font-size: 0.75rem; font-weight: 600; } .ds-price-amount { margin-top: 16px; display: flex; align-items: baseline; gap: 4px; } .ds-price-currency { font-size: 1.5rem; font-weight: 600; color: var(--color-gray); } .ds-price-value { font-size: 3rem; font-weight: 800; line-height: 1; color: var(--color-text-light); } .ds-price-period { color: var(--color-gray); } .ds-price-sub { margin: 4px 0 0; font-size: 0.875rem; color: var(--color-gray); } .ds-price-feats { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; flex: 1; } .ds-price-feats li { display: flex; align-items: flex-start; gap: 12px; font-family: var(--font-primary, Inter, sans-serif); font-size: 0.875rem; color: var(--color-text-light); } .ds-check { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 16px; height: 16px; margin-top: 2px; border-radius: 9999px; background: rgba(34,197,94,0.15); color: #22c55e; } .ds-check svg { width: 14px; height: 14px; } .ds-price-cta { margin-top: 32px; padding: 12px 16px; border-radius: 6px; text-align: center; font-family: var(--font-primary, Inter, sans-serif); font-size: 0.875rem; font-weight: 600; text-decoration: none; background: #f59e0b; color: #fff; transition: background 150ms; } .ds-price-cta:hover { background: #d97706; } .ds-price-cta:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--color-body), 0 0 0 4px #f59e0b; }"
+    },
+    {
+      "name": "CTA Panel",
+      "kind": "custom",
+      "refersTo": "card",
+      "description": "Ink-to-Ink-Raised gradient, 16px radius, raised shadow, two Mentor-Blue/10 blur orbs. The one place decorative blur lives.",
+      "html": "<div class=\"ds-cta\"><span class=\"ds-cta-orb ds-cta-orb--tr\" aria-hidden=\"true\"></span><span class=\"ds-cta-orb ds-cta-orb--bl\" aria-hidden=\"true\"></span><h2 class=\"ds-cta-title\">¿Listo para entrar a la U?</h2><p class=\"ds-cta-body\">Únete a Ubot hoy y empieza a prepararte con inteligencia artificial. Es gratis.</p><a class=\"ds-btn-primary ds-cta-btn\" href=\"#\"><svg class=\"ds-btn-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 2c0 .74 1.21 2.32 2 3.05V8h1V4.5L9.5 2h-1L7 4V2H6zm12 9-2 1v3h-7c-.55 0-1 .45-1 1v6h2v-5h7v5h2v-7.7L19.5 12 18 11z\" fill=\"currentColor\"/></svg>Comenzar gratis ahora</a></div>",
+      "css": ".ds-cta { position: relative; overflow: hidden; border-radius: 16px; padding: 56px 48px; text-align: center; background: linear-gradient(180deg, var(--color-dark) 0%, var(--color-dark-gray) 100%); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.30), 0 4px 6px -4px rgba(0,0,0,0.30); } .ds-cta-orb { position: absolute; width: 192px; height: 192px; border-radius: 9999px; background: rgba(38,124,209,0.10); filter: blur(48px); pointer-events: none; } .ds-cta-orb--tr { top: -64px; right: -64px; } .ds-cta-orb--bl { bottom: -64px; left: -64px; } .ds-cta-title { position: relative; margin: 0; font-family: var(--font-primary, Inter, sans-serif); font-size: clamp(1.875rem, 4vw, 2.25rem); font-weight: 700; line-height: 1.25; color: var(--color-text-light); } .ds-cta-body { position: relative; margin: 16px auto 0; max-width: 36ch; font-family: var(--font-primary, Inter, sans-serif); font-size: 1rem; line-height: 1.625; color: var(--color-gray); } .ds-cta-btn { position: relative; margin-top: 32px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Practice Arena",
+    "overview": "Ubot's surface is a practice arena, not a brochure. The dark ink is the practice floor — the room a student sits in at 11pm grinding timed exams. Mentor Blue is the coach's marker: the line on the whiteboard, the active rep, the streak counter. Everything else stays quiet so the marker reads. The system is refined and restrained; it earns trust through clarity and specificity (real universities, real exam formats, real prices in colones), never through spectacle. Hierarchy comes from weight, size, and a single accent — not from a second typeface or a gradient.\n\nThis system explicitly rejects the generic SaaS / AI-tool landing reflex (no indigo-to-violet gradient blobs, no glassmorphism cards, no hero-metric template, no identical icon-card grids), the dark-mode cliché / neon AI reflex (no dark-for-cool, no neon glow, no trendy AI aesthetic that trades legibility for mood), and stiff corporate / formal treatment (Ubot is a coach, not an institution).",
+    "keyCharacteristics": [
+      "Dark, single-accent system: ink surface + one Mentor Blue marker + amber reserved exclusively for Premium.",
+      "Single typeface (Inter) carrying the entire hierarchy via weight and size; no second face.",
+      "Subtle-hybrid elevation: ambient shadows at rest, deepening only as a state response (hover/focus).",
+      "Sentence-case voice everywhere except tiny tracked metadata (stats, plan names, footer heads).",
+      "Refined and restrained: every shadow, border, and ornament earns its place or is removed."
+    ],
+    "rules": [
+      { "name": "The One Marker Rule", "body": "Mentor Blue appears on <=15% of any given screen. Its rarity is the point. If two large surfaces both want it, one is wrong — step one back to neutral or to Deeper Mentor Blue.", "section": "colors" },
+      { "name": "The Premium Amber Rule", "body": "Amber is a reserved signal, not a color choice. It appears only on Premium-specific affordances (the Premium feature tag, the highlighted pricing plan, the Popular badge). Using amber anywhere else dilutes the paid tier's visual currency.", "section": "colors" },
+      { "name": "The AA Boundary Rule", "body": "Mentor Blue sits at ~4.4:1 on Ink and ~3.9:1 on Surface as text; white-on-Mentor-Blue sits at ~4.3:1. Both are just under 4.5:1 AA for normal text. Use Mentor Blue as text only for large/bold text or non-text affordances; for small interactive fills use Deeper Mentor Blue (#1f61a3); keep primary button labels semibold.", "section": "colors" },
+      { "name": "The One Voice Rule", "body": "One typeface, Inter, in four weights (400/600/700/800). Introducing a second face is a departure from identity and requires an explicit trigger. Hierarchy comes from weight + size + color.", "section": "typography" },
+      { "name": "The Sentence-Case Rule", "body": "Buttons, nav items, section headings, and body copy are sentence-case. Uppercase tracked type is a metadata treatment, not a heading treatment — only on Label-class elements. An uppercase tracked eyebrow above every section is prohibited.", "section": "typography" },
+      { "name": "The State-Response Rule", "body": "Shadows deepen on hover and focus; they do not perform at rest. A card at rest has the Rest shadow; on interaction it lifts to Hover. Resting elements never carry Raised or glow shadows.", "section": "elevation" },
+      { "name": "The No-Neon Rule", "body": "Colored shadows are limited to the single Primary glow on buttons. No neon drop-glow on cards, headings, or icons. If a glow would make the page read as 'AI tool,' it is prohibited.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep Mentor Blue to <=15% of any screen (The One Marker Rule); carry everything else in the Ink/Surface/Border neutral family.",
+      "Do use Deeper Mentor Blue (#1f61a3) for small interactive fills and keep primary button labels semibold (600) so contrast clears the AA boundary.",
+      "Do build hierarchy from Inter weight + size + the single Mentor Blue marker — never from a second typeface.",
+      "Do keep section headings sentence-case; reserve uppercase tracked type for Label-class metadata only.",
+      "Do let shadows respond to state: Rest at rest, Hover on hover/focus, Raised only for the CTA and lightbox.",
+      "Do show the product in action (real exam formats, the chat, the ranking, prices in colones) instead of asserting 'AI-powered.'",
+      "Do keep the page fast and usable before JavaScript runs; the audience is on mobile and slow connections."
+    ],
+    "donts": [
+      "Don't use indigo-to-violet gradient blobs, glassmorphism cards, the hero-metric template, or endless identical icon-card grids — the generic SaaS / AI-tool landing anti-reference.",
+      "Don't use gradient text (background-clip: text over a gradient). The unused gradient-text-primary utility is a banned pattern and should be removed. Emphasis comes from weight or size.",
+      "Don't use neon glow, dark-for-cool mood, or trendy AI aesthetics that trade legibility for vibe — the dark-mode cliché / neon AI anti-reference.",
+      "Don't use stiff corporate formality, university-brochure earnestness, or stock-photo stiffness — the stiff corporate / formal anti-reference.",
+      "Don't put a tiny uppercase tracked eyebrow above every section, or numbered 01/02/03 markers as default scaffolding.",
+      "Don't use border-left or border-right greater than 1px as a colored side-stripe accent.",
+      "Don't use amber outside Premium-specific affordances, or Success green outside pricing checkmarks.",
+      "Don't apply backdrop-blur to card bodies (glassmorphism). The sticky header's blur is the only exception and is structural.",
+      "Don't let heading copy overflow its container at narrow breakpoints — reduce the clamp max or rewrite the copy."
+    ]
+  }
+}

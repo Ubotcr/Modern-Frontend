@@ -14,10 +14,11 @@ const { title, subtitle } = page_header || {};
     <section class="border-b border-border px-4 pb-16 pt-10 text-center md:pt-14">
       <div class="container mx-auto max-w-3xl">
         <h1
-          class="mt-4 text-3xl font-extrabold text-text-light md:text-4xl lg:text-5xl"
+          class="mt-4 font-extrabold text-text-light"
+          style="font-size: clamp(2.25rem, 6vw, 3.75rem); text-wrap: balance;"
           set:html={markdownify(title).__html}
         />
-        {subtitle && <p class="mx-auto mt-4 max-w-xl text-gray">{subtitle}</p>}
+        {subtitle && <p class="mx-auto mt-4 max-w-xl text-text">{subtitle}</p>}
       </div>
     </section>
   )

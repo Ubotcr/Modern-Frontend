@@ -1,3 +1,1 @@
-.header {
-  @apply bg-body/95 backdrop-blur;
-}
+/* Header styles are applied inline in Header.astro via Tailwind utilities. */

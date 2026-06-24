@@ -24,11 +24,11 @@ const { title, features } = data.frontmatter;
             <h3 class="mt-4 text-lg font-semibold text-text-light">
               {feature.title}
             </h3>
-            <p class="mt-2 text-sm leading-relaxed text-gray">
+            <p class="mt-2 text-sm leading-relaxed text-text">
               {feature.content}
             </p>
             {feature.premium && (
-              <span class="absolute right-4 top-4 rounded-full bg-amber-500/10 px-2 py-1 text-xs font-semibold text-amber-500">
+              <span class="absolute right-4 top-4 rounded-full bg-premium/10 px-2 py-1 text-xs font-semibold text-premium">
                 Premium
               </span>
             )}

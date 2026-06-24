@@ -25,7 +25,7 @@ const pageImage = image || config.metadata.meta_image;
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
@@ -67,6 +67,7 @@ const pageImage = image || config.metadata.meta_image;
     <Font cssVariable="--font-primary" preload />
   </head>
   <body class="bg-body text-text-light font-primary antialiased">
+    <a href="#main-content" class="skip-link">Saltar al contenido</a>
     <Header />
     <main id="main-content">
       <slot />

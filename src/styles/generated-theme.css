@@ -6,9 +6,11 @@
 
 @theme {
   /* === Colors === */
-  --color-primary: #2563eb;
-  --color-secondary: #1d4ed8;
-  --color-primary-dark: #141925;
+  --color-primary: #267cd1;
+  --color-secondary: #1f61a3;
+  --color-primary-dark: #1a4f8a;
+  --color-link: #4497db;
+  --color-ink-raised: #141925;
   --color-body: #0f1117;
   --color-border: #2a2f3d;
   --color-light: #ffffff;
@@ -16,6 +18,9 @@
   --color-dark: #0f1117;
   --color-dark-gray: #141925;
   --color-card: #1a1d27;
+  --color-premium: #f59e0b;
+  --color-premium-deep: #b45309;
+  --color-success: #22c55e;
   --color-text: #cbd5e1;
   --color-text-dark: #0f1117;
   --color-text-light: #f8fafc;

@@ -20,11 +20,6 @@ const logos = [
 ---
 
 <section class="relative overflow-hidden px-4 pb-20 pt-14 text-center md:pt-16">
-  <div
-    class="absolute inset-x-0 top-0 -z-10 h-[60%] bg-linear-to-b from-primary/5 to-transparent"
-  >
-  </div>
-
   <div class="container mx-auto max-w-5xl">
     <div class="mb-8 mt-6">
       <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6">
@@ -39,7 +34,6 @@ const logos = [
                 alt={logo.alt}
                 class="h-full w-full object-contain"
                 loading="eager"
-                fetchpriority="high"
               />
             </div>
           ))
@@ -48,11 +42,15 @@ const logos = [
     </div>
 
     <h1
-      class="mx-auto max-w-3xl text-4xl font-extrabold leading-tight text-text-light md:text-5xl lg:text-6xl"
+      class="mx-auto max-w-3xl font-extrabold leading-tight text-text-light"
+      style="font-size: clamp(2.25rem, 6vw, 3.75rem); text-wrap: balance;"
       set:html={markdownify(data.title).__html}
     />
 
-    <p class="mx-auto mt-6 max-w-xl text-lg text-gray">
+    <p
+      class="mx-auto mt-6 max-w-xl text-lg text-text"
+      style="text-wrap: pretty;"
+    >
       {data.content}
     </p>
 
@@ -78,29 +76,5 @@ const logos = [
         )
       }
     </div>
-
-    {
-      data.stats && (
-        <div
-          class="mt-12 flex flex-wrap justify-center gap-4"
-          role="list"
-          aria-label="Estadísticas de Ubot"
-        >
-          {data.stats.map((stat: any) => (
-            <div
-              class="flex min-w-28 flex-col items-center gap-1 rounded-xl border border-border bg-card px-6 py-4"
-              role="listitem"
-            >
-              <span class="text-2xl font-extrabold text-primary">
-                {stat.value}
-              </span>
-              <span class="text-xs uppercase tracking-wide text-gray">
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
-      )
-    }
   </div>
 </section>
