@@ -1,7 +1,15 @@
 {
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/*.xml"]
+    "exclude": [
+      "/*.xml",
+      "/*.js",
+      "/*.css",
+      "/*.png",
+      "/*.jpg",
+      "/*.svg",
+      "/assets/*"
+    ]
   },
   "responseOverrides": {
     "404": {
