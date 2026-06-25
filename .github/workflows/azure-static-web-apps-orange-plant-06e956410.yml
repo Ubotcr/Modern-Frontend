@@ -49,3 +49,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ORANGE_PLANT_06E956410 }}
           action: "close"
+          app_location: "/"
