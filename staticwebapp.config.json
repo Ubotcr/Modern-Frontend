@@ -1,6 +1,7 @@
 {
   "navigationFallback": {
-    "rewrite": "/index.html"
+    "rewrite": "/index.html",
+    "exclude": ["/*.xml"]
   },
   "responseOverrides": {
     "404": {
@@ -9,6 +10,10 @@
     }
   },
   "routes": [
+    {
+      "route": "/sitemap.xml",
+      "rewrite": "/sitemap-index.xml"
+    },
     {
       "route": "/*.html",
       "headers": {
