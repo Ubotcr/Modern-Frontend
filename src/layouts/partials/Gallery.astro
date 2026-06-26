@@ -212,14 +212,15 @@ const lightboxSources = await Promise.all(
       lastFocused = trigger;
       showImage(index);
       lightbox.classList.remove("hidden");
-      void lightbox.offsetWidth;
-      lightbox.classList.remove("opacity-0");
-      if (!prefersReducedMotion) {
-        lightboxImg.classList.remove("scale-95");
-        lightboxImg.classList.add("scale-100");
-      } else {
-        lightboxImg.classList.remove("scale-95");
-      }
+      requestAnimationFrame(() => {
+        lightbox.classList.remove("opacity-0");
+        if (!prefersReducedMotion) {
+          lightboxImg.classList.remove("scale-95");
+          lightboxImg.classList.add("scale-100");
+        } else {
+          lightboxImg.classList.remove("scale-95");
+        }
+      });
       document.body.style.overflow = "hidden";
       closeBtn.focus();
     };

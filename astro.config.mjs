@@ -37,6 +37,7 @@ const fontsConfig = Object.entries(theme.fonts.font_family)
       cssVariable: `--font-${key}`,
       provider: fontProviders.google(),
       weights,
+      subsets: ["latin"],
       display: "swap",
       fallbacks: [fallback],
     };

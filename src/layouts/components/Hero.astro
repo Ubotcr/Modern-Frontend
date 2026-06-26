@@ -18,10 +18,10 @@ const logos = [
   { src: logoUNA, alt: "Universidad Nacional de Costa Rica" },
   { src: logoTEC, alt: "Tecnológico de Costa Rica" },
 ];
-// Los logos se muestran a 96-112px; en retina basta con 224px.
-// Se omite para SVG (se mantienen vectoriales).
+// Los logos se muestran a 96-112px; con padding (p-4) el espacio real es 64-80px.
+// 160px cubre retina (2x80px). SVG se mantienen vectoriales.
 const logoWidth = (meta: ImageMetadata) =>
-  meta.format === "svg" ? undefined : 224;
+  meta.format === "svg" ? undefined : 160;
 ---
 
 <section class="relative overflow-hidden px-4 pb-20 pt-14 text-center md:pt-16">
