@@ -13,6 +13,10 @@
       "url": "/pricing"
     },
     {
+      "name": "Nosotros",
+      "url": "/about"
+    },
+    {
       "name": "Recursos",
       "url": "",
       "children": [
@@ -25,10 +29,6 @@
           "url": "/changelog"
         }
       ]
-    },
-    {
-      "name": "Nosotros",
-      "url": "/about"
     }
   ],
   "footer_company": [

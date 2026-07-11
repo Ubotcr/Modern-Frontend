@@ -27,3 +27,6 @@ yarn.lock
 
 # ide
 .idea/
+
+
+.prettierrc

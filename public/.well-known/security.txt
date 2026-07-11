@@ -1,0 +1,7 @@
+# security.txt - https://securitytxt.org/
+Contact: mailto:contacto@ubotcr.com
+Contact: https://ubotcr.com/contact
+Expires: 2027-07-10T18:00:00Z
+Preferred-Languages: es
+Canonical: https://ubotcr.com/.well-known/security.txt
+Canonical: https://ubotcr.com/security.txt
