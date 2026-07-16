@@ -10,14 +10,14 @@ const { data } = Astro.props;
 const { title, features, included } = data.frontmatter;
 ---
 
-<section class="px-4 py-16 md:py-24">
+<section class="border-y border-border bg-card px-4 py-16 md:py-24">
   <div class="container mx-auto max-w-6xl">
     <SectionHeader title={title} />
 
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
         features.map((feature: any) => (
-          <article class="group relative rounded-xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md">
+          <article class="group relative rounded-xl border border-border bg-body p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md">
             <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Icon name={feature.icon} class="text-2xl" />
             </span>
@@ -40,7 +40,7 @@ const { title, features, included } = data.frontmatter;
           </p>
           <div class="grid gap-4 sm:grid-cols-3">
             {included.map((item: any) => (
-              <div class="flex items-start gap-3 rounded-lg border border-border bg-card/50 px-4 py-3.5">
+              <div class="flex items-start gap-3 rounded-lg border border-border bg-body/50 px-4 py-3.5">
                 <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <Icon name={item.icon} class="text-lg" />
                 </span>

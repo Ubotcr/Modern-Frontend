@@ -6,9 +6,7 @@ import social from "@/config/social.json";
 const { footer_company, footer_product, footer_legal } = menu;
 const { params, site } = config;
 
-import { Image } from "astro:assets";
-// Import image from public directly for Astro processing
-import schoolLogo from "../../../public/images/school.png";
+import Logo from "@/components/Logo.astro";
 ---
 
 <footer class="border-t border-border bg-card" style="padding-bottom: env(safe-area-inset-bottom);">
@@ -19,7 +17,7 @@ import schoolLogo from "../../../public/images/school.png";
           href="/"
           class="flex items-center gap-2 text-lg font-bold text-text-light no-underline"
         >
-          <Image src={schoolLogo} alt="" width={24} height={24} loading="lazy" />
+          <Logo width={24} height={24} loading="lazy" />
           <span>{site.logo_text}</span>
         </a>
         <p class="mt-4 text-sm leading-relaxed text-gray">

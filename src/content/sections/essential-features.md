@@ -11,6 +11,15 @@ features:
   - title: Rankings y competencia
     icon: emoji_events
     content: Mide tu avance contra estudiantes de todo el país. Mantén tu racha diaria y sube de nivel con el sistema de puntos Elo (como en el ajedrez).
+  - title: Torre de Poder & Economía
+    icon: keyboard_double_arrow_up
+    content: Escala la torre contestando preguntas mientras ganas monedas en nuestro sistema de economía in-game. ¿Buscas un reto mayor? Prueba el modo Nightmare exclusivo para suscriptores.
+  - title: Flipmatch
+    icon: style
+    content: Aprende de forma divertida con nuestras flipcards. Juega en modo Match para vincular definiciones con términos, o usa el modo Simple para repasar y memorizar.
+  - title: Perfil Público y Tienda
+    icon: storefront
+    content: Muestra tus estadísticas en tu perfil público. Usa tus monedas en la tienda para comprar banners, marcos y stickers que te destacarán en los rankings.
 included:
   - title: Videos explicativos
     icon: videocam
@@ -20,7 +29,7 @@ included:
     icon: headphones
     content: Convierte cualquier explicación en un podcast que puedes escuchar en cualquier lugar.
     premium: true
-  - title: Historial sincronizado
-    icon: auto_stories
-    content: Todos tus chats y sesiones de estudio se sincronizan automáticamente entre dispositivos.
+  - title: Galería de Archivos y Sincronización
+    icon: folder_open
+    content: Todos tus chats se sincronizan automáticamente. Accede a la galería donde podrás ver todos los documentos, imágenes y archivos que le has enviado alguna vez a Ubot.
 ---

@@ -16,7 +16,7 @@ const formatCRC = (n: number) =>
 
 {
   enable && (
-    <section id="pricing" class="px-4 py-12 md:py-20">
+    <section id="pricing" class="border-y border-border bg-card px-4 py-12 md:py-20">
       <div class="container mx-auto max-w-5xl">
         <SectionHeader title={title} subtitle={subtitle} />
 
@@ -27,7 +27,7 @@ const formatCRC = (n: number) =>
                 "flex flex-col rounded-2xl border p-6 shadow-sm transition-all md:p-8",
                 plan.highlighted
                   ? "border-premium/50 bg-premium/5 shadow-premium/10 hover:shadow-lg"
-                  : "border-border bg-card hover:-translate-y-0.5 hover:shadow-md",
+                  : "border-border bg-body hover:-translate-y-0.5 hover:shadow-md",
               ]}
             >
               <div class="flex items-center justify-between">

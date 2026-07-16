@@ -1,6 +1,7 @@
 ---
 import { markdownify } from "@/lib/utils/textConverter";
 import Icon from "@/components/Icon.astro";
+import Logo from "@/components/Logo.astro";
 import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
@@ -69,7 +70,7 @@ const logoWidth = (meta: ImageMetadata) =>
             rel="noopener noreferrer"
             class="btn btn-primary btn-lg"
           >
-            <Icon name="school" class="text-lg" filled />
+            <Icon name="sports_esports" class="text-lg" filled />
             {data.button_primary.label}
           </a>
         )

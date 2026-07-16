@@ -1,5 +1,6 @@
 ---
 import SectionHeader from "@/components/SectionHeader.astro";
+import Icon from "@/components/Icon.astro";
 
 interface Props {
   data: any;
@@ -9,23 +10,44 @@ const { data } = Astro.props;
 const { title, team_list } = data;
 ---
 
-<section class="px-4 py-16 md:py-24">
-  <div class="container mx-auto max-w-5xl">
+<section class="px-4 py-16 md:py-24 overflow-hidden relative">
+  <!-- Subtle blurred background shapes -->
+  <div class="pointer-events-none absolute left-0 top-1/4 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]"></div>
+  <div class="pointer-events-none absolute right-0 top-3/4 h-[300px] w-[300px] translate-x-1/2 rounded-full bg-primary/10 blur-[120px]"></div>
+
+  <div class="container mx-auto max-w-6xl relative z-10">
     <SectionHeader title={title} />
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-6">
       {
-        team_list.map((member: any) => (
-          <div class="rounded-xl border border-border bg-card p-5 text-center shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
-            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-2xl font-bold text-primary">
-              {member.name.charAt(0)}
+        team_list.map((member: any, index: number) => {
+          const isTopRow = index < 2;
+          const colSpanLG = isTopRow ? "lg:col-span-3" : "lg:col-span-2";
+          const colSpanSM = index === 4 ? "sm:col-span-2 lg:col-span-2" : "sm:col-span-1";
+          
+          return (
+            <div class={`group relative overflow-hidden rounded-2xl border border-border bg-theme-light dark:bg-darkmode-theme-light p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${colSpanLG} ${colSpanSM}`}>
+              
+              <div class="relative z-10 flex h-full flex-col items-center text-center">
+                <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
+                  <Icon name={member.icon || "person"} class="text-3xl" />
+                </div>
+                
+                <h3 class="mb-1 text-xl font-bold text-text-light dark:text-white">
+                  {member.name}
+                </h3>
+                
+                <p class="mb-4 text-xs font-semibold uppercase tracking-wider text-primary">
+                  {member.position}
+                </p>
+                
+                <p class="text-[15px] leading-relaxed text-text dark:text-light/80">
+                  {member.description}
+                </p>
+              </div>
             </div>
-            <h3 class="mt-4 text-base font-semibold text-text-light">
-              {member.name}
-            </h3>
-            <p class="mt-1 text-xs text-gray">{member.position}</p>
-          </div>
-        ))
+          );
+        })
       }
     </div>
   </div>

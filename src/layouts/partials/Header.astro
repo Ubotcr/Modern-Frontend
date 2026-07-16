@@ -6,8 +6,7 @@ import Icon from "@/components/Icon.astro";
 const { navigation_button, site } = config;
 const currentPath = Astro.url.pathname;
 
-import { Image } from "astro:assets";
-import schoolLogo from "../../../public/images/school.png";
+import Logo from "@/components/Logo.astro";
 
 interface NavItem {
   name: string;
@@ -30,11 +29,9 @@ const { main } = menu as { main: NavItem[] };
         href="/"
         class="flex items-center gap-2 text-lg font-bold text-text-light no-underline"
       >
-        <Image
-          src={schoolLogo}
-          alt=""
-          width={28}
-          height={28}
+        <Logo
+          width={32}
+          height={32}
           class="block"
           loading="eager"
           fetchpriority="high"
@@ -76,7 +73,7 @@ const { main } = menu as { main: NavItem[] };
                       />
                     </button>
                     <ul
-                      class="invisible absolute left-0 top-full z-50 mt-1 min-w-[12rem] rounded-lg border border-border bg-card p-1 opacity-0 shadow-lg transition-all duration-150 group-data-[open=true]:visible group-data-[open=true]:opacity-100"
+                      class="invisible absolute left-0 top-full z-50 mt-1 min-w-48 rounded-lg border border-border bg-card p-1 opacity-0 shadow-lg transition-all duration-150 group-data-[open=true]:visible group-data-[open=true]:opacity-100"
                       data-dropdown-menu
                     >
                       {item.children.map((child) => (
@@ -214,7 +211,7 @@ const { main } = menu as { main: NavItem[] };
     // Collect focusable elements inside the mobile menu for the Tab trap.
     const menuFocusables = Array.from(
       mobileMenu.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), [data-close-menu]',
+        "a[href], button:not([disabled]), [data-close-menu]",
       ),
     );
 

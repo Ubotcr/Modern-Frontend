@@ -7,8 +7,8 @@ steps:
     content: Ingresa con tu cuenta de Google en segundos. No necesitas pagar ni ingresar datos de pago.
   - title: Haz tu primera pregunta
     content: Escribe tu duda sobre matemática, razonamiento verbal o cualquier tema del examen y obtén una respuesta al instante.
-  - title: Practica con exámenes
-    content: Resuelve exámenes diarios y semanales para poner a prueba tus conocimientos y ver cuánto has avanzado.
-  - title: Mejora tu puntaje
-    content: Analiza tus resultados, identifica áreas de mejora y sube en el ranking global camino a la universidad.
+  - title: Practica y juega
+    content: Resuelve exámenes, juega Flipmatch y escala la Torre de Poder. Gana monedas en nuestro sistema de economía mientras aprendes.
+  - title: Destaca en el ranking
+    content: Analiza tus resultados, sube en el ranking global y usa tus monedas en la tienda para comprar accesorios y decorar tu perfil público.
 ---

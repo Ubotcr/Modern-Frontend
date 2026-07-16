@@ -4,8 +4,8 @@
     "base_url": "https://ubotcr.com",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/favicon.ico",
-    "logo_icon": "/images/school.png",
+    "favicon": "/favicon.png",
+    "logo_icon": "/favicon.png",
     "logo_text": "Ubot"
   },
   "settings": {

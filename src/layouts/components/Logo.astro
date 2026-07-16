@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+import logoImg from "@/logo.jpeg";
+
+interface Props {
+  width?: number;
+  height?: number;
+  class?: string;
+  loading?: "eager" | "lazy";
+  fetchpriority?: "high" | "low" | "auto";
+}
+
+const { width = 28, height = 28, class: className = "", loading, fetchpriority } = Astro.props;
+---
+
+<Image
+  src={logoImg}
+  alt="Logo de Ubot"
+  width={width}
+  height={height}
+  densities={[1.5, 2]}
+  quality="max"
+  class={`rounded-full object-cover ${className}`}
+  loading={loading}
+  fetchpriority={fetchpriority}
+/>

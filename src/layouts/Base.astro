@@ -19,6 +19,9 @@ const { title, meta_title, description, image, noindex, canonical } =
 const pageTitle = meta_title || title || config.site.title;
 const pageDescription = description || config.metadata.meta_description;
 const pageImage = image || config.metadata.meta_image;
+
+import pkg from "../../package.json";
+const v = pkg.version;
 ---
 
 <!doctype html>
@@ -40,20 +43,20 @@ const pageImage = image || config.metadata.meta_image;
       property="og:url"
       content={`${config.site.base_url}${Astro.url.pathname}`}
     />
-    <meta property="og:image" content={`${config.site.base_url}${pageImage}`} />
+    <meta property="og:image" content={`${config.site.base_url}${pageImage}?v=${v}`} />
 
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
     <meta
       name="twitter:image"
-      content={`${config.site.base_url}${pageImage}`}
+      content={`${config.site.base_url}${pageImage}?v=${v}`}
     />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" type="image/png" href={`/favicon.png?v=${v}`} sizes="32x32" />
+    <link rel="icon" type="image/png" href={`/icon-192.png?v=${v}`} sizes="192x192" />
+    <link rel="apple-touch-icon" href={`/apple-touch-icon.png?v=${v}`} />
+    <link rel="manifest" href={`/site.webmanifest?v=${v}`} />
     <meta name="theme-color" content="#0f1117" />
     <meta name="generator" content={Astro.generator} />
 
@@ -73,6 +76,20 @@ const pageImage = image || config.metadata.meta_image;
     </noscript>
 
     <Font cssVariable="--font-primary" preload />
+
+    <script type="application/ld+json" set:html={`
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "${config.site.title}",
+        "url": "${config.site.base_url}",
+        "publisher": {
+          "@type": "Organization",
+          "name": "${config.site.title}",
+          "logo": "${config.site.base_url}${config.site.logo_icon}?v=${v}"
+        }
+      }
+    `} />
   </head>
   <body class="bg-body text-text-light font-primary antialiased">
     <a href="#main-content" class="skip-link">Saltar al contenido</a>

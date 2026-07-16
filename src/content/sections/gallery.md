@@ -2,19 +2,26 @@
 enable: true
 title: Así se ve Ubot en acción
 subtitle: Interfaz diseñada para un aprendizaje sin distracciones.
-# TODO: These screenshots are outdated and should be replaced with current
-# captures of the product. Captions below describe the intended content.
+
 images:
-  - src: "/images/promo/1.png"
-    caption: "En el chat mostrando un audio generado"
-  - src: "/images/promo/2.png"
+  - src: "/images/promo/audioChat.png"
+    caption: "Chat de Ubot resolviendo una duda con audio generado"
+  - src: "/images/promo/recurrenciasPreguntaChat.png"
     caption: "Chat de Ubot resolviendo una duda con recurrencias"
-  - src: "/images/promo/3.png"
+  - src: "/images/promo/funcionesPreguntaChat.png"
     caption: "Explicando el tema de funciones cuadráticas"
-  - src: "/images/promo/4.png"
+  - src: "/images/promo/lobbyExamen.png"
     caption: "Lobby de exámenes"
-  - src: "/images/promo/5.png"
-    caption: "Examen en progreso: pregunta de polígonos regulares (matemática)"
-  - src: "/images/promo/6.png"
+  - src: "/images/promo/preguntaExamen.png"
+    caption: "Examen en progreso"
+  - src: "/images/promo/rankingUnificado.png"
     caption: "Ranking global de exámenes ordenado por ELO"
+  - src: "/images/promo/torrePoder.png"
+    caption: "Escalando la Torre de Poder"
+  - src: "/images/promo/flipmatch.png"
+    caption: "Jugando el modo Match en Flipmatch"
+  - src: "/images/promo/tienda.png"
+    caption: "Personalizando tu perfil público en la tienda"
+  - src: "/images/promo/galeriaArchivos.png"
+    caption: "Galería de archivos de tu perfil"
 ---
