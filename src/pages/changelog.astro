@@ -30,6 +30,13 @@ const callToAction = await getListPage("sections/call-to-action.md");
                   {item.title}
                 </h2>
                 <p class="mt-2 text-sm text-text">{item.description}</p>
+                {item.highlights && item.highlights.length > 0 && (
+                  <ul class="mt-3 flex flex-col gap-1.5 text-sm text-text">
+                    {item.highlights.map((highlight: string) => (
+                      <li>{highlight}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
             ))}
           </div>

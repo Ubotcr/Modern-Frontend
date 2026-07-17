@@ -5,6 +5,6 @@ description: "Consejos, guías y novedades para preparar los exámenes de admisi
 image: ""
 draft: false
 page_header:
-  title: "El <mark>blog</mark>"
+  title: "Ublog"
   subtitle: "Consejos, guías y novedades para tu preparación."
 ---

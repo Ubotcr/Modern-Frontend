@@ -1,6 +1,6 @@
 ---
 title: "Plantilla de changelog"
-draft: true
+draft: false
 ---
 
 # Cómo agregar una entrada al changelog
