@@ -1,0 +1,83 @@
+---
+// src/layouts/components/CalendarWidget.astro
+import { calendarEvents } from "@/config/calendar";
+import { sortByStart, formatEventDate } from "@/lib/utils/calendar";
+
+// Candidatos: todos ordenados. El cliente filtra a los 3 próximos.
+const candidates = sortByStart(calendarEvents);
+---
+
+<section class="px-4 py-12 md:py-16">
+  <div class="container mx-auto max-w-3xl">
+    <div class="rounded-2xl border border-border bg-card p-6 md:p-8">
+      <div class="flex items-center justify-between gap-4">
+        <h2 class="text-xl font-bold text-text-light md:text-2xl">
+          📅 Fechas importantes
+        </h2>
+        <a
+          href="/calendario"
+          class="shrink-0 text-sm font-semibold text-primary hover:underline"
+        >
+          Ver calendario →
+        </a>
+      </div>
+
+      <ul class="mt-5 flex flex-col divide-y divide-border" data-calendar-widget>
+        {
+          candidates.map((ev) => (
+            <li
+              class="hidden items-start gap-4 py-3"
+              data-widget-item
+              data-start={ev.start}
+              data-end={ev.end ?? ev.start}
+            >
+              <span class="w-24 shrink-0 text-sm font-semibold text-gray">
+                {formatEventDate(ev)}
+              </span>
+              <span class="flex-1 text-sm text-text-light">{ev.title}</span>
+              <span class="flex shrink-0 gap-1">
+                {ev.universities.map((u) => (
+                  <span class="rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">
+                    {u}
+                  </span>
+                ))}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="mt-4 hidden text-sm text-gray" data-widget-empty>
+        Pronto se publicarán las fechas del próximo ciclo.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const today = new Date();
+  const todayUTC = Date.UTC(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate(),
+  );
+  const toUTC = (iso: string) => {
+    const [y, m, d] = iso.split("-").map(Number);
+    return Date.UTC(y, m - 1, d);
+  };
+  const items = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-widget-item]"),
+  );
+  const upcoming = items.filter(
+    (el) => toUTC(el.dataset.end || el.dataset.start || "") >= todayUTC,
+  );
+  upcoming.slice(0, 3).forEach((el) => {
+    el.classList.remove("hidden");
+    el.classList.add("flex");
+  });
+  if (upcoming.length === 0) {
+    document
+      .querySelector<HTMLElement>("[data-widget-empty]")
+      ?.classList.remove("hidden");
+  }
+</script>

@@ -1,5 +1,6 @@
 ---
 import Base from "@/layouts/Base.astro";
+import CalendarWidget from "@/components/CalendarWidget.astro";
 import Hero from "@/components/Hero.astro";
 import CallToAction from "@/partials/CallToAction.astro";
 import EssentialFeatures from "@/partials/EssentialFeatures.astro";
@@ -29,5 +30,6 @@ const { banner } = homepage.frontmatter;
   <HowItWorks data={howItWorks} />
   <Pricing data={pricing} />
   <FAQ data={faq} />
+  <CalendarWidget />
   <CallToAction data={callToAction} />
 </Base>
