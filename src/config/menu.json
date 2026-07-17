@@ -25,6 +25,10 @@
           "url": "/blog"
         },
         {
+          "name": "Calendario",
+          "url": "/calendario"
+        },
+        {
           "name": "Registro de cambios",
           "url": "/changelog"
         }
