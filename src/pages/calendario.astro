@@ -1,0 +1,254 @@
+---
+import Base from "@/layouts/Base.astro";
+import CallToAction from "@/partials/CallToAction.astro";
+import { getListPage } from "@/lib/contentParser";
+import { calendarEvents } from "@/config/calendar";
+import {
+  sortByStart,
+  formatEventDate,
+  CATEGORY_LABELS,
+  CATEGORY_CLASSES,
+} from "@/lib/utils/calendar";
+
+const callToAction = await getListPage("sections/call-to-action.md");
+
+const sorted = sortByStart(calendarEvents);
+
+// Agrupar por "YYYY-MM" preservando el orden cronológico.
+const groups: { key: string; label: string; events: typeof sorted }[] = [];
+for (const ev of sorted) {
+  const key = ev.start.slice(0, 7);
+  let g = groups.find((x) => x.key === key);
+  if (!g) {
+    const label = new Intl.DateTimeFormat("es-CR", {
+      month: "long",
+      year: "numeric",
+      timeZone: "UTC",
+    }).format(new Date(ev.start));
+    g = { key, label, events: [] };
+    groups.push(g);
+  }
+  g.events.push(ev);
+}
+
+const universities = ["UCR", "UNA", "TEC"] as const;
+const categories = Object.keys(
+  CATEGORY_LABELS,
+) as (keyof typeof CATEGORY_LABELS)[];
+---
+
+<Base
+  title="Calendario de admisión 2026"
+  description="Todas las fechas clave de admisión universitaria en Costa Rica (UCR, UNA, TEC) en un solo lugar."
+>
+  <section class="px-4 py-12 md:py-16">
+    <div class="container mx-auto max-w-3xl">
+      <div class="text-center">
+        <h1 class="text-3xl font-extrabold text-text-light md:text-4xl">
+          Calendario de admisión 2026
+        </h1>
+        <p class="mx-auto mt-3 max-w-2xl text-text">
+          Todas las fechas de inscripción, exámenes, becas y ferias de la UCR,
+          la UNA y el TEC en un solo lugar. Verificá siempre las fechas en las
+          fuentes oficiales.
+        </p>
+      </div>
+
+      {/* Filtros */}
+      <div class="mt-8 flex flex-col gap-3" data-calendar-filters>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="mr-1 text-sm font-semibold text-gray">Universidad:</span>
+          <button
+            class="rounded-full border border-primary bg-primary px-3 py-1 text-sm font-semibold text-white"
+            data-filter-uni="all">Todas</button
+          >
+          {
+            universities.map((u) => (
+              <button
+                class="rounded-full border border-border px-3 py-1 text-sm font-semibold text-text"
+                data-filter-uni={u}
+              >
+                {u}
+              </button>
+            ))
+          }
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="mr-1 text-sm font-semibold text-gray">Tipo:</span>
+          <button
+            class="rounded-full border border-primary bg-primary px-3 py-1 text-sm font-semibold text-white"
+            data-filter-cat="all">Todas</button
+          >
+          {
+            categories.map((c) => (
+              <button
+                class="rounded-full border border-border px-3 py-1 text-sm font-semibold text-text"
+                data-filter-cat={c}
+              >
+                {CATEGORY_LABELS[c]}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      {/* Timeline */}
+      <div class="mt-10 flex flex-col gap-10" data-calendar-timeline>
+        {
+          groups.map((g) => (
+            <div data-month-group data-month={g.key}>
+              <h2 class="mb-4 text-lg font-bold capitalize text-text-light">
+                {g.label}
+              </h2>
+              <div class="flex flex-col gap-4">
+                {g.events.map((ev) => (
+                  <article
+                    id={ev.id}
+                    class="rounded-xl border border-border bg-card p-5 transition-opacity"
+                    data-event
+                    data-universities={ev.universities.join(",")}
+                    data-category={ev.category}
+                    data-start={ev.start}
+                    data-end={ev.end ?? ev.start}
+                  >
+                    <div class="flex flex-wrap items-center gap-2">
+                      <span
+                        class={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${CATEGORY_CLASSES[ev.category]}`}
+                      >
+                        {CATEGORY_LABELS[ev.category]}
+                      </span>
+                      {ev.universities.map((u) => (
+                        <span class="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">
+                          {u}
+                        </span>
+                      ))}
+                      <span
+                        class="ml-auto hidden rounded-full px-2.5 py-0.5 text-xs font-semibold"
+                        data-state-badge
+                      />
+                    </div>
+                    <p class="mt-3 text-sm font-semibold text-gray">
+                      {formatEventDate(ev)}
+                    </p>
+                    <h3 class="mt-1 text-lg font-bold text-text-light">
+                      {ev.title}
+                    </h3>
+                    {ev.description && (
+                      <p class="mt-1 text-sm text-text">{ev.description}</p>
+                    )}
+                    {ev.link && (
+                      <a
+                        href={ev.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="mt-3 inline-block text-sm font-semibold text-primary hover:underline"
+                      >
+                        Fuente oficial →
+                      </a>
+                    )}
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="mt-10 hidden text-center text-text" data-calendar-empty>
+        No hay eventos con esos filtros.
+      </p>
+    </div>
+  </section>
+
+  <CallToAction data={callToAction} />
+</Base>
+
+<script>
+  // --- Estado (pasado/actual/próximo) contra la fecha del visitante ---
+  const today = new Date();
+  const todayUTC = Date.UTC(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate(),
+  );
+  const toUTC = (iso: string) => {
+    const [y, m, d] = iso.split("-").map(Number);
+    return Date.UTC(y, m - 1, d);
+  };
+
+  const events = Array.from(
+    document.querySelectorAll<HTMLElement>("[data-event]"),
+  );
+
+  let nextAssigned = false;
+  for (const el of events) {
+    const start = toUTC(el.dataset.start || "");
+    const end = toUTC(el.dataset.end || el.dataset.start || "");
+    const badge = el.querySelector<HTMLElement>("[data-state-badge]");
+    let label = "";
+    let cls = "";
+    if (end < todayUTC) {
+      el.classList.add("opacity-50");
+      label = "Finalizado";
+      cls = "bg-gray-500/10 text-gray-500";
+    } else if (start <= todayUTC && todayUTC <= end) {
+      el.classList.add("ring-2", "ring-primary");
+      label = "En curso";
+      cls = "bg-primary/10 text-primary";
+    } else if (!nextAssigned) {
+      nextAssigned = true;
+      el.classList.add("ring-1", "ring-primary/40");
+      label = "Próximo";
+      cls = "bg-primary/10 text-primary";
+    }
+    if (badge && label) {
+      badge.textContent = label;
+      badge.className = `ml-auto rounded-full px-2.5 py-0.5 text-xs font-semibold ${cls}`;
+    }
+  }
+
+  // --- Filtros universidad + categoría (AND) ---
+  let uni = "all";
+  let cat = "all";
+
+  const apply = () => {
+    let visible = 0;
+    for (const el of events) {
+      const unis = (el.dataset.universities || "").split(",");
+      const okUni = uni === "all" || unis.includes(uni);
+      const okCat = cat === "all" || el.dataset.category === cat;
+      const show = okUni && okCat;
+      el.classList.toggle("hidden", !show);
+      if (show) visible++;
+    }
+    // Ocultar grupos de mes vacíos.
+    document
+      .querySelectorAll<HTMLElement>("[data-month-group]")
+      .forEach((g) => {
+        const anyVisible = g.querySelector("[data-event]:not(.hidden)");
+        g.classList.toggle("hidden", !anyVisible);
+      });
+    document
+      .querySelector<HTMLElement>("[data-calendar-empty]")
+      ?.classList.toggle("hidden", visible > 0);
+  };
+
+  const wire = (attr: string, setter: (v: string) => void) => {
+    document.querySelectorAll<HTMLElement>(`[${attr}]`).forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const group = document.querySelectorAll<HTMLElement>(`[${attr}]`);
+        group.forEach((b) => {
+          b.classList.remove("border-primary", "bg-primary", "text-white");
+          b.classList.add("border-border", "text-text");
+        });
+        btn.classList.add("border-primary", "bg-primary", "text-white");
+        btn.classList.remove("border-border", "text-text");
+        setter(btn.getAttribute(attr) || "all");
+        apply();
+      });
+    });
+  };
+
+  wire("data-filter-uni", (v) => (uni = v));
+  wire("data-filter-cat", (v) => (cat = v));
+</script>
