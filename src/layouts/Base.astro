@@ -19,6 +19,7 @@ const { title, meta_title, description, image, noindex, canonical } =
 const pageTitle = meta_title || title || config.site.title;
 const pageDescription = description || config.metadata.meta_description;
 const pageImage = image || config.metadata.meta_image;
+const canonicalUrl = canonical || `${config.site.base_url}${Astro.url.pathname}`;
 
 import pkg from "../../package.json";
 const v = pkg.version;
@@ -34,8 +35,10 @@ const v = pkg.version;
     <meta name="description" content={pageDescription} />
     <meta name="author" content={config.metadata.meta_author} />
     {noindex && <meta name="robots" content="noindex,nofollow" />}
-    {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="canonical" href={canonicalUrl} />
 
+    <meta property="og:site_name" content={config.site.title} />
+    <meta property="og:locale" content="es_CR" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
@@ -63,14 +66,14 @@ const v = pkg.version;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400..700,0..1,0&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400..700,0..1,0&display=block"
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
     />
     <noscript>
       <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400..700,0..1,0&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400..700,0..1,0&display=block"
         rel="stylesheet"
       />
     </noscript>
@@ -90,6 +93,7 @@ const v = pkg.version;
         }
       }
     `} />
+    <slot name="head" />
   </head>
   <body class="bg-body text-text-light font-primary antialiased">
     <a href="#main-content" class="skip-link">Saltar al contenido</a>

@@ -14,6 +14,15 @@
   @apply prose-headings:text-text-light prose-p:text-gray;
   @apply prose-a:text-primary prose-strong:text-text-light;
   @apply prose-li:text-text prose-ul:marker:text-primary;
+  @apply prose-code:text-text-light prose-code:bg-card prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md;
+  @apply prose-pre:bg-card prose-pre:text-text-light prose-pre:border prose-pre:border-border;
+  @apply prose-th:text-text-light prose-td:text-gray prose-tr:border-border;
+  @apply prose-blockquote:text-gray prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:py-1 prose-blockquote:rounded-r-lg;
+}
+
+.content code::before,
+.content code::after {
+  content: none;
 }
 
 /* icon wrapper helpers */

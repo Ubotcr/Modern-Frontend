@@ -10,6 +10,7 @@ import HowItWorks from "@/partials/HowItWorks.astro";
 import Pricing from "@/partials/Pricing.astro";
 import WhyChooseUs from "@/partials/WhyChooseUs.astro";
 import { getListPage } from "@/lib/contentParser";
+import config from "@/config/config.json";
 
 const homepage = await getListPage("homepage/-index.md");
 const essentialFeatures = await getListPage("sections/essential-features.md");
@@ -20,9 +21,41 @@ const pricing = await getListPage("sections/pricing.md");
 const faq = await getListPage("sections/faq.md");
 const callToAction = await getListPage("sections/call-to-action.md");
 const { banner } = homepage.frontmatter;
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": config.site.title,
+  "operatingSystem": "Web",
+  "applicationCategory": "EducationalApplication",
+  "url": config.site.base_url,
+  "description": config.metadata.meta_description,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.frontmatter.faq_list.map((item: any) => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
 ---
 
 <Base>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
   <Hero data={banner} />
   <EssentialFeatures data={essentialFeatures} />
   <Gallery data={gallery} />
