@@ -6,6 +6,9 @@ faq_list:
   - question: "¿Ubot sirve para prepararme para el TEC, la UCR y la UNA?"
     answer: "Sí. Nuestra IA y simulacros están estructurados específicamente para los modelos de examen de admisión de las tres universidades estatales principales de Costa Rica."
 
+  - question: "¿Qué es el examen diagnóstico de Ubot?"
+    answer: "Es una prueba diagnóstica gratuita que mide tu nivel actual en las áreas que evalúan los exámenes de admisión (PAA) de la UCR, UNA y TEC: razonamiento lógico, matemático y verbal. Al terminar sabes en qué temas enfocar tu preparación. Puedes hacerlo en chat.ubotcr.com/diagnostico."
+
   - question: "¿Realmente es gratis?"
     answer: "Sí, la esencia de Ubot es gratuita. Con tu cuenta básica tienes acceso a consultas diarias, exámenes cortos y participación en rankings, sin tarjeta de crédito."
 

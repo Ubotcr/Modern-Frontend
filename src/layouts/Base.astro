@@ -9,12 +9,13 @@ export interface Props {
   title?: string;
   meta_title?: string;
   description?: string;
+  keywords?: string;
   image?: string;
   noindex?: boolean;
   canonical?: string;
 }
 
-const { title, meta_title, description, image, noindex, canonical } =
+const { title, meta_title, description, keywords, image, noindex, canonical } =
   Astro.props;
 const pageTitle = meta_title || title || config.site.title;
 const pageDescription = description || config.metadata.meta_description;
@@ -33,6 +34,7 @@ const v = pkg.version;
 
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
+    {keywords && <meta name="keywords" content={keywords} />}
     <meta name="author" content={config.metadata.meta_author} />
     {noindex && <meta name="robots" content="noindex,nofollow" />}
     <link rel="canonical" href={canonicalUrl} />

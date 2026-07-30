@@ -3,6 +3,7 @@ import Base from "@/layouts/Base.astro";
 import CalendarWidget from "@/components/CalendarWidget.astro";
 import Hero from "@/components/Hero.astro";
 import CallToAction from "@/partials/CallToAction.astro";
+import DiagnosticExam from "@/partials/DiagnosticExam.astro";
 import EssentialFeatures from "@/partials/EssentialFeatures.astro";
 import FAQ from "@/partials/FAQ.astro";
 import Gallery from "@/partials/Gallery.astro";
@@ -20,6 +21,7 @@ const gallery = await getListPage("sections/gallery.md");
 const pricing = await getListPage("sections/pricing.md");
 const faq = await getListPage("sections/faq.md");
 const callToAction = await getListPage("sections/call-to-action.md");
+const diagnosticExam = await getListPage("sections/diagnostic-exam.md");
 const { banner } = homepage.frontmatter;
 
 const softwareSchema = {
@@ -51,12 +53,17 @@ const faqSchema = {
 };
 ---
 
-<Base>
+<Base
+  meta_title="Ubot | Examen Diagnóstico gratis y preparación para admisión UCR, UNA, TEC"
+  description="Haz el examen diagnóstico gratis de Ubot y descubre tu nivel para el examen de admisión (PAA) de la UCR, UNA y TEC. Simulacros, IA y práctica diaria para prepararte a tu ritmo."
+  keywords="examen diagnóstico, examen diagnóstico admisión, prueba diagnóstica universidad, test diagnóstico PAA, diagnóstico UCR UNA TEC, simulacro examen admisión Costa Rica, preparación PAA gratis"
+>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
   <Hero data={banner} />
+  <DiagnosticExam data={diagnosticExam} />
   <EssentialFeatures data={essentialFeatures} />
   <Gallery data={gallery} />
   <WhyChooseUs data={whyChooseUs} />
