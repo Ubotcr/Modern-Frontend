@@ -83,5 +83,109 @@ const logoWidth = (meta: ImageMetadata) =>
         )
       }
     </div>
+
+    <a
+      href="#diagnostico"
+      class="hero-scroll-cue mt-10 inline-flex flex-col items-center gap-2"
+      aria-label="Ver examen diagnóstico nuevo, más abajo"
+    >
+      <span class="hero-scroll-cue__badge relative rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+        <span class="hero-scroll-cue__ring" aria-hidden="true" />
+        Nuevo · Examen diagnóstico
+      </span>
+      <span class="hero-scroll-cue__chevrons" aria-hidden="true">
+        <Icon name="keyboard_arrow_down" class="hero-scroll-cue__arrow hero-scroll-cue__arrow--1 text-3xl text-primary" filled />
+        <Icon name="keyboard_arrow_down" class="hero-scroll-cue__arrow hero-scroll-cue__arrow--2 text-3xl text-primary" filled />
+      </span>
+    </a>
   </div>
 </section>
+
+<style>
+  .hero-scroll-cue {
+    transition: transform 200ms cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .hero-scroll-cue:hover,
+  .hero-scroll-cue:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .hero-scroll-cue__badge {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-primary) 55%, transparent);
+    animation: hero-scroll-cue-glow 2.2s ease-out infinite;
+  }
+
+  .hero-scroll-cue__ring {
+    position: absolute;
+    inset: -6px;
+    border-radius: inherit;
+    border: 1px solid color-mix(in srgb, var(--color-primary) 60%, transparent);
+    animation: hero-scroll-cue-ring 2.2s ease-out infinite;
+  }
+
+  .hero-scroll-cue__chevrons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 1.75rem;
+  }
+
+  .hero-scroll-cue__arrow {
+    margin-top: -0.9rem;
+    animation: hero-scroll-cue-float 1.4s ease-in-out infinite;
+  }
+
+  .hero-scroll-cue__arrow--1 {
+    animation-delay: 0ms;
+  }
+
+  .hero-scroll-cue__arrow--2 {
+    animation-delay: 200ms;
+  }
+
+  @keyframes hero-scroll-cue-glow {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-primary) 55%, transparent);
+    }
+    70% {
+      box-shadow: 0 0 0 10px color-mix(in srgb, var(--color-primary) 0%, transparent);
+    }
+    100% {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-primary) 0%, transparent);
+    }
+  }
+
+  @keyframes hero-scroll-cue-ring {
+    0% {
+      opacity: 0.8;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.25);
+    }
+  }
+
+  @keyframes hero-scroll-cue-float {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(8px);
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-scroll-cue__arrow,
+    .hero-scroll-cue__badge,
+    .hero-scroll-cue__ring {
+      animation: none;
+      opacity: 1;
+      box-shadow: none;
+    }
+  }
+</style>
