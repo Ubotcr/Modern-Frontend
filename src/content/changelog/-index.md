@@ -11,6 +11,14 @@ page_header:
   subtitle: "Mejoras, nuevas funciones y correcciones recientes."
 
 changelog_list:
+  - version: "v2.8.0"
+    date: "Agosto 2026"
+    title: "FlipCards con barajas propias, Ruta de Aprendizaje y diagnóstico PAA"
+    description: "Ubot Frontend v2.8.0 marca una actualización grande: FlipCards deja de ser un juego más del lobby y estrena barajas propias, galería de comunidad y generación asistida. También llegan la Ruta de Aprendizaje completa, la navegación inferior en móvil, el diagnóstico PAA y una tanda amplia de refinamientos visuales e infraestructura."
+  - version: "Extra"
+    date: "Agosto 2026"
+    title: "Simulacro especial para el TEC"
+    description: "Ya está disponible un nuevo simulacro para estudiantes del TEC que pronto harán examen. Lo encontrás en /juegos/examenes/especial y contiene 60 preguntas para practicar con formato de prueba real."
   - version: "Extra"
     date: "Julio 2026"
     title: "Examen diagnóstico gratuito"
