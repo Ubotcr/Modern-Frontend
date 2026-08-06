@@ -1,0 +1,44 @@
+---
+import Icon from "@/components/Icon.astro";
+
+interface Props {
+  data?: any;
+}
+
+const { data } = Astro.props;
+const front = data?.frontmatter ?? {};
+---
+
+<section id="examen-especial" class="px-4 py-8">
+  <div class="container mx-auto max-w-4xl">
+    <div class="highlight-card relative overflow-hidden rounded-2xl border border-border bg-gradient-to-r from-primary/6 to-transparent px-6 py-6 md:px-8 md:py-8 shadow-sm">
+      <div class="flex flex-col items-start gap-2 md:flex-row md:items-center md:justify-between">
+        <div class="flex items-center gap-3">
+          <div>
+            <h3 class="font-bold text-text-light">{front.title ?? 'Examen especial: oportunidad limitada'}</h3>
+            <p class="mt-1 text-sm text-text">{front.description ?? 'Participa en el examen especial gratuito y recibe un reporte personalizado con fortalezas y debilidades.'}</p>
+          </div>
+        </div>
+
+        <div class="mt-4 md:mt-0">
+          <a href={front.button?.link ?? '#diagnostico'} class="btn btn-outline inline-flex items-center gap-2 px-3 py-2">
+            <Icon name="quiz" class="h-6 w-6 flex-shrink-0 inline-block align-middle" filled />
+            <span class="ml-2">{front.button?.label ?? 'Hacer examen'}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .highlight-card {
+    background-image: radial-gradient(ellipse at 10% 10%, color-mix(in srgb, var(--color-primary) 12%, transparent), transparent 20%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .highlight-card {
+      animation: none;
+    }
+  }
+</style>

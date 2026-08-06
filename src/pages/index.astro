@@ -3,6 +3,7 @@ import Base from "@/layouts/Base.astro";
 import CalendarWidget from "@/components/CalendarWidget.astro";
 import Hero from "@/components/Hero.astro";
 import CallToAction from "@/partials/CallToAction.astro";
+import SpecialExamHighlight from "@/partials/SpecialExamHighlight.astro";
 import DiagnosticExam from "@/partials/DiagnosticExam.astro";
 import EssentialFeatures from "@/partials/EssentialFeatures.astro";
 import FAQ from "@/partials/FAQ.astro";
@@ -22,6 +23,20 @@ const pricing = await getListPage("sections/pricing.md");
 const faq = await getListPage("sections/faq.md");
 const callToAction = await getListPage("sections/call-to-action.md");
 const diagnosticExam = await getListPage("sections/diagnostic-exam.md");
+// Special exam content (swapped into DiagnosticExam component)
+const specialExam = {
+  frontmatter: {
+    enable: true,
+    badge: "Nuevo · Examen especial",
+    title: "Examen especial: oportunidad limitada",
+    description: "Participa en el examen especial gratuito y recibe un reporte personalizado con fortalezas y debilidades.",
+    button: {
+      enable: true,
+      link: "#diagnostico",
+      label: "Hacer examen"
+    }
+  }
+};
 const { banner } = homepage.frontmatter;
 
 const softwareSchema = {
@@ -63,7 +78,8 @@ const faqSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
   <Hero data={banner} />
-  <DiagnosticExam data={diagnosticExam} />
+  <SpecialExamHighlight data={diagnosticExam} />
+  <DiagnosticExam data={specialExam} />
   <EssentialFeatures data={essentialFeatures} />
   <Gallery data={gallery} />
   <WhyChooseUs data={whyChooseUs} />
