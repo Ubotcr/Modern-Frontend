@@ -23,13 +23,22 @@ const disabledClass = "pointer-events-none opacity-40";
       class="mt-10 flex flex-wrap items-center justify-center gap-2"
       aria-label="Paginación"
     >
-      <a
-        href={pageHref(currentPage - 1)}
-        class:list={[linkClass, currentPage === 1 && disabledClass]}
-        aria-label="Página anterior"
-      >
-        <Icon name="chevron_left" class="text-xl" />
-      </a>
+      {currentPage === 1 ? (
+        <span
+          class:list={[linkClass, disabledClass]}
+          aria-hidden="true"
+        >
+          <Icon name="chevron_left" class="text-xl" />
+        </span>
+      ) : (
+        <a
+          href={pageHref(currentPage - 1)}
+          class={linkClass}
+          aria-label="Página anterior"
+        >
+          <Icon name="chevron_left" class="text-xl" />
+        </a>
+      )}
 
       {pages.map((n) =>
         n === currentPage ? (
@@ -46,13 +55,22 @@ const disabledClass = "pointer-events-none opacity-40";
         ),
       )}
 
-      <a
-        href={pageHref(currentPage + 1)}
-        class:list={[linkClass, currentPage === totalPages && disabledClass]}
-        aria-label="Página siguiente"
-      >
-        <Icon name="chevron_right" class="text-xl" />
-      </a>
+      {currentPage === totalPages ? (
+        <span
+          class:list={[linkClass, disabledClass]}
+          aria-hidden="true"
+        >
+          <Icon name="chevron_right" class="text-xl" />
+        </span>
+      ) : (
+        <a
+          href={pageHref(currentPage + 1)}
+          class={linkClass}
+          aria-label="Página siguiente"
+        >
+          <Icon name="chevron_right" class="text-xl" />
+        </a>
+      )}
     </nav>
   )
 }

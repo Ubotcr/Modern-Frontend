@@ -27,9 +27,9 @@ const diagnosticExam = await getListPage("sections/diagnostic-exam.md");
 const specialExam = {
   frontmatter: {
     enable: true,
-    badge: "Nuevo · Examen especial",
-    title: "Examen especial: oportunidad limitada",
-    description: "Participa en el examen especial gratuito y recibe un reporte personalizado con fortalezas y debilidades.",
+    badge: "Nuevo · Examen especial TEC",
+    title: "Examen especial TEC: oportunidad limitada",
+    description: "Participa en el simulacro especial gratuito para estudiantes del TEC: 60 preguntas con formato de prueba real y un reporte personalizado con tus fortalezas y debilidades.",
     button: {
       enable: true,
       link: "https://chat.ubotcr.com/juegos/examenes/especial",
@@ -54,6 +54,59 @@ const softwareSchema = {
   }
 };
 
+const examsSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Exámenes de práctica de Ubot",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "LearningResource",
+        "@id": `${config.site.base_url}/#diagnostico`,
+        "name": "Examen diagnóstico de admisión (PAA)",
+        "description": "Prueba diagnóstica gratuita que mide tu nivel en razonamiento lógico, matemático y verbal de cara al examen de admisión (PAA) de la UCR, UNA y TEC.",
+        "learningResourceType": "Diagnostic assessment",
+        "educationalLevel": "Admisión universitaria",
+        "inLanguage": "es-CR",
+        "url": "https://chat.ubotcr.com/diagnostico",
+        "isAccessibleForFree": true,
+        "teaches": ["Razonamiento lógico", "Razonamiento matemático", "Razonamiento verbal"],
+        "provider": {
+          "@type": "Organization",
+          "name": config.site.title,
+          "url": config.site.base_url
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "LearningResource",
+        "@id": `${config.site.base_url}/#examen-especial`,
+        "name": "Simulacro especial TEC",
+        "description": "Simulacro especial gratuito para estudiantes del TEC: 60 preguntas con formato de prueba real y reporte personalizado de fortalezas y debilidades.",
+        "learningResourceType": "Practice exam",
+        "educationalLevel": "Admisión universitaria",
+        "inLanguage": "es-CR",
+        "url": "https://chat.ubotcr.com/juegos/examenes/especial",
+        "isAccessibleForFree": true,
+        "about": {
+          "@type": "CollegeOrUniversity",
+          "name": "Instituto Tecnológico de Costa Rica (TEC)"
+        },
+        "provider": {
+          "@type": "Organization",
+          "name": config.site.title,
+          "url": config.site.base_url
+        }
+      }
+    }
+  ]
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -69,12 +122,13 @@ const faqSchema = {
 ---
 
 <Base
-  meta_title="Ubot | Examen Diagnóstico gratis y preparación para admisión UCR, UNA, TEC"
-  description="Haz el examen diagnóstico gratis de Ubot y descubre tu nivel para el examen de admisión (PAA) de la UCR, UNA y TEC. Simulacros, IA y práctica diaria para prepararte a tu ritmo."
-  keywords="examen diagnóstico, examen diagnóstico admisión, prueba diagnóstica universidad, test diagnóstico PAA, diagnóstico UCR UNA TEC, simulacro examen admisión Costa Rica, preparación PAA gratis"
+  meta_title="Ubot | Examen diagnóstico gratis y simulacro especial TEC para la admisión UCR, UNA y TEC"
+  description="Haz el examen diagnóstico gratis de Ubot y el simulacro especial del TEC (60 preguntas con formato de prueba real). Descubre tu nivel para el examen de admisión (PAA) de la UCR, UNA y TEC con IA, simulacros y práctica diaria."
+  keywords="examen diagnóstico, examen diagnóstico admisión, prueba diagnóstica universidad, test diagnóstico PAA, diagnóstico UCR UNA TEC, examen especial TEC, simulacro TEC, simulacro especial TEC 60 preguntas, práctica examen admisión TEC, simulacro examen admisión Costa Rica, preparación PAA gratis"
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(examsSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
   <Hero data={banner} />

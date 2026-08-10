@@ -7,10 +7,15 @@ Asistente de inteligencia artificial para preparar exámenes de admisión a univ
 - [Inicio](https://ubotcr.com/): Página principal con información general sobre Ubot.
 - [Características](https://ubotcr.com/features): Funcionalidades y herramientas disponibles.
 - [Precios](https://ubotcr.com/pricing): Planes y tarifas de Ubot.
-- [Preguntas frecuentes](https://ubotcr.com/faq): Respuestas a dudas comunes.
+- [Preguntas frecuentes](https://ubotcr.com/pricing#faq): Respuestas a dudas comunes.
 - [Blog](https://ubotcr.com/blog): Artículos y novedades.
 - [Acerca de](https://ubotcr.com/about): Información sobre el equipo y la misión.
 - [Contacto](https://ubotcr.com/contact): Formulario de contacto.
+
+## Exámenes
+
+- [Examen diagnóstico](https://chat.ubotcr.com/diagnostico): Prueba diagnóstica gratuita que mide tu nivel en razonamiento lógico, matemático y verbal para el examen de admisión (PAA) de la UCR, UNA y TEC.
+- [Examen especial TEC](https://chat.ubotcr.com/juegos/examenes/especial): Simulacro especial gratuito para estudiantes del TEC con 60 preguntas en formato de prueba real y reporte personalizado.
 
 ## Enlaces
 

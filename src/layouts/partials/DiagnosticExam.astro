@@ -1,5 +1,7 @@
 ---
 import Icon from "@/components/Icon.astro";
+import { Image } from "astro:assets";
+import happyUbit from "@/promo/promoImages/happyUbit.webp";
 
 interface Props {
   data: any;
@@ -12,8 +14,17 @@ const { badge, title, description, button, enable } = data.frontmatter;
 {
   enable && (
     <section id="diagnostico" class="border-y border-border bg-card px-4 py-12 md:py-20">
-      <div class="container mx-auto max-w-3xl">
-        <div class="diagnostic-card relative overflow-hidden rounded-2xl bg-gradient-dark px-6 py-14 text-center shadow-lg md:px-12 md:py-20">
+      <div class="container relative mx-auto max-w-3xl md:pt-20">
+        <Image
+          src={happyUbit}
+          alt=""
+          aria-hidden="true"
+          width={320}
+          loading="lazy"
+          class="diagnostic-card__ubit pointer-events-none absolute left-1/2 top-0 z-20 hidden w-36 -translate-x-1/2 select-none md:block"
+        />
+
+        <div class="diagnostic-card relative z-10 overflow-hidden rounded-2xl bg-gradient-dark px-6 py-14 text-center shadow-lg md:px-12 md:py-20">
           <div class="diagnostic-card__blob diagnostic-card__blob--1 absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary/20 blur-3xl" />
           <div class="diagnostic-card__blob diagnostic-card__blob--2 absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-primary/20 blur-3xl" />
 
@@ -64,6 +75,10 @@ const { badge, title, description, button, enable } = data.frontmatter;
   .diagnostic-card__badge {
     box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-primary) 55%, transparent);
     animation: diagnostic-card-badge-glow 2.4s ease-out infinite;
+  }
+
+  .diagnostic-card__ubit {
+    animation: diagnostic-card-ubit-float 3.2s ease-in-out infinite;
   }
 
   .diagnostic-card__cta {
@@ -117,6 +132,16 @@ const { badge, title, description, button, enable } = data.frontmatter;
     }
   }
 
+  @keyframes diagnostic-card-ubit-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
   @keyframes diagnostic-card-shine {
     0%,
     15% {
@@ -132,7 +157,8 @@ const { badge, title, description, button, enable } = data.frontmatter;
     .diagnostic-card,
     .diagnostic-card__blob,
     .diagnostic-card__badge,
-    .diagnostic-card__cta-shine {
+    .diagnostic-card__cta-shine,
+    .diagnostic-card__ubit {
       animation: none;
     }
 

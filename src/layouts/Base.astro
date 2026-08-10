@@ -17,7 +17,11 @@ export interface Props {
 
 const { title, meta_title, description, keywords, image, noindex, canonical } =
   Astro.props;
-const pageTitle = meta_title || title || config.site.title;
+const rawTitle = meta_title || title || config.site.title;
+// Append the brand unless the title already carries it (or is the brand itself)
+const pageTitle = rawTitle.toLowerCase().includes(config.site.title.toLowerCase())
+  ? rawTitle
+  : `${rawTitle} | ${config.site.title}`;
 const pageDescription = description || config.metadata.meta_description;
 const pageImage = image || config.metadata.meta_image;
 const canonicalUrl = canonical || `${config.site.base_url}${Astro.url.pathname}`;

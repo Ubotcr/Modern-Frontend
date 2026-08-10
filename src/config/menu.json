@@ -59,6 +59,10 @@
     {
       "name": "Registro de cambios",
       "url": "/changelog"
+    },
+    {
+      "name": "Contacto",
+      "url": "/contact"
     }
   ],
   "footer_product": [

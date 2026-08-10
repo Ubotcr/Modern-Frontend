@@ -46,12 +46,19 @@ const totalPages = Math.max(1, Math.ceil(posts.length / perPage));
 const start = (currentPage - 1) * perPage;
 const current = posts.slice(start, start + perPage);
 const callToAction = await getListPage("sections/call-to-action.md");
+
+// Paginated pages need their own title/description so they don't duplicate /blog
+const pageSuffix = ` | Página ${currentPage} de ${totalPages}`;
+const pageTitle = (meta_title || title) + pageSuffix;
+const pageDescription = description
+  ? `${description} (página ${currentPage} de ${totalPages})`
+  : undefined;
 ---
 
 <Base
-  title={title}
-  meta_title={meta_title}
-  description={description}
+  title={pageTitle}
+  meta_title={pageTitle}
+  description={pageDescription}
   image={image}
 >
   <PageHeader page_header={header} />
