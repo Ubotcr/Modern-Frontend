@@ -14,14 +14,14 @@ const { badge, title, description, button, enable } = data.frontmatter;
 {
   enable && (
     <section id="diagnostico" class="border-y border-border bg-card px-4 py-12 md:py-20">
-      <div class="container relative mx-auto max-w-3xl md:pt-20">
+      <div class="container relative mx-auto max-w-3xl pt-14 md:pt-20">
         <Image
           src={happyUbit}
           alt=""
           aria-hidden="true"
           width={320}
           loading="lazy"
-          class="diagnostic-card__ubit pointer-events-none absolute left-1/2 top-0 z-20 hidden w-36 -translate-x-1/2 select-none md:block"
+          class="diagnostic-card__ubit pointer-events-none absolute left-1/2 top-0 z-20 block w-24 -translate-x-1/2 select-none md:w-36"
         />
 
         <div class="diagnostic-card relative z-10 overflow-hidden rounded-2xl bg-gradient-dark px-6 py-14 text-center shadow-lg md:px-12 md:py-20">

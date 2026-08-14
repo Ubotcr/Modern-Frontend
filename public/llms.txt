@@ -15,7 +15,7 @@ Asistente de inteligencia artificial para preparar exámenes de admisión a univ
 ## Exámenes
 
 - [Examen diagnóstico](https://chat.ubotcr.com/diagnostico): Prueba diagnóstica gratuita que mide tu nivel en razonamiento lógico, matemático y verbal para el examen de admisión (PAA) de la UCR, UNA y TEC.
-- [Examen especial TEC](https://chat.ubotcr.com/juegos/examenes/especial): Simulacro especial gratuito para estudiantes del TEC con 60 preguntas en formato de prueba real y reporte personalizado.
+- [Simulacro examen especial TEC](https://chat.ubotcr.com/juegos/examenes/especial): Simulacro gratuito del examen de admisión especial del TEC, para quienes desean ingresar al TEC. 60 preguntas en formato de prueba real y reporte personalizado.
 
 ## Enlaces
 

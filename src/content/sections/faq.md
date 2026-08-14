@@ -10,7 +10,7 @@ faq_list:
     answer: "Es una prueba diagnóstica gratuita que mide tu nivel actual en las áreas que evalúan los exámenes de admisión (PAA) de la UCR, UNA y TEC: razonamiento lógico, matemático y verbal. Al terminar sabes en qué temas enfocar tu preparación. Puedes hacerlo en chat.ubotcr.com/diagnostico."
 
   - question: "¿Qué es el examen especial del TEC en Ubot?"
-    answer: "Es un simulacro especial gratuito para estudiantes que pronto harán el examen de admisión del TEC. Tiene 60 preguntas con el formato de la prueba real y al terminar recibes un reporte personalizado con tus fortalezas y debilidades. Puedes hacerlo en chat.ubotcr.com/juegos/examenes/especial."
+    answer: "Es un simulacro gratuito del examen de admisión especial del TEC, pensado para estudiantes que desean ingresar al TEC. Tiene 60 preguntas con el formato de la prueba real y al terminar recibes un reporte personalizado con tus fortalezas y debilidades. Puedes hacerlo en chat.ubotcr.com/juegos/examenes/especial."
 
   - question: "¿Realmente es gratis?"
     answer: "Sí, la esencia de Ubot es gratuita. Con tu cuenta básica tienes acceso a consultas diarias, exámenes cortos y participación en rankings, sin tarjeta de crédito."
