@@ -11,6 +11,10 @@ page_header:
   subtitle: "Mejoras, nuevas funciones y correcciones recientes."
 
 changelog_list:
+  - version: "v2.9"
+    date: "Agosto 2026"
+    title: "Examen tipo PAA, exámenes especiales por universidad y recordatorios"
+    description: "La v2.9 se enfoca en exámenes: hoja de respuestas estilo PAA anclada a la pregunta, exámenes especiales por universidad con catálogo y diseño propios, y diagnóstico migrado a flujo backend-first. Suma también una auditoría grande de FlipCards y arreglos de estabilidad en chat y PWA."
   - version: "v2.8.0"
     date: "Agosto 2026"
     title: "FlipCards con barajas propias, Ruta de Aprendizaje y diagnóstico PAA"
