@@ -1,5 +1,6 @@
 ---
 // src/layouts/components/EventCard.astro
+import { getCalendarEvents } from "@/lib/api/events";
 import {
   getEventById,
   formatEventDate,
@@ -12,7 +13,8 @@ interface Props {
 }
 
 const { eventId } = Astro.props;
-const ev = getEventById(eventId);
+const events = await getCalendarEvents();
+const ev = getEventById(events, eventId);
 ---
 
 {

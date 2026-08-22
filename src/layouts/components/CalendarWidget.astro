@@ -1,9 +1,10 @@
 ---
 // src/layouts/components/CalendarWidget.astro
-import { calendarEvents } from "@/config/calendar";
+import { getCalendarEvents } from "@/lib/api/events";
 import { sortByStart, formatEventDate } from "@/lib/utils/calendar";
 
 // Candidatos: todos ordenados. El cliente filtra a los 3 próximos.
+const calendarEvents = await getCalendarEvents();
 const candidates = sortByStart(calendarEvents);
 ---
 

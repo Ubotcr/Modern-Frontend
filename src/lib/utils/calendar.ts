@@ -1,10 +1,6 @@
 // src/lib/utils/calendar.ts
 // Helpers puros del calendario. Compartidos por servidor (render) y cliente (<script>).
-import {
-  calendarEvents,
-  type CalendarEvent,
-  type EventCategory,
-} from "@/config/calendar";
+import type { CalendarEvent, EventCategory } from "@/config/calendar";
 
 export type EventState = "past" | "current" | "next" | "future";
 
@@ -19,8 +15,11 @@ function todayUTC(now: Date): number {
   return Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
 }
 
-export function getEventById(id: string): CalendarEvent | undefined {
-  return calendarEvents.find((e) => e.id === id);
+export function getEventById(
+  events: CalendarEvent[],
+  id: string,
+): CalendarEvent | undefined {
+  return events.find((e) => e.id === id);
 }
 
 export function sortByStart(events: CalendarEvent[]): CalendarEvent[] {
@@ -55,9 +54,13 @@ export function computeStates(
 }
 
 // Próximos n eventos con inicio >= hoy, ordenados por fecha.
-export function getUpcoming(n: number, now: Date): CalendarEvent[] {
+export function getUpcoming(
+  events: CalendarEvent[],
+  n: number,
+  now: Date,
+): CalendarEvent[] {
   const today = todayUTC(now);
-  return sortByStart(calendarEvents)
+  return sortByStart(events)
     .filter((e) => (e.end ? toUTC(e.end) : toUTC(e.start)) >= today)
     .slice(0, n);
 }
@@ -88,8 +91,8 @@ export const CATEGORY_LABELS: Record<EventCategory, string> = {
   examen: "Examen",
   beca: "Beca",
   feria: "Feria",
-  resultados: "Resultados",
-  matricula: "Matrícula",
+  resultado: "Resultados",
+  general: "General",
 };
 
 // Clases Tailwind para el badge de categoría.
@@ -98,8 +101,8 @@ export const CATEGORY_CLASSES: Record<EventCategory, string> = {
   examen: "bg-red-500/10 text-red-600 dark:text-red-400",
   beca: "bg-green-500/10 text-green-600 dark:text-green-400",
   feria: "bg-purple-500/10 text-purple-600 dark:text-purple-400",
-  resultados: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
-  matricula: "bg-teal-500/10 text-teal-600 dark:text-teal-400",
+  resultado: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
+  general: "bg-teal-500/10 text-teal-600 dark:text-teal-400",
 };
 
 export const STATE_LABELS: Record<EventState, string> = {
