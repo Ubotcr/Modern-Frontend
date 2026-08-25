@@ -12,6 +12,7 @@ export type EventCategory =
 
 export interface CalendarEvent {
   id: string;
+  slug?: string; // identificador estable para referenciar desde artículos (EventCard)
   title: string;
   start: string; // ISO 'YYYY-MM-DD'
   end?: string; // opcional, para rangos

@@ -15,6 +15,7 @@ export const KNOWN_CATEGORIES: EventCategory[] = [
 
 export interface ApiEvent {
   event_id: string;
+  slug?: string;
   title: string;
   start: string;
   end?: string;
@@ -34,6 +35,7 @@ export function mapEvent(ev: ApiEvent): CalendarEvent {
     : "general";
   return {
     id: ev.event_id,
+    slug: ev.slug,
     title: ev.title,
     start: ev.start,
     end: ev.end,

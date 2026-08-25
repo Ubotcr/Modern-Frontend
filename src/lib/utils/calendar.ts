@@ -15,11 +15,14 @@ function todayUTC(now: Date): number {
   return Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
 }
 
+// `id` acá es en realidad el identificador estable publicado en artículos
+// (EventCard eventId="..."), que es el `slug` del backend, no el doc ID de
+// Firestore (aleatorio). Fallback a `id` para eventos sin slug todavía.
 export function getEventById(
   events: CalendarEvent[],
   id: string,
 ): CalendarEvent | undefined {
-  return events.find((e) => e.id === id);
+  return events.find((e) => e.slug === id) ?? events.find((e) => e.id === id);
 }
 
 export function sortByStart(events: CalendarEvent[]): CalendarEvent[] {
