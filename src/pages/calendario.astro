@@ -2,7 +2,7 @@
 import Base from "@/layouts/Base.astro";
 import CallToAction from "@/partials/CallToAction.astro";
 import { getListPage } from "@/lib/contentParser";
-import { getCalendarEvents } from "@/lib/api/events";
+import { getFullCalendarEvents } from "@/lib/api/events";
 import {
   sortByStart,
   formatEventDate,
@@ -17,7 +17,7 @@ const categories = Object.keys(
 ) as (keyof typeof CATEGORY_LABELS)[];
 
 const callToAction = await getListPage("sections/call-to-action.md");
-const calendarEvents = await getCalendarEvents();
+const calendarEvents = await getFullCalendarEvents();
 
 const sorted = sortByStart(calendarEvents);
 const groups = groupByMonth(sorted);
@@ -150,7 +150,7 @@ const groups = groupByMonth(sorted);
 </Base>
 
 <script>
-  import { fetchEventsClient } from "@/lib/api/events-client";
+  import { fetchFullCalendarClient } from "@/lib/api/events-client";
   import {
     formatEventDate,
     groupByMonth,
@@ -356,7 +356,7 @@ const groups = groupByMonth(sorted);
   // Carga dinámica en navegador: si el backend responde, reemplaza el
   // timeline estático con datos frescos (conserva los filtros activos).
   // Si falla, se queda el HTML estático ya pintado (SSG, build-time).
-  fetchEventsClient().then((fresh) => {
+  fetchFullCalendarClient().then((fresh) => {
     if (fresh) renderTimeline(fresh);
   });
 </script>

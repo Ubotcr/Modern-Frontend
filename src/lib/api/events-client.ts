@@ -10,14 +10,13 @@ const API_BASE =
   import.meta.env.PUBLIC_EVENTS_API_URL || "https://api.ubotcr.com";
 const FETCH_TIMEOUT_MS = 5000;
 
-export async function fetchEventsClient(): Promise<CalendarEvent[] | null> {
+async function fetchClient(path: string): Promise<CalendarEvent[] | null> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   try {
-    const res = await fetch(
-      `${API_BASE}/api/events/upcoming?audience=landing&lead_days=365`,
-      { signal: controller.signal },
-    );
+    const res = await fetch(`${API_BASE}${path}`, {
+      signal: controller.signal,
+    });
     if (!res.ok) return null;
     const data = await res.json().catch(() => null);
     if (data === null) return null;
@@ -27,4 +26,14 @@ export async function fetchEventsClient(): Promise<CalendarEvent[] | null> {
   } finally {
     clearTimeout(timeout);
   }
+}
+
+// Próximos eventos — usado por el widget de home.
+export function fetchEventsClient(): Promise<CalendarEvent[] | null> {
+  return fetchClient("/api/events/upcoming?audience=landing&lead_days=365");
+}
+
+// Calendario completo (pasado + futuro) — usado por /calendario.
+export function fetchFullCalendarClient(): Promise<CalendarEvent[] | null> {
+  return fetchClient("/api/events/calendar?audience=landing");
 }
