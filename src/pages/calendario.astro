@@ -6,36 +6,21 @@ import { getCalendarEvents } from "@/lib/api/events";
 import {
   sortByStart,
   formatEventDate,
+  groupByMonth,
   CATEGORY_LABELS,
   CATEGORY_CLASSES,
 } from "@/lib/utils/calendar";
-
-const callToAction = await getListPage("sections/call-to-action.md");
-const calendarEvents = await getCalendarEvents();
-
-const sorted = sortByStart(calendarEvents);
-
-// Agrupar por "YYYY-MM" preservando el orden cronológico.
-const groups: { key: string; label: string; events: typeof sorted }[] = [];
-for (const ev of sorted) {
-  const key = ev.start.slice(0, 7);
-  let g = groups.find((x) => x.key === key);
-  if (!g) {
-    const label = new Intl.DateTimeFormat("es-CR", {
-      month: "long",
-      year: "numeric",
-      timeZone: "UTC",
-    }).format(new Date(ev.start));
-    g = { key, label, events: [] };
-    groups.push(g);
-  }
-  g.events.push(ev);
-}
 
 const universities = ["UCR", "UNA", "TEC"] as const;
 const categories = Object.keys(
   CATEGORY_LABELS,
 ) as (keyof typeof CATEGORY_LABELS)[];
+
+const callToAction = await getListPage("sections/call-to-action.md");
+const calendarEvents = await getCalendarEvents();
+
+const sorted = sortByStart(calendarEvents);
+const groups = groupByMonth(sorted);
 ---
 
 <Base
@@ -165,6 +150,116 @@ const categories = Object.keys(
 </Base>
 
 <script>
+  import { fetchEventsClient } from "@/lib/api/events-client";
+  import {
+    formatEventDate,
+    groupByMonth,
+    sortByStart,
+    CATEGORY_LABELS,
+    CATEGORY_CLASSES,
+  } from "@/lib/utils/calendar";
+  import type { CalendarEvent } from "@/config/calendar";
+
+  const timeline = document.querySelector<HTMLElement>(
+    "[data-calendar-timeline]",
+  );
+
+  function renderTimeline(fresh: CalendarEvent[]) {
+    if (!timeline) return;
+    const groups = groupByMonth(sortByStart(fresh));
+
+    timeline.innerHTML = "";
+    for (const g of groups) {
+      const groupEl = document.createElement("div");
+      groupEl.dataset.monthGroup = "";
+      groupEl.dataset.month = g.key;
+
+      const h2 = document.createElement("h2");
+      h2.className = "mb-4 text-lg font-bold capitalize text-text-light";
+      h2.textContent = g.label;
+      groupEl.appendChild(h2);
+
+      const list = document.createElement("div");
+      list.className = "flex flex-col gap-4";
+
+      for (const ev of g.events) {
+        const article = document.createElement("article");
+        article.id = ev.id;
+        article.className =
+          "rounded-xl border border-border bg-card p-5 transition-opacity";
+        article.dataset.event = "";
+        article.dataset.universities = ev.universities.join(",");
+        article.dataset.category = ev.category;
+        article.dataset.start = ev.start;
+        article.dataset.end = ev.end ?? ev.start;
+
+        const badges = document.createElement("div");
+        badges.className = "flex flex-wrap items-center gap-2";
+
+        const catBadge = document.createElement("span");
+        catBadge.className = `rounded-full px-2.5 py-0.5 text-xs font-semibold ${CATEGORY_CLASSES[ev.category]}`;
+        catBadge.textContent = CATEGORY_LABELS[ev.category];
+        badges.appendChild(catBadge);
+
+        for (const u of ev.universities) {
+          const uniBadge = document.createElement("span");
+          uniBadge.className =
+            "rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary";
+          uniBadge.textContent = u;
+          badges.appendChild(uniBadge);
+        }
+
+        const stateBadge = document.createElement("span");
+        stateBadge.className =
+          "ml-auto hidden rounded-full px-2.5 py-0.5 text-xs font-semibold";
+        stateBadge.dataset.stateBadge = "";
+        badges.appendChild(stateBadge);
+
+        article.appendChild(badges);
+
+        const date = document.createElement("p");
+        date.className = "mt-3 text-sm font-semibold text-gray";
+        date.textContent = formatEventDate(ev);
+        article.appendChild(date);
+
+        const title = document.createElement("h3");
+        title.className = "mt-1 text-lg font-bold text-text-light";
+        title.textContent = ev.title;
+        article.appendChild(title);
+
+        if (ev.description) {
+          const desc = document.createElement("p");
+          desc.className = "mt-1 text-sm text-text";
+          desc.textContent = ev.description;
+          article.appendChild(desc);
+        }
+
+        if (ev.link) {
+          const link = document.createElement("a");
+          link.href = ev.link;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.className =
+            "mt-3 inline-block text-sm font-semibold text-primary hover:underline";
+          link.textContent = "Fuente oficial →";
+          article.appendChild(link);
+        }
+
+        list.appendChild(article);
+      }
+
+      groupEl.appendChild(list);
+      timeline.appendChild(groupEl);
+    }
+
+    events.length = 0;
+    events.push(
+      ...Array.from(document.querySelectorAll<HTMLElement>("[data-event]")),
+    );
+    markStates();
+    apply();
+  }
+
   // --- Estado (pasado/actual/próximo) contra la fecha del visitante ---
   const today = new Date();
   const todayUTC = Date.UTC(
@@ -177,34 +272,36 @@ const categories = Object.keys(
     return Date.UTC(y, m - 1, d);
   };
 
-  const events = Array.from(
+  let events = Array.from(
     document.querySelectorAll<HTMLElement>("[data-event]"),
   );
 
-  let nextAssigned = false;
-  for (const el of events) {
-    const start = toUTC(el.dataset.start || "");
-    const end = toUTC(el.dataset.end || el.dataset.start || "");
-    const badge = el.querySelector<HTMLElement>("[data-state-badge]");
-    let label = "";
-    let cls = "";
-    if (end < todayUTC) {
-      el.classList.add("opacity-50");
-      label = "Finalizado";
-      cls = "bg-gray-500/10 text-gray-500";
-    } else if (start <= todayUTC && todayUTC <= end) {
-      el.classList.add("ring-2", "ring-primary");
-      label = "En curso";
-      cls = "bg-primary/10 text-primary";
-    } else if (!nextAssigned) {
-      nextAssigned = true;
-      el.classList.add("ring-1", "ring-primary/40");
-      label = "Próximo";
-      cls = "bg-primary/10 text-primary";
-    }
-    if (badge && label) {
-      badge.textContent = label;
-      badge.className = `ml-auto rounded-full px-2.5 py-0.5 text-xs font-semibold ${cls}`;
+  function markStates() {
+    let nextAssigned = false;
+    for (const el of events) {
+      const start = toUTC(el.dataset.start || "");
+      const end = toUTC(el.dataset.end || el.dataset.start || "");
+      const badge = el.querySelector<HTMLElement>("[data-state-badge]");
+      let label = "";
+      let cls = "";
+      if (end < todayUTC) {
+        el.classList.add("opacity-50");
+        label = "Finalizado";
+        cls = "bg-gray-500/10 text-gray-500";
+      } else if (start <= todayUTC && todayUTC <= end) {
+        el.classList.add("ring-2", "ring-primary");
+        label = "En curso";
+        cls = "bg-primary/10 text-primary";
+      } else if (!nextAssigned) {
+        nextAssigned = true;
+        el.classList.add("ring-1", "ring-primary/40");
+        label = "Próximo";
+        cls = "bg-primary/10 text-primary";
+      }
+      if (badge && label) {
+        badge.textContent = label;
+        badge.className = `ml-auto rounded-full px-2.5 py-0.5 text-xs font-semibold ${cls}`;
+      }
     }
   }
 
@@ -252,4 +349,14 @@ const categories = Object.keys(
 
   wire("data-filter-uni", (v) => (uni = v));
   wire("data-filter-cat", (v) => (cat = v));
+
+  markStates();
+  apply();
+
+  // Carga dinámica en navegador: si el backend responde, reemplaza el
+  // timeline estático con datos frescos (conserva los filtros activos).
+  // Si falla, se queda el HTML estático ya pintado (SSG, build-time).
+  fetchEventsClient().then((fresh) => {
+    if (fresh) renderTimeline(fresh);
+  });
 </script>

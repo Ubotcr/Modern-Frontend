@@ -105,6 +105,32 @@ export const CATEGORY_CLASSES: Record<EventCategory, string> = {
   general: "bg-teal-500/10 text-teal-600 dark:text-teal-400",
 };
 
+export interface MonthGroup {
+  key: string;
+  label: string;
+  events: CalendarEvent[];
+}
+
+// Agrupa por "YYYY-MM" preservando el orden cronológico de entrada.
+export function groupByMonth(events: CalendarEvent[]): MonthGroup[] {
+  const groups: MonthGroup[] = [];
+  for (const ev of events) {
+    const key = ev.start.slice(0, 7);
+    let g = groups.find((x) => x.key === key);
+    if (!g) {
+      const label = new Intl.DateTimeFormat("es-CR", {
+        month: "long",
+        year: "numeric",
+        timeZone: "UTC",
+      }).format(new Date(ev.start));
+      g = { key, label, events: [] };
+      groups.push(g);
+    }
+    g.events.push(ev);
+  }
+  return groups;
+}
+
 export const STATE_LABELS: Record<EventState, string> = {
   past: "Finalizado",
   current: "En curso",

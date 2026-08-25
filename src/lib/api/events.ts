@@ -3,18 +3,11 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import type { CalendarEvent, EventCategory } from "@/config/calendar";
+import type { CalendarEvent } from "@/config/calendar";
+import { parseEventsPayload } from "@/lib/api/events-shared";
 
 const API_BASE = import.meta.env.EVENTS_API_URL || "https://api.ubotcr.com";
 const FETCH_TIMEOUT_MS = 8000;
-const KNOWN_CATEGORIES: EventCategory[] = [
-  "inscripcion",
-  "examen",
-  "beca",
-  "feria",
-  "resultado",
-  "general",
-];
 
 // "Last known good" snapshot: se sobrescribe SOLO con datos válidos y no
 // vacíos. Nunca se pisa con un resultado vacío o de error.
@@ -26,37 +19,6 @@ const SNAPSHOT_PATH = join(
 // En CI/producción un fetch inválido debe romper el build (no publicar
 // calendario vacío). En dev local, cae al último snapshot bueno conocido.
 const IS_CI = process.env.CI === "true" || import.meta.env.PROD;
-
-interface ApiEvent {
-  event_id: string;
-  title: string;
-  start: string;
-  end?: string;
-  type: string;
-  audience: string[];
-  universities: string[];
-  status: string;
-  calendar_status: string;
-  days_remaining: number;
-  description?: string;
-  source_url?: string;
-}
-
-function mapEvent(ev: ApiEvent): CalendarEvent {
-  const category = KNOWN_CATEGORIES.includes(ev.type as EventCategory)
-    ? (ev.type as EventCategory)
-    : "general";
-  return {
-    id: ev.event_id,
-    title: ev.title,
-    start: ev.start,
-    end: ev.end,
-    universities: ev.universities ?? [],
-    category,
-    description: ev.description,
-    link: ev.source_url,
-  };
-}
 
 function readSnapshot(): CalendarEvent[] | null {
   try {
@@ -94,15 +56,7 @@ async function fetchEvents(): Promise<CalendarEvent[]> {
       throw new Error("events API devolvió JSON inválido");
     }
 
-    const events = (data as { events?: unknown })?.events;
-    if (!Array.isArray(events)) {
-      throw new Error("events API devolvió un shape inválido (falta 'events')");
-    }
-    if (events.length === 0) {
-      throw new Error("events API devolvió una lista vacía");
-    }
-
-    return (events as ApiEvent[]).map(mapEvent);
+    return parseEventsPayload(data);
   } finally {
     clearTimeout(timeout);
   }

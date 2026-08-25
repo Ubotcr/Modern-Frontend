@@ -1,7 +1,7 @@
 ---
 // src/layouts/components/CalendarWidget.astro
 import { getCalendarEvents } from "@/lib/api/events";
-import { sortByStart, formatEventDate } from "@/lib/utils/calendar";
+import { sortByStart, formatEventDate, getUpcoming } from "@/lib/utils/calendar";
 
 // Candidatos: todos ordenados. El cliente filtra a los 3 próximos.
 const calendarEvents = await getCalendarEvents();
@@ -25,13 +25,8 @@ const candidates = sortByStart(calendarEvents);
 
       <ul class="mt-5 flex flex-col divide-y divide-border" data-calendar-widget>
         {
-          candidates.map((ev) => (
-            <li
-              class="hidden items-start gap-4 py-3"
-              data-widget-item
-              data-start={ev.start}
-              data-end={ev.end ?? ev.start}
-            >
+          getUpcoming(candidates, 3, new Date()).map((ev) => (
+            <li class="flex items-start gap-4 py-3">
               <span class="w-24 shrink-0 text-sm font-semibold text-gray">
                 {formatEventDate(ev)}
               </span>
@@ -48,7 +43,13 @@ const candidates = sortByStart(calendarEvents);
         }
       </ul>
 
-      <p class="mt-4 hidden text-sm text-gray" data-widget-empty>
+      <p
+        class:list={[
+          "mt-4 text-sm text-gray",
+          { hidden: getUpcoming(candidates, 3, new Date()).length > 0 },
+        ]}
+        data-widget-empty
+      >
         Pronto se publicarán las fechas del próximo ciclo.
       </p>
     </div>
@@ -56,29 +57,52 @@ const candidates = sortByStart(calendarEvents);
 </section>
 
 <script>
-  const today = new Date();
-  const todayUTC = Date.UTC(
-    today.getFullYear(),
-    today.getMonth(),
-    today.getDate(),
+  import { fetchEventsClient } from "@/lib/api/events-client";
+  import { formatEventDate, getUpcoming } from "@/lib/utils/calendar";
+  import type { CalendarEvent } from "@/config/calendar";
+
+  const list = document.querySelector<HTMLUListElement>(
+    "[data-calendar-widget]",
   );
-  const toUTC = (iso: string) => {
-    const [y, m, d] = iso.split("-").map(Number);
-    return Date.UTC(y, m - 1, d);
-  };
-  const items = Array.from(
-    document.querySelectorAll<HTMLElement>("[data-widget-item]"),
-  );
-  const upcoming = items.filter(
-    (el) => toUTC(el.dataset.end || el.dataset.start || "") >= todayUTC,
-  );
-  upcoming.slice(0, 3).forEach((el) => {
-    el.classList.remove("hidden");
-    el.classList.add("flex");
-  });
-  if (upcoming.length === 0) {
-    document
-      .querySelector<HTMLElement>("[data-widget-empty]")
-      ?.classList.remove("hidden");
+  const emptyMsg = document.querySelector<HTMLElement>("[data-widget-empty]");
+
+  function renderWidget(candidates: CalendarEvent[]) {
+    if (!list) return;
+    const upcoming = getUpcoming(candidates, 3, new Date());
+
+    list.innerHTML = "";
+    for (const ev of upcoming) {
+      const li = document.createElement("li");
+      li.className = "flex items-start gap-4 py-3";
+
+      const date = document.createElement("span");
+      date.className = "w-24 shrink-0 text-sm font-semibold text-gray";
+      date.textContent = formatEventDate(ev);
+
+      const title = document.createElement("span");
+      title.className = "flex-1 text-sm text-text-light";
+      title.textContent = ev.title;
+
+      const unis = document.createElement("span");
+      unis.className = "flex shrink-0 gap-1";
+      for (const u of ev.universities) {
+        const badge = document.createElement("span");
+        badge.className =
+          "rounded-full bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary";
+        badge.textContent = u;
+        unis.appendChild(badge);
+      }
+
+      li.append(date, title, unis);
+      list.appendChild(li);
+    }
+
+    emptyMsg?.classList.toggle("hidden", upcoming.length > 0);
   }
+
+  // El HTML inicial (SSG, build-time) ya se ve sin JS. Solo se re-renderiza
+  // si el fetch dinámico trae datos frescos del backend.
+  fetchEventsClient().then((fresh) => {
+    if (fresh) renderWidget(fresh);
+  });
 </script>
