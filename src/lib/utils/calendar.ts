@@ -2,17 +2,51 @@
 // Helpers puros del calendario. Compartidos por servidor (render) y cliente (<script>).
 import type { CalendarEvent, EventCategory } from "@/config/calendar";
 
-export type EventState = "past" | "current" | "next" | "future";
-
 // Convierte 'YYYY-MM-DD' a epoch UTC de medianoche (evita corrimientos de zona).
+// Solo para orden/agrupación de fechas civiles, nunca para calcular estado.
 function toUTC(date: string): number {
   const [y, m, d] = date.split("-").map(Number);
   return Date.UTC(y, m - 1, d);
 }
 
-// Medianoche UTC del "hoy" según la fecha local del visitante.
-function todayUTC(now: Date): number {
-  return Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+// Badge de estado del evento. Usa exclusivamente `calendarStatus` /
+// `daysRemaining` calculados por el backend — nunca la hora del visitante.
+export function calendarStatusBadge(
+  ev: CalendarEvent,
+): { label: string; cls: string } | null {
+  switch (ev.calendarStatus) {
+    case "pasado":
+      return { label: "Finalizado", cls: "bg-gray-500/10 text-gray-500" };
+    case "en_curso":
+      return { label: "En curso", cls: "bg-primary/10 text-primary" };
+    case "manana":
+      return { label: "Mañana", cls: "bg-primary/10 text-primary" };
+    case "cuenta_regresiva":
+      return {
+        label: `Faltan ${ev.daysRemaining} día${ev.daysRemaining === 1 ? "" : "s"}`,
+        cls: "bg-primary/10 text-primary",
+      };
+    case "proximo":
+      return { label: "Próximo", cls: "bg-primary/10 text-primary" };
+    default:
+      return null;
+  }
+}
+
+// Clases de énfasis de la tarjeta según el mismo `calendarStatus`.
+export function calendarStateClasses(ev: CalendarEvent): string[] {
+  switch (ev.calendarStatus) {
+    case "pasado":
+      return ["opacity-50"];
+    case "en_curso":
+      return ["ring-2", "ring-primary"];
+    case "manana":
+    case "cuenta_regresiva":
+    case "proximo":
+      return ["ring-1", "ring-primary/40"];
+    default:
+      return [];
+  }
 }
 
 // `id` acá es en realidad el identificador estable publicado en artículos
@@ -29,42 +63,14 @@ export function sortByStart(events: CalendarEvent[]): CalendarEvent[] {
   return [...events].sort((a, b) => toUTC(a.start) - toUTC(b.start));
 }
 
-// Estado de cada evento contra `now`. El primer evento cuyo inicio es > hoy
-// (tras ordenar) es 'next'; el resto de futuros son 'future'.
-export function computeStates(
-  events: CalendarEvent[],
-  now: Date,
-): Record<string, EventState> {
-  const today = todayUTC(now);
-  const sorted = sortByStart(events);
-  const result: Record<string, EventState> = {};
-  let nextAssigned = false;
-  for (const ev of sorted) {
-    const start = toUTC(ev.start);
-    const end = ev.end ? toUTC(ev.end) : start;
-    if (end < today) {
-      result[ev.id] = "past";
-    } else if (start <= today && today <= end) {
-      result[ev.id] = "current";
-    } else if (!nextAssigned) {
-      result[ev.id] = "next";
-      nextAssigned = true;
-    } else {
-      result[ev.id] = "future";
-    }
-  }
-  return result;
-}
-
-// Próximos n eventos con inicio >= hoy, ordenados por fecha.
+// Próximos n eventos no pasados, ordenados por fecha. `calendarStatus` ya
+// viene calculado por el backend — no se recalcula "hoy" en el cliente.
 export function getUpcoming(
   events: CalendarEvent[],
   n: number,
-  now: Date,
 ): CalendarEvent[] {
-  const today = todayUTC(now);
   return sortByStart(events)
-    .filter((e) => (e.end ? toUTC(e.end) : toUTC(e.start)) >= today)
+    .filter((e) => e.calendarStatus !== "pasado")
     .slice(0, n);
 }
 
@@ -133,10 +139,3 @@ export function groupByMonth(events: CalendarEvent[]): MonthGroup[] {
   }
   return groups;
 }
-
-export const STATE_LABELS: Record<EventState, string> = {
-  past: "Finalizado",
-  current: "En curso",
-  next: "Próximo",
-  future: "",
-};

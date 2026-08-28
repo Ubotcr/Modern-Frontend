@@ -20,4 +20,6 @@ export interface CalendarEvent {
   category: EventCategory;
   description?: string;
   link?: string; // fuente oficial
+  calendarStatus: string; // en_curso | manana | cuenta_regresiva | proximo | pasado (calculado por backend)
+  daysRemaining: number; // calculado por backend, no recalcular con la zona horaria del visitante
 }

@@ -25,7 +25,7 @@ const candidates = sortByStart(calendarEvents);
 
       <ul class="mt-5 flex flex-col divide-y divide-border" data-calendar-widget>
         {
-          getUpcoming(candidates, 3, new Date()).map((ev) => (
+          getUpcoming(candidates, 3).map((ev) => (
             <li class="flex items-start gap-4 py-3">
               <span class="w-24 shrink-0 text-sm font-semibold text-gray">
                 {formatEventDate(ev)}
@@ -46,7 +46,7 @@ const candidates = sortByStart(calendarEvents);
       <p
         class:list={[
           "mt-4 text-sm text-gray",
-          { hidden: getUpcoming(candidates, 3, new Date()).length > 0 },
+          { hidden: getUpcoming(candidates, 3).length > 0 },
         ]}
         data-widget-empty
       >
@@ -68,7 +68,7 @@ const candidates = sortByStart(calendarEvents);
 
   function renderWidget(candidates: CalendarEvent[]) {
     if (!list) return;
-    const upcoming = getUpcoming(candidates, 3, new Date());
+    const upcoming = getUpcoming(candidates, 3);
 
     list.innerHTML = "";
     for (const ev of upcoming) {

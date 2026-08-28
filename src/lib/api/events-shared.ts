@@ -43,6 +43,8 @@ export function mapEvent(ev: ApiEvent): CalendarEvent {
     category,
     description: ev.description,
     link: ev.source_url,
+    calendarStatus: ev.calendar_status,
+    daysRemaining: ev.days_remaining,
   };
 }
 
