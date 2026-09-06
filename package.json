@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "check": "astro check",
     "format": "prettier -w ./src",
-    "astro": "astro"
+    "astro": "astro",
+    "events:sync": "node scripts/sync-events.mjs"
   },
   "dependencies": {
     "@astrojs/check": "0.9.9",
