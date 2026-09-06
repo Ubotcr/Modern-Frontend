@@ -27,13 +27,13 @@ const diagnosticExam = await getListPage("sections/diagnostic-exam.md");
 const specialExam = {
   frontmatter: {
     enable: true,
-    badge: "Nuevo · Simulacro examen especial TEC",
-    title: "Simulacro del examen de admisión especial del TEC",
-    description: "¿Querés ingresar al TEC? Practicá gratis con este simulacro del examen especial de admisión: 60 preguntas con el formato de la prueba real y un reporte personalizado con tus fortalezas y debilidades.",
+    badge: "Nuevos · Exámenes especiales por universidad",
+    title: "Simulacros especiales UCR, UNA y TEC",
+    description: "¿Vas para la UCR, UNA o TEC? Practicá gratis: 4 simulacros del TEC de 60 preguntas y un examen compartido UCR/UNA de 45, con formato de prueba real y reporte personalizado de fortalezas y debilidades.",
     button: {
       enable: true,
       link: "https://chat.ubotcr.com/juegos/examenes/especial",
-      label: "Hacer examen"
+      label: "Ver exámenes"
     }
   }
 };
@@ -86,17 +86,27 @@ const examsSchema = {
       "item": {
         "@type": "LearningResource",
         "@id": `${config.site.base_url}/#examen-especial`,
-        "name": "Simulacro del examen de admisión especial del TEC",
-        "description": "Simulacro gratuito del examen especial de admisión del TEC, para estudiantes que desean ingresar al TEC: 60 preguntas con formato de prueba real y reporte personalizado de fortalezas y debilidades.",
+        "name": "Simulacros especiales de admisión UCR, UNA y TEC",
+        "description": "Simulacros gratuitos de exámenes especiales por universidad: 4 simulacros del TEC de 60 preguntas y un examen compartido UCR/UNA de 45, con formato de prueba real y reporte personalizado de fortalezas y debilidades.",
         "learningResourceType": "Practice exam",
         "educationalLevel": "Admisión universitaria",
         "inLanguage": "es-CR",
         "url": "https://chat.ubotcr.com/juegos/examenes/especial",
         "isAccessibleForFree": true,
-        "about": {
-          "@type": "CollegeOrUniversity",
-          "name": "Instituto Tecnológico de Costa Rica (TEC)"
-        },
+        "about": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Universidad de Costa Rica (UCR)"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Universidad Nacional (UNA)"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Instituto Tecnológico de Costa Rica (TEC)"
+          }
+        ],
         "provider": {
           "@type": "Organization",
           "name": config.site.title,
@@ -122,9 +132,9 @@ const faqSchema = {
 ---
 
 <Base
-  meta_title="Ubot | Examen diagnóstico gratis y simulacro especial TEC para la admisión UCR, UNA y TEC"
-  description="Haz el examen diagnóstico gratis de Ubot y el simulacro especial del TEC (60 preguntas con formato de prueba real). Descubre tu nivel para el examen de admisión (PAA) de la UCR, UNA y TEC con IA, simulacros y práctica diaria."
-  keywords="examen diagnóstico, examen diagnóstico admisión, prueba diagnóstica universidad, test diagnóstico PAA, diagnóstico UCR UNA TEC, examen especial TEC, simulacro TEC, simulacro especial TEC 60 preguntas, práctica examen admisión TEC, simulacro examen admisión Costa Rica, preparación PAA gratis"
+  meta_title="Ubot | Examen diagnóstico gratis y simulacros especiales UCR, UNA y TEC"
+  description="Haz el examen diagnóstico gratis de Ubot y los simulacros especiales por universidad (4 del TEC de 60 preguntas y examen compartido UCR/UNA de 45). Descubre tu nivel para el examen de admisión (PAA) de la UCR, UNA y TEC con IA, simulacros y práctica diaria."
+  keywords="examen diagnóstico, examen diagnóstico admisión, prueba diagnóstica universidad, test diagnóstico PAA, diagnóstico UCR UNA TEC, exámenes especiales universidad, simulacros especiales UCR UNA TEC, simulacro TEC 60 preguntas, examen compartido UCR UNA 45 preguntas, práctica examen admisión TEC, simulacro examen admisión Costa Rica, preparación PAA gratis"
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
