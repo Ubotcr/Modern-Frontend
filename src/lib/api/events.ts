@@ -1,8 +1,7 @@
 // src/lib/api/events.ts
 // Build-time fetch del calendario de eventos desde backend (SSG, sin runtime).
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
 import type { CalendarEvent } from "@/config/calendar";
 import { parseEventsPayload } from "@/lib/api/events-shared";
 
@@ -13,10 +12,7 @@ const FETCH_TIMEOUT_MS = 8000;
 // calendario vacío). En dev local, cae al último snapshot bueno conocido.
 const IS_CI = process.env.CI === "true" || import.meta.env.PROD;
 
-const DATA_DIR = join(
-  dirname(fileURLToPath(import.meta.url)),
-  "../../data",
-);
+const DATA_DIR = join(process.cwd(), "src", "data");
 
 // "Last known good" snapshot: se sobrescribe SOLO con datos válidos y no
 // vacíos. Nunca se pisa con un resultado vacío o de error.
@@ -50,6 +46,11 @@ async function fetchEvents(path: string): Promise<CalendarEvent[]> {
   try {
     const res = await fetch(`${API_BASE}${path}`, {
       signal: controller.signal,
+      headers: {
+        Accept: "application/json",
+        // Algunos WAF/CDN bloquean el UA por defecto de undici con 403.
+        "User-Agent": "NewLanding-build/1.0 (+https://ubotcr.com)",
+      },
     });
     if (!res.ok) throw new Error(`events API respondió ${res.status}`);
 
@@ -79,6 +80,19 @@ function makeEventsGetter(name: string, path: string) {
       writeSnapshot(name, cached);
       return cached;
     } catch (err) {
+      // Snapshot commiteado (src/data/*.json) vale también en CI: un 403 o
+      // caída del API no debe tumbar todo el build. Solo se aborta si no hay
+      // snapshot previo al cual caer.
+      const snapshot = readSnapshot(name);
+      if (snapshot) {
+        console.warn(
+          `[events] fetch de '${name}' falló, usando último snapshot bueno conocido:`,
+          err,
+        );
+        cached = snapshot;
+        return cached;
+      }
+
       if (IS_CI) {
         // No publicar calendario vacío/roto: se rompe el build a propósito.
         throw new Error(
@@ -86,16 +100,6 @@ function makeEventsGetter(name: string, path: string) {
             err instanceof Error ? err.message : err
           }`,
         );
-      }
-
-      const snapshot = readSnapshot(name);
-      if (snapshot) {
-        console.warn(
-          `[events] fetch de '${name}' falló en dev, usando último snapshot bueno conocido:`,
-          err,
-        );
-        cached = snapshot;
-        return cached;
       }
 
       console.warn(

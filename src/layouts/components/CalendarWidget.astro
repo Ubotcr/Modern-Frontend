@@ -2,10 +2,17 @@
 // src/layouts/components/CalendarWidget.astro
 import { getCalendarEvents } from "@/lib/api/events";
 import { sortByStart, formatEventDate, getUpcoming } from "@/lib/utils/calendar";
+import type { CalendarEvent } from "@/config/calendar";
 
 // Candidatos: todos ordenados. El cliente filtra a los 3 próximos.
-const calendarEvents = await getCalendarEvents();
-const candidates = sortByStart(calendarEvents);
+// Resiliente: si el fetch de build falla y no hay snapshot, se pinta el
+// estado vacío en vez de tumbar el index.
+let candidates: CalendarEvent[] = [];
+try {
+  candidates = sortByStart(await getCalendarEvents());
+} catch (err) {
+  console.warn("[CalendarWidget] sin datos:", err);
+}
 ---
 
 <section class="px-4 py-12 md:py-16">

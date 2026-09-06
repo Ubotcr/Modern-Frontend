@@ -1,6 +1,6 @@
 ---
 // src/layouts/components/EventCard.astro
-import { getCalendarEvents } from "@/lib/api/events";
+import { getFullCalendarEvents } from "@/lib/api/events";
 import {
   getEventById,
   formatEventDate,
@@ -13,8 +13,15 @@ interface Props {
 }
 
 const { eventId } = Astro.props;
-const events = await getCalendarEvents();
-const ev = getEventById(events, eventId);
+// Resiliente: un fallo del API en build nunca debe tumbar la página del
+// blog que embebe la tarjeta — se renderiza nada y el resto sigue.
+let ev = undefined;
+try {
+  const events = await getFullCalendarEvents();
+  ev = getEventById(events, eventId);
+} catch (err) {
+  console.warn(`[EventCard] sin datos para '${eventId}':`, err);
+}
 ---
 
 {
