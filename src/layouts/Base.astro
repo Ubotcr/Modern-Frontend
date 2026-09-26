@@ -100,6 +100,19 @@ const v = pkg.version;
       }
     `} />
     <slot name="head" />
+    <!-- Google tag (gtag.js): GA4 para medir interés real del sitio. -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-XHGSQZ25SH"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XHGSQZ25SH");
+    </script>
     <!-- Google AdSense: verificación + revisión del sitio. Sin unidades de
       anuncio no renderiza nada visible hasta la aprobación. -->
     <script
