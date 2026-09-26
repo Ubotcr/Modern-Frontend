@@ -49,6 +49,13 @@ O sea: lo esencial para vivir y estudiar, a pasos de las aulas.
 
 En la UCR, las sedes regionales también gestionan sus propias residencias — por ejemplo la [Sede de Occidente](https://www.so.ucr.ac.cr/es/tramite/residencias-estudiantiles) y la [Sede de Guanacaste](https://sedeguanacaste.ucr.ac.cr/residencias-estudiantiles/). Si vas a estudiar en una sede regional, consultá directamente ahí.
 
+## Solicitud paso a paso
+
+1. **Asegurá tu beca socioeconómica** (categoría 4 o 5): sin esto no hay residencia. Tiempos: la beca se pide antes del ciclo, así que este trámite arranca meses antes de necesitar el cuarto. Ver [guía de becas](/blog/becas-universidades-publicas).
+2. **Llená la solicitud de residencia** en la oficina de becas de tu sede (UCR tiene gestión por sede regional; TEC y UNA centralizan en bienestar estudiantil).
+3. **Adjuntá prueba de procedencia**: cédula, constancias de domicilio o lo que pida cada sede para acreditar zona alejada.
+4. **Seguimiento**: los cupos se asignan por prioridad de necesidad. Si quedás en lista de espera, igual prepará plan B de alquiler (ver abajo) y mantené contacto con la oficina.
+
 ## ¿Y si no califico para residencia?
 
 No todo el mundo entra (los cupos son limitados y priorizan la mayor necesidad). Alternativas comunes:
@@ -60,8 +67,12 @@ No todo el mundo entra (los cupos son limitados y priorizan la mayor necesidad).
 ## Consejos prácticos
 
 1. **Solicitá temprano.** Los cupos son limitados y los plazos se cierran rápido.
-2. **Primero la beca, luego la residencia.** Como la residencia exige categoría 4 o 5, tu solicitud de beca socioeconómica es el paso uno.
+2. **Primero la beca, luego la residencia.** Como la residencia exige categoría 4 o 5, tu solicitud de beca socioeconómica es el paso uno (ver [guía de becas](/blog/becas-universidades-publicas)).
 3. **Visitá antes si podés.** Conocer la residencia y la zona te ayuda a planear (transporte, sodas cercanas, seguridad).
 4. **Preguntá por las reglas de convivencia.** Cada residencia tiene normas de horarios, visitas y uso de espacios comunes.
+
+## Cuánto te ahorra (para dimensionarlo)
+
+Un cuarto cerca de un campus central puede costar lo mismo que varios meses de gastos de un estudiante becado. La residencia, en cambio, viene atada a tu categoría de beca: para beca 4-5 el costo es simbólico o nulo. Hacé la cuenta anual (alquiler × 10 meses + depósito + servicios) y comparala contra quedarte en casa viajando (pasajes × días de clase). Para distancias de más de 1 hora por vía, la residencia casi siempre gana en plata y en horas de estudio recuperadas.
 
 La residencia resuelve el "dónde vivir" — el "cómo entrar a la U" se resuelve practicando. En [Ubot](https://chat.ubotcr.com) podés preparar el examen de admisión gratis, desde el cel, estés donde estés.

@@ -36,6 +36,24 @@ Es exactamente el primer paso que recomendamos en nuestra [guía para prepararte
 3. Al terminar, ves tu resultado desglosado por área.
 4. Desde ahí podés seguir practicando en Ubot con exámenes de simulacro, un chat que te explica cada duda, y rankings con racha diaria.
 
+## Cómo interpretar tu resultado
+
+El número solo no sirve: lo que importa es el desglose.
+
+- **Fuerte en mate, flojo en verbal (o al revés):** normal. La PAA tiene dos áreas casi independientes y casi todo el mundo cojea de un lado. Asigná 70% de tu tiempo de práctica al lado flojo hasta emparejar.
+- **Parejo pero bajo en ambos:** necesitás volumen: práctica diaria corta (la [racha de Ubot](https://chat.ubotcr.com) existe justo para eso) más repaso de errores semanal.
+- **Parejo y alto:** pasá a simulacros completos cronometrados y a pulir velocidad, no contenido. Tu riesgo ya no es "no saber" sino el tiempo y los errores tontos.
+- **Muy desbalanceado por tipo (ej: figuras perfecto, series fatal):** entrená por tipo de ítem, no por área general — ver [cómo prepararte para la PAA](/blog/como-prepararse-paa).
+
+Repetí el diagnóstico cada 3-4 semanas con el mismo formato: la comparación entre fotos es tu medida real de progreso, no cómo te sentís un día dado.
+
+## Errores al interpretar el diagnóstico
+
+- **Tomarlo una sola vez y archivarlo.** Sin segunda medición no hay progreso, solo un dato suelto.
+- **Hacerlo sin tiempo "para ver si puedo".** Sin reloj medís otra cosa (conocimiento, no rendimiento de examen). Siempre cronometrado.
+- **Estudiar solo lo que salió mal en 5 preguntas.** Con muestras chicas el ruido manda: confirmá la debilidad con práctica dirigida antes de reorientar todo tu plan.
+- **Compararte con otros.** El diagnóstico es contra vos mismo dentro de un mes, no contra el compa. Usalo así.
+
 ## Para quién es
 
 Sirve tanto si vas a hacer la **PAA de UCR/UNA** como el **examen del TEC**: ambos evalúan razonamiento, y el diagnóstico te ubica en las dos áreas que comparten. Si todavía no tenés claro cómo se organiza el proceso de admisión, revisá también el [cronograma de admisión UCR, UNA y TEC](/blog/cronograma-admision-ucr-una-tec-2026-2027).

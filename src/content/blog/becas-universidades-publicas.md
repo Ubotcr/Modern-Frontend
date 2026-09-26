@@ -56,6 +56,35 @@ El TEC también cuenta con becas socioeconómicas y beneficios complementarios, 
 4. **Anotá las fechas.** Los períodos de solicitud son cortos y suelen ser antes del inicio de clases.
 5. **Si no te dan la categoría que esperabas**, en general existe posibilidad de revisión o recalificación cuando tu situación cambia. Consultá directamente en la oficina de becas de tu universidad.
 
+## Documentos que casi siempre piden (checklist)
+
+No esperés al último día para buscar papeles. Lo típico:
+
+- Constancia de ingresos de cada miembro del hogar que trabaje (asalariado o independiente).
+- Recibos de servicios y alquiler o comprobante de vivienda propia.
+- Constancia de estudios de hermanos dependientes, si aplica.
+- Declaración jurada de ingresos cuando hay trabajo informal.
+- Cédulas y documentos de identidad del grupo familiar.
+
+Cada universidad publica su lista exacta cada año: usá esta como base y confirmá contra la fuente oficial.
+
+## Mitos que te pueden dejar sin beca
+
+- **"Si tengo buenas notas no necesito aplicar."** La socioeconómica no mira notas para otorgar. Podés tener 100 y calificar igual — y al revés: malas notas no te descalifican de entrada.
+- **"Mis papás tienen casa propia, no califico."** La categoría depende del conjunto (ingresos, dependientes, gastos), no de un solo dato.
+- **"Ya entré sin beca, ya fue."** Podés solicitar en ciclos posteriores si tu situación cambia. La beca no es solo de primer ingreso.
+- **"Con beca no puedo trabajar."** En general podés; lo que se evalúa es la situación socioeconómica real, no si tenés un brete de medio tiempo. Declaralo y listo.
+
+## Mantener la beca (tan importante como obtenerla)
+
+Obtenerla es la mitad; mantenerla es la otra mitad. Lo típico que piden:
+
+- **Carga mínima:** matricular suficientes créditos por ciclo (en la UNA, por ejemplo, 18 al año como piso de referencia).
+- **Rendimiento:** aprobar un porcentaje alto de lo matriculado (la UNA pide 80%; cada universidad tiene su regla).
+- **Reportar cambios:** si tu situación económica cambia (para bien o para mal), se informa. Callar un cambio puede costarte la beca en una revisión.
+
+Si un semestre sale mal, no te escondás: andá a la oficina de becas antes de que cierre el ciclo. Hay figuras de justificación y apelación, pero solo funcionan si las activás a tiempo.
+
 ## En resumen
 
 - Las becas socioeconómicas pueden cubrir desde una parte hasta el 100% de tu matrícula, más beneficios como alimentación y residencia.

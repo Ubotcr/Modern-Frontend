@@ -39,6 +39,8 @@ Además: en algunas universidades, participar en deporte representativo puede ve
 - **Asociaciones de estudiantes** de cada carrera: organizan actividades, defienden tus intereses y son la vía más rápida para conocer gente de tu campo.
 - Voluntariados y proyectos de acción social, que además suman experiencia real a tu perfil.
 
+Además de lo social, las asociaciones son tu representación: si tenés un problema con un curso, un profe o un trámite, la asociación de tu carrera sabe exactamente a qué puerta ir. Afiliate temprano aunque no vayas a todas las reuniones.
+
 ## Consejos honestos para el primer año
 
 1. **La libertad es una trampa dulce.** Nadie te va a perseguir por no ir a clases. La disciplina que usaste para entrar a la U es la misma que te va a graduar.
@@ -46,6 +48,15 @@ Además: en algunas universidades, participar en deporte representativo puede ve
 3. **Ubicá los servicios desde el día uno:** biblioteca, oficina de becas, servicio médico, fotocopiadora buena y barata. Te van a salvar el semestre.
 4. **No matriculés de más.** Es mejor un primer semestre sólido que uno ahogado. Ya habrá tiempo de acelerar.
 5. **Usá los servicios que ya pagaste.** El deporte, la cultura y la atención en salud están incluidos en ser estudiante. Aprovechalos: son parte de la experiencia, no un extra.
+
+## Plata de estudiante: sodas, buses y fotocopias
+
+El presupuesto manda en el primer año. Lo que nadie te dice:
+
+- **Sodas universitarias** vs afuera: la soda del campus suele ser lo más barato y lo más rápido entre clases. Ubicá la tuya la primera semana.
+- **Transporte:** si viajás a diario, el pase o la ruta directa se paga solo contra andar pagando sencillo. Calculá el costo mensual antes de decidir dónde vivir (ver [residencias](/blog/residencias-estudiantiles)).
+- **Fotocopias y materiales:** la biblioteca presta libros y tiene salas de estudio gratis. Antes de comprar un libro caro, preguntá si está en biblioteca o en versión digital.
+- **Trabajo y estudio:** muchos estudiantes bretean medio tiempo. Se puede, pero cuidá no matricular carga completa el primer semestre mientras te ajustás. La beca se mantiene con rendimiento — un semestre quemado sale más caro que un semestre lento.
 
 ## Fuentes oficiales
 

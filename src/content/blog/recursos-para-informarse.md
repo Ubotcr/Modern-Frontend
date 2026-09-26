@@ -37,6 +37,22 @@ Si no sabés qué estudiar (o dudás entre varias), las ferias vocacionales son 
 
 **Cómo aprovechar una feria:** llevá una lista corta de carreras candidatas, preguntá por el plan de estudios, la empleabilidad y la nota de corte del año anterior, y hablá con estudiantes actuales — ellos te cuentan lo que el brochure no dice.
 
+## Material de práctica (oficial y gratis)
+
+Para entrenar con el formato real, estas son las fuentes oficiales — no pagués por lo que ya es gratis:
+
+- [Práctica en línea PAA](https://www.paa.iip.ucr.ac.cr/practicaenlinea) y [folletos de práctica](https://www.paa.iip.ucr.ac.cr/folletosdepractica/) del IIP-UCR.
+- [Cuaderno de ejercicios PAA del TEC (PDF)](https://www.tec.ac.cr/sites/default/files/media/doc/cuaderno_de_ejercicios_para_la_paa_tec-2026.pdf): ejercicios resueltos de mate y verbal con estrategias (licencia CC BY-NC-SA: úsalo para estudiar, no para revender).
+- Nuestra [guía de preparación PAA](/blog/como-prepararse-paa) con plan realista y manejo de ansiedad.
+
+Y para practicar todos los días con corrección inmediata: [Ubot](https://chat.ubotcr.com), gratis para empezar.
+
+## Becas y residencias: a dónde ir directo
+
+- **UCR:** [becas.ucr.ac.cr](https://becas.ucr.ac.cr) — categorías socioeconómicas 1 a 5, residencias y beneficios complementarios. Tenemos guía completa en el [blog de becas](/blog/becas-universidades-publicas).
+- **UNA:** [vidaestudiantil.una.ac.cr](https://www.vidaestudiantil.una.ac.cr) — becas y vida estudiantil.
+- **TEC:** buscá "becas" y "residencias" en [tec.ac.cr](https://www.tec.ac.cr) + consultá en admisión sobre fechas de solicitud (suelen abrirse antes del ciclo).
+
 ## La orientación de tu colegio
 
 El departamento de **Orientación** de tu colegio recibe información oficial de las universidades cada año: fechas, charlas, visitas y material. Es tu aliado más cercano — usalo. Si estás egresado, podés acudir directamente a las oficinas de orientación de las universidades.
@@ -49,6 +65,18 @@ Señales de alerta para no comerte un cuento:
 2. **Fechas sin año.** Muchas cadenas reciclan calendarios de años anteriores. Verificá siempre el año.
 3. **"Cupos" o "trámites" pagados por fuera.** La inscripción a la admisión solo se paga por los canales oficiales del SAU. Nadie puede "venderte" un cupo.
 4. **Promesas de nota garantizada.** Ninguna academia ni curso puede garantizarte entrar. Desconfiá de quien lo prometa.
+5. **Capturas sin contexto.** Una imagen del "calendario" sin link ni año es el formato favorito de la desinformación. Pedí siempre la fuente.
+
+## Cuando dos fuentes se contradicen
+
+Pasa seguido: el profe dice una fecha, un post dice otra. Orden de autoridad para desempatar:
+
+1. El instructivo o PDF oficial del proceso vigente (ORI-UCR, TEC admisión).
+2. El sitio oficial de la universidad (`.ac.cr`).
+3. La oficina correspondiente por correo o ventanilla.
+4. Todo lo demás (redes, academias, este blog incluido) va después.
+
+Y ojo con el detalle que más confunde: **cada proceso se nombra por dos años** (2026-2027). Si ves "admisión 2026" sin aclarar, puede ser el examen del 2025 o el de 2026. Fijate siempre en el año de ingreso a clases.
 
 ## En resumen
 
