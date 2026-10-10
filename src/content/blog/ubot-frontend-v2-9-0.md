@@ -3,7 +3,7 @@ title: "Ubot Frontend v2.9: examen tipo PAA, exámenes especiales por universida
 meta_title: "Ubot Frontend v2.9 | Examen tipo PAA, exámenes especiales y recordatorios"
 description: "La versión v2.9 de Ubot se enfoca en exámenes: hoja de respuestas estilo PAA, exámenes especiales por universidad y diagnóstico conectado al backend."
 date: 2026-08-19T09:00:00Z
-image: ""
+image: "/images/promo/tienda.png"
 category: "Novedades"
 featured: false
 draft: false
@@ -43,3 +43,9 @@ Esta versión también sigue afinando lo que ya existía:
 ## Lo que sigue
 
 Con el examen tipo PAA y los exámenes especiales por universidad ya disponibles, la plataforma queda mejor preparada para acompañar el proceso de admisión completo, desde el diagnóstico inicial hasta la práctica final antes del examen.
+
+## Sigue practicando
+
+- Haz tu [diagnóstico gratuito](/blog/examen-diagnostico-admision-gratis) antes del simulacro.
+- Revisa el [cronograma de admisión](/blog/cronograma-admision-ucr-una-tec-2026-2027) y el [calendario](/calendario).
+- Practica [razonamiento matemático](/blog/razonamiento-matematico-paa) y [verbal](/blog/razonamiento-verbal-paa).

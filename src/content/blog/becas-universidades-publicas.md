@@ -3,12 +3,13 @@ title: "Becas en la U pública: cómo funcionan y cómo solicitarlas"
 meta_title: "Becas socioeconómicas UCR, UNA y TEC: categorías, requisitos y cómo aplicar"
 description: "El sistema de becas de la UCR, la UNA y el TEC explicado fácil: categorías, qué cubren, cómo se solicitan y dónde encontrar la información oficial."
 date: 2026-07-16T10:00:00Z
-image: ""
+image: "/images/promo/rankingUnificado.png"
 category: "Guías"
 featured: false
 draft: false
 author:
-  name: "Equipo Ubot"
+  name: "Eddie Bermúdez"
+  designation: "Desarrollador del Frontend & Landing"
 ---
 
 Que la plata no sea la razón por la que no estudiés: ese es, literalmente, el propósito del sistema de becas de las universidades públicas. Miles de estudiantes cursan su carrera pagando poco o nada de matrícula. Acá te explicamos cómo funciona y cómo aplicar.
@@ -92,3 +93,7 @@ Si un semestre sale mal, no te escondás: andá a la oficina de becas antes de q
 - Fuentes oficiales: [becas.ucr.ac.cr](https://becas.ucr.ac.cr) · [vidaestudiantil.una.ac.cr/becas](https://www.vidaestudiantil.una.ac.cr/becas) · [tec.ac.cr/becas-residencias-estudiantiles](https://www.tec.ac.cr/becas-residencias-estudiantiles)
 
 Primero hay que entrar, eso sí. Si todavía estás preparando el examen de admisión, en [Ubot](https://chat.ubotcr.com) podés practicar gratis con exámenes en el formato real.
+
+## Mientras tanto, prepara el examen
+
+Beca sin admisión no sirve. Practica con [cómo prepararte para la PAA](/blog/como-prepararse-paa), revisa el [cronograma](/blog/cronograma-admision-ucr-una-tec-2026-2027) y las [fechas](/calendario), y mide tu nivel con el [diagnóstico gratuito](/blog/examen-diagnostico-admision-gratis).

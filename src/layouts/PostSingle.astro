@@ -58,9 +58,12 @@ const toc = (headings || []).filter((h: any) => h.depth >= 2 && h.depth <= 3);
       >
         {
           author?.name && (
-            <span class="font-medium text-text">{author.name}</span>
+            <a href="/about" class="font-medium text-text hover:text-primary">
+              {author.name}
+            </a>
           )
         }
+        {author?.designation && <span>({author.designation})</span>}
         {author?.name && date && <span aria-hidden="true">&middot;</span>}
         {date && <time datetime={isoDate(date)}>{formatDate(date)}</time>}
         {readTime && <span aria-hidden="true">&middot;</span>}
@@ -73,7 +76,7 @@ const toc = (headings || []).filter((h: any) => h.depth >= 2 && h.depth <= 3);
         (imageMeta ? (
           <Image
             src={imageMeta}
-            alt=""
+            alt={title}
             widths={[480, 768, 1200]}
             sizes="(max-width: 768px) 100vw, 768px"
             loading="eager"
@@ -83,7 +86,7 @@ const toc = (headings || []).filter((h: any) => h.depth >= 2 && h.depth <= 3);
         ) : (
           <img
             src={image}
-            alt=""
+            alt={title}
             width="1200"
             height="675"
             loading="eager"
@@ -127,6 +130,28 @@ const toc = (headings || []).filter((h: any) => h.depth >= 2 && h.depth <= 3);
               </nav>
             </div>
           </aside>
+        )
+      }
+      {
+        author?.name && (
+          <div class="mt-10 rounded-xl border border-border bg-card p-6">
+            <p class="text-xs font-semibold uppercase tracking-wide text-gray">
+              Escrito por
+            </p>
+            <p class="mt-1 font-semibold text-text-light">
+              <a href="/about" class="hover:text-primary">
+                {author.name}
+              </a>
+              {author.designation && (
+                <span class="font-normal text-text"> · {author.designation}</span>
+              )}
+            </p>
+            <p class="mt-2 text-sm text-text">
+              Mantiene Ubot cada semana: guías PAA, calendario de admisión y
+              la landing. ¿Ves un error? Escríbele a
+              contacto@ubotcr.com y lo corrige.
+            </p>
+          </div>
         )
       }
     </div>

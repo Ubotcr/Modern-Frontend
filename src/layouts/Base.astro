@@ -100,18 +100,29 @@ const v = pkg.version;
       }
     `} />
     <slot name="head" />
-    <!-- Google tag (gtag.js): GA4 para medir interés real del sitio. -->
+    <!-- GA4 con respeto DNT + consentimiento local. Si activas DNT o rechazas, no mide. -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-XHGSQZ25SH"
     ></script>
     <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-XHGSQZ25SH");
+      (function () {
+        var dnt =
+          navigator.doNotTrack === "1" ||
+          window.doNotTrack === "1" ||
+          navigator.msDoNotTrack === "1";
+        var choice = null;
+        try {
+          choice = localStorage.getItem("ubot-consent");
+        } catch (_) {}
+        if (dnt || choice === "denied") return;
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+        gtag("config", "G-XHGSQZ25SH", { anonymize_ip: true });
+      })();
     </script>
     <!-- Google AdSense: verificación + revisión del sitio. Sin unidades de
       anuncio no renderiza nada visible hasta la aprobación. -->
@@ -128,5 +139,59 @@ const v = pkg.version;
       <slot />
     </main>
     <Footer />
+    <div
+      id="ubot-consent"
+      class="fixed inset-x-4 bottom-4 z-50 hidden rounded-xl border border-border bg-card p-4 shadow-lg"
+      role="dialog"
+      aria-live="polite"
+      aria-label="Aviso de cookies"
+    >
+      <p class="text-sm text-text">
+        Usamos cookies necesarias y analítica (GA4) para entender visitas.
+        Si activamos anuncios, Google usará cookies publicitarias. Tú decides.
+        Detalle en <a class="text-primary hover:underline" href="/privacy-policy">privacidad</a>.
+      </p>
+      <div class="mt-3 flex gap-2">
+        <button
+          type="button"
+          data-consent="granted"
+          class="btn btn-primary btn-sm"
+        >
+          Aceptar
+        </button>
+        <button
+          type="button"
+          data-consent="denied"
+          class="btn btn-sm border border-border"
+        >
+          Rechazar
+        </button>
+      </div>
+    </div>
+    <script is:inline>
+      (function () {
+        var key = "ubot-consent";
+        var dnt =
+          navigator.doNotTrack === "1" ||
+          window.doNotTrack === "1" ||
+          navigator.msDoNotTrack === "1";
+        var choice = null;
+        try {
+          choice = localStorage.getItem(key);
+        } catch (_) {}
+        var banner = document.getElementById("ubot-consent");
+        if (!banner || dnt || choice) return;
+        banner.classList.remove("hidden");
+        banner.querySelectorAll("[data-consent]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            try {
+              localStorage.setItem(key, btn.dataset.consent);
+            } catch (_) {}
+            banner.remove();
+            if (btn.dataset.consent === "granted") location.reload();
+          });
+        });
+      })();
+    </script>
   </body>
 </html>

@@ -69,6 +69,7 @@ const imageMeta = image ? resolvePublicImage(image) : undefined;
       class="mt-auto flex flex-wrap items-center gap-x-2 gap-y-1 pt-3 text-xs text-gray"
     >
       {author?.name && <span class="font-medium text-text">{author.name}</span>}
+      {author?.designation && <span>· {author.designation}</span>}
       {author?.name && date && <span aria-hidden="true">&middot;</span>}
       {date && <time datetime={isoDate(date)}>{formatDate(date)}</time>}
     </div>

@@ -3,7 +3,7 @@ title: "Ubot Frontend v2.8.0: FlipCards, Ruta de Aprendizaje y diagnóstico PAA"
 meta_title: "Ubot Frontend v2.8.0 | FlipCards, Ruta de Aprendizaje y diagnóstico PAA"
 description: "La versión v2.8.0 de Ubot reúne las nuevas FlipCards con barajas propias, la Ruta de Aprendizaje, navegación inferior en móvil, diagnóstico PAA y varios refinamientos visuales y técnicos."
 date: 2026-08-02T09:00:00Z
-image: ""
+image: "/images/promo/flipmatch.png"
 category: "Novedades"
 featured: false
 draft: false
@@ -60,3 +60,9 @@ Más allá de lo visible, esta versión también deja bases más sanas:
 ## Lo que sigue
 
 Esta versión deja lista la plataforma para seguir ampliando la parte de actividades. Si querés practicar algo más puntual, el nuevo simulacro especial para estudiantes del TEC está disponible en /juegos/examenes/especial.
+
+## Sigue practicando
+
+- Haz tu [diagnóstico gratuito](/blog/examen-diagnostico-admision-gratis) para saber por dónde empezar.
+- Revisa las [fechas de admisión](/calendario) y no se te pasa la inscripción.
+- Si preparas la PAA, empieza con [cómo prepararte](/blog/como-prepararse-paa).

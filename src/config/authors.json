@@ -1,0 +1,16 @@
+{
+  "eddie-bermudez": {
+    "name": "Eddie Bermúdez",
+    "role": "Desarrollador del Frontend & Landing",
+    "bio": "Mantiene Ubot cada semana: guías PAA, calendario de admisión y la landing. Estudiante en Costa Rica.",
+    "avatar": "",
+    "url": "https://ubotcr.com/about"
+  },
+  "equipo-ubot": {
+    "name": "Equipo Ubot",
+    "role": "Equipo Ubot",
+    "bio": "Novedades de producto y changelog.",
+    "avatar": "",
+    "url": "https://ubotcr.com/about"
+  }
+}

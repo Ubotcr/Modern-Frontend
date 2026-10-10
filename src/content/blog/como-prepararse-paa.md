@@ -3,12 +3,13 @@ title: "Cómo prepararte para la PAA: qué evalúa y un plan que sí funciona"
 meta_title: "Cómo prepararse para la PAA (UCR-UNA): estructura del examen y plan de estudio"
 description: "Qué mide la Prueba de Aptitud Académica, cómo está estructurada y un plan de preparación realista para llegar al examen con confianza."
 date: 2026-07-16T09:00:00Z
-image: ""
+image: "/images/promo/preguntaExamen.png"
 category: "Guías"
 featured: false
 draft: false
 author:
-  name: "Equipo Ubot"
+  name: "Eddie Bermúdez"
+  designation: "Desarrollador del Frontend & Landing"
 ---
 
 La PAA no es un examen de materia: no te van a preguntar la fórmula que viste en quinto año. Es una prueba de **razonamiento**. Y eso tiene una consecuencia enorme para vos: no se estudia memorizando, se entrena practicando.

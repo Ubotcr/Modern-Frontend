@@ -53,6 +53,10 @@
       "url": "/blog"
     },
     {
+      "name": "Calendario",
+      "url": "/calendario"
+    },
+    {
       "name": "Nosotros",
       "url": "/about"
     },

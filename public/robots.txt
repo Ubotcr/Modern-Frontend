@@ -2,8 +2,5 @@
 User-agent: *
 Allow: /
 
-# Host
-Host: https://ubotcr.com
-
 # Sitemaps
 Sitemap: https://ubotcr.com/sitemap-index.xml

@@ -24,6 +24,58 @@ const callToAction = await getListPage("sections/call-to-action.md");
       >
         {contact_info.email}
       </a>
+      <p class="mt-4 text-sm text-text">
+        {contact_info.response_time && `Tiempo de respuesta: ${contact_info.response_time}. `}
+        {contact_info.hours && `${contact_info.hours}. `}
+        {contact_info.zone && `${contact_info.zone}.`}
+      </p>
+    </div>
+  </section>
+
+  <section class="px-4 pb-4 md:pb-8">
+    <div class="container mx-auto grid max-w-5xl gap-4 md:grid-cols-3">
+      <div class="rounded-xl border border-border bg-card p-6 text-left">
+        <h2 class="font-semibold text-text-light">Soporte y dudas</h2>
+        <p class="mt-2 text-sm text-text">
+          ¿No puedes entrar, ves un error en un examen o no entiendes tu
+          resultado del diagnóstico? Cuéntanos qué hacías, qué esperabas y
+          qué viste. Si puedes, adjunta captura y tu usuario. Así te
+          respondemos más rápido.
+        </p>
+      </div>
+      <div class="rounded-xl border border-border bg-card p-6 text-left">
+        <h2 class="font-semibold text-text-light">Ideas y errores de contenido</h2>
+        <p class="mt-2 text-sm text-text">
+          ¿Viste una pregunta con respuesta dudosa o quieres un tema nuevo
+          para la PAA del TEC, UCR o UNA? Dinos la materia, el tema y un
+          ejemplo. Revisamos el contenido cada semana y publicamos
+          correcciones en el changelog.
+        </p>
+      </div>
+      <div class="rounded-xl border border-border bg-card p-6 text-left">
+        <h2 class="font-semibold text-text-light">Colegios y prensa</h2>
+        <p class="mt-2 text-sm text-text">
+          ¿Eres docente, orientador o periodista? Escríbenos con el nombre de
+          tu colegio o medio, qué necesitas y para cuándo. Te contamos cómo
+          usan Ubot otros estudiantes en Costa Rica.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 py-8">
+    <div class="container mx-auto max-w-3xl text-left text-sm text-text">
+      <h2 class="text-lg font-semibold text-text-light">Antes de escribirnos</h2>
+      <ul class="mt-3 flex list-disc flex-col gap-2 pl-5">
+        <li>Revisa tu correo de registro: ahí te llegan accesos y avisos de cuenta.</li>
+        <li>Si es un error en la app, prueba recargar e indícanos tu navegador y si usas celular o compu.</li>
+        <li>Para privacidad o datos de menores, escribe desde el correo de la cuenta y dinos qué quieres corregir o borrar. Respondemos en 15 días hábiles máximo.</li>
+      </ul>
+      <p class="mt-4">
+        También publicamos guías en el <a class="text-primary hover:underline" href="/blog">blog</a>,
+        fechas en el <a class="text-primary hover:underline" href="/calendario">calendario de admisión</a> y
+        novedades en el <a class="text-primary hover:underline" href="/changelog">changelog</a>.
+      </p>
     </div>
   </section>
 

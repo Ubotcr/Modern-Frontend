@@ -3,12 +3,13 @@ title: "Razonamiento matemático PAA: las 3 categorías con ejercicios resueltos
 meta_title: "Razonamiento matemático PAA 2026: categorías, estrategias y ejercicios resueltos"
 description: "Resolución de problemas, razonamiento deductivo-inductivo y razonamiento con figuras: qué evalúa cada categoría de la PAA y cómo entrenarla con ejercicios originales resueltos."
 date: 2026-09-26T10:00:00Z
-image: ""
+image: "/images/promo/funcionesPreguntaChat.png"
 category: "Guías"
 featured: false
 draft: false
 author:
-  name: "Equipo Ubot"
+  name: "Eddie Bermúdez"
+  designation: "Desarrollador del Frontend & Landing"
 ---
 
 La mitad matemática de la PAA no mide si te sabés fórmulas: mide si sabés **pensar con números**. Son 47 ítems (UCR-UNA) en tres categorías que se entrenan distinto. Acá va cada una con su técnica y ejercicios originales resueltos.

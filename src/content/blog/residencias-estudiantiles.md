@@ -3,12 +3,13 @@ title: "Residencias estudiantiles: cómo funcionan y quién puede aplicar"
 meta_title: "Residencias estudiantiles UCR, UNA y TEC: requisitos y cómo solicitarlas"
 description: "Si venís de zona alejada, las residencias estudiantiles pueden ser tu casa durante la carrera. Requisitos, qué incluyen y dónde solicitarlas en la UCR, la UNA y el TEC."
 date: 2026-07-16T11:00:00Z
-image: ""
+image: "/images/promo/galeriaArchivos.png"
 category: "Vida universitaria"
 featured: false
 draft: false
 author:
-  name: "Equipo Ubot"
+  name: "Eddie Bermúdez"
+  designation: "Desarrollador del Frontend & Landing"
 ---
 
 ¿Vivís lejos del campus y el viaje diario es imposible? Para eso existen las **residencias estudiantiles**: alojamiento que la propia universidad ofrece a estudiantes de zonas alejadas para que la distancia no les corte la carrera.

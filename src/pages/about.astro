@@ -61,5 +61,27 @@ const callToAction = await getListPage("sections/call-to-action.md");
   </section>
 
   <OurTeam data={our_team} />
+
+  <section class="px-4 py-12 md:py-16">
+    <div class="container mx-auto max-w-3xl text-left">
+      <h2 class="text-2xl font-bold text-text-light">Cómo mantenemos Ubot</h2>
+      <p class="mt-4 text-text">
+        Ubot no es un sitio abandonado. Cada semana revisamos contenido y
+        publicamos mejoras. Mantiene el proyecto Eddie Bermúdez,
+        Desarrollador del Frontend & Landing, junto al equipo que ves arriba.
+      </p>
+      <ul class="mt-4 flex list-disc flex-col gap-2 pl-5 text-sm text-text">
+        <li>Guías PAA nuevas y actualizadas en el <a class="text-primary hover:underline" href="/blog">blog</a> — las últimas son de septiembre 2026 sobre razonamiento matemático y verbal.</li>
+        <li>Fechas oficiales UCR, UNA y TEC en el <a class="text-primary hover:underline" href="/calendario">calendario de admisión</a>, con fuente oficial siempre a la vista.</li>
+        <li>Mejoras de la app en el <a class="text-primary hover:underline" href="/changelog">changelog</a> — v2.9 con exámenes especiales y v2.8 con FlipCards y Ruta de Aprendizaje.</li>
+      </ul>
+      <p class="mt-4 text-sm text-text">
+        ¿Ves un error o quieres un tema? Escríbenos a
+        <a class="text-primary hover:underline" href="mailto:contacto@ubotcr.com">contacto@ubotcr.com</a>
+        y lo corregimos. Respondemos en 1-2 días hábiles.
+      </p>
+    </div>
+  </section>
+
   <CallToAction data={callToAction} />
 </Base>

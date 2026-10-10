@@ -1,23 +1,23 @@
 ---
 title: "Acerca de Nosotros"
-meta_title: "Acerca de"
-description: "Conoce el equipo detrás de Ubot."
+meta_title: "Acerca de Ubot: equipo tico que te prepara para UCR, TEC y UNA"
+description: "Somos un equipo de estudiantes ticos que mantiene Ubot cada semana: guías PAA, calendario de admisión y app con exámenes, rankings y juegos. Escríbenos a contacto@ubotcr.com."
 draft: false
 who_we_are:
   title: Nuestra misión
   subtitle: |
-    Nuestra misión es eliminar las barreras económicas y geográficas que impiden el acceso equitativo a la educación superior pública en Costa Rica.
+    Nuestra misión es eliminar las barreras económicas y geográficas que impiden el acceso equitativo a la educación superior pública en Costa Rica. Mantenemos Ubot cada semana: publicamos guías, actualizamos el calendario de admisión UCR/UNA/TEC y mejoramos la app con exámenes, rankings y juegos. Todo empieza gratis para que practiques sin pagar un curso caro.
   mission:
     title: "Nuestra Misión"
-    content: "Hacer más accesible el ingreso a la educación superior pública con herramientas de inteligencia artificial."
+    content: "Hacer más accesible el ingreso a la educación superior pública con herramientas de inteligencia artificial, contenido en español tico y práctica constante que sí se parece a la prueba real."
     icon: target
   problem:
     title: "El Problema"
-    content: "Muchos estudiantes no pueden pagar cursos preparatorios costosos. Los exámenes de admisión se vuelven una barrera infranqueable."
+    content: "Muchos estudiantes no pueden pagar cursos preparatorios costosos y estudian solos, sin saber qué les falta. Los exámenes de admisión se vuelven una barrera infranqueable."
     icon: lightbulb
   solution:
     title: "Nuestra Solución"
-    content: "Un asistente de IA 24/7, con exámenes, rankings y aprendizaje multimodal. Completamente gratis para comenzar."
+    content: "Un asistente de IA 24/7 en español, con exámenes tipo PAA, diagnóstico gratuito, rankings, tienda y juegos. Empiezas gratis y practicas a tu ritmo desde el celu o la compu."
     icon: rocket_launch
 our_team:
   title: "Conoce a los creadores de Ubot"

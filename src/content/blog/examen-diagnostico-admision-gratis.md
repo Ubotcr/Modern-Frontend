@@ -3,12 +3,13 @@ title: "Examen diagnóstico gratis: descubrí tu nivel real antes de estudiar pa
 meta_title: "Examen diagnóstico PAA gratis: mide tu nivel para UCR, UNA y TEC"
 description: "Hacé el examen diagnóstico gratuito de Ubot y descubrí en minutos tu nivel real de razonamiento matemático y verbal antes de tu examen de admisión."
 date: 2026-07-30T09:00:00Z
-image: ""
+image: "/images/promo/audioChat.png"
 category: "Guías"
 featured: false
 draft: false
 author:
-  name: "Equipo Ubot"
+  name: "Eddie Bermúdez"
+  designation: "Desarrollador del Frontend & Landing"
 ---
 
 Antes de abrir un solo libro de práctica, hay una pregunta que casi nadie se hace: ¿dónde estás parado ahora mismo? El **examen diagnóstico** es la forma más rápida de saberlo, y ya está disponible gratis en Ubot.

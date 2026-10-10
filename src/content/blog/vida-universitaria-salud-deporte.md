@@ -3,12 +3,13 @@ title: "Tu nueva vida en la U: salud, deporte, cultura y cómo adaptarte"
 meta_title: "Vida universitaria en Costa Rica: servicios de salud, deporte y cultura en la U pública"
 description: "La universidad es mucho más que clases: servicios de salud gratuitos, equipos deportivos, grupos culturales y consejos reales para sobrevivir el primer año."
 date: 2026-07-16T12:00:00Z
-image: ""
+image: "/images/promo/torrePoder.png"
 category: "Vida universitaria"
 featured: false
 draft: false
 author:
-  name: "Equipo Ubot"
+  name: "Eddie Bermúdez"
+  designation: "Desarrollador del Frontend & Landing"
 ---
 
 Entrar a la U no es solo cambiar de aula: es cambiar de vida. Nuevos horarios, nueva gente, más libertad y más responsabilidad. La buena noticia: las universidades públicas tienen un montón de servicios pensados para que no la pasés solo. Acá va el mapa.

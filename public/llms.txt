@@ -9,8 +9,12 @@ Asistente de inteligencia artificial para preparar exámenes de admisión a univ
 - [Precios](https://ubotcr.com/pricing): Planes y tarifas de Ubot.
 - [Preguntas frecuentes](https://ubotcr.com/pricing#faq): Respuestas a dudas comunes.
 - [Blog](https://ubotcr.com/blog): Artículos y novedades.
+- [Calendario](https://ubotcr.com/calendario): Fechas oficiales de admisión UCR, UNA y TEC.
+- [Registro de cambios](https://ubotcr.com/changelog): Novedades de la plataforma.
 - [Acerca de](https://ubotcr.com/about): Información sobre el equipo y la misión.
-- [Contacto](https://ubotcr.com/contact): Formulario de contacto.
+- [Contacto](https://ubotcr.com/contact): Escríbenos a contacto@ubotcr.com.
+- [Privacidad](https://ubotcr.com/privacy-policy): Cómo tratamos tus datos.
+- [Términos](https://ubotcr.com/terms-of-service): Reglas de uso.
 
 ## Exámenes
 

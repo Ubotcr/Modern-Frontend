@@ -3,12 +3,13 @@ title: "Razonamiento verbal PAA: semántico e inferencial con ejercicios resuelt
 meta_title: "Razonamiento verbal PAA 2026: categorías, analogías e inferencias con ejercicios"
 description: "Las dos categorías verbales de la PAA explicadas con ejemplos originales: relaciones semánticas, analogías y lectura inferencial, más tácticas anti-trampas."
 date: 2026-09-26T11:00:00Z
-image: ""
+image: "/images/promo/lobbyExamen.png"
 category: "Guías"
 featured: false
 draft: false
 author:
-  name: "Equipo Ubot"
+  name: "Eddie Bermúdez"
+  designation: "Desarrollador del Frontend & Landing"
 ---
 
 El tercio verbal de la PAA (33 ítems en UCR-UNA) se divide en dos categorías que castigan errores distintos. La buena noticia: ninguna pide vocabulario de diccionario; las dos se entrenan con técnica.

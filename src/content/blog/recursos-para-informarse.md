@@ -3,12 +3,13 @@ title: "Dónde informarse bien: recursos oficiales, ferias vocacionales y más"
 meta_title: "Recursos oficiales para informarse sobre la admisión y las carreras (UCR, UNA, TEC)"
 description: "Los sitios oficiales, ferias vocacionales y canales confiables para informarte sobre admisión, carreras y becas — y cómo evitar la desinformación."
 date: 2026-07-16T13:00:00Z
-image: ""
+image: "/images/promo/galeriaArchivos.png"
 category: "Recursos"
 featured: false
 draft: false
 author:
-  name: "Equipo Ubot"
+  name: "Eddie Bermúdez"
+  designation: "Desarrollador del Frontend & Landing"
 ---
 
 En época de admisión circula de todo: fechas viejas, requisitos inventados y "datos" de cadenas de WhatsApp. La diferencia entre andar perdido y andar tranquilo es saber **dónde** buscar. Esta es tu lista de fuentes confiables.

@@ -10,7 +10,7 @@ const { title, description, meta_title, page_header, changelog_list } =
 const callToAction = await getListPage("sections/call-to-action.md");
 ---
 
-<Base title={title} meta_title={meta_title} description={description}>
+<Base title={title} meta_title={meta_title} description={description} noindex={true}>
   <PageHeader page_header={page_header} />
 
   {
